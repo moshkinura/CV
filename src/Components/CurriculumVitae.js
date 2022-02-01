@@ -14,7 +14,7 @@ import { Information } from "./Center/Information"
 
 export const CurriculumVitae = (props) => {
   return (
-    <>
+    <div className="section">
       <Container>
         <Row>
           <Col xs={12} className="text-center">
@@ -41,6 +41,6 @@ export const CurriculumVitae = (props) => {
           </Col>
         </Row>
       </Container>
-    </>
+    </div>
   )
 }
