@@ -17,7 +17,7 @@ export const App = (props) => {
     },
     contacts: {
       tel: '+7(900)100-10-10',
-      email: 'admin@belko42.ru',
+      email: 'moshkin_ura@mail.ru',
       vk: 'bikeauto',
     },
     pay: {
