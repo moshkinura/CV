@@ -37,7 +37,7 @@ export const Expirience = (props) => {
     const forms_year = ['год', 'года', 'лет']
 
     return (
-      `${splitStart[1]}.${splitStart[0]} - ${period[1] ? splitEnd[1] + '.' + splitEnd[0] : 'настоящее время'} (${age.months ? age.months + formDate(age.months, forms_month) + ' ' : ''}${age.years ? age.years + formDate(age.years, forms_year) : ''})`
+      `${splitStart[1]}.${splitStart[0]} - ${period[1] ? splitEnd[1] + '.' + splitEnd[0] : 'настоящее время'} (${age.years ? age.years + formDate(age.years, forms_year) + ' ' : ''}${age.months ? age.months + formDate(age.months, forms_month) : ''})`
     )
   }
 

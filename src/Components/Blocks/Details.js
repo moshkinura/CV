@@ -10,19 +10,19 @@ export const Details = (props) => {
         </div>
         <div className="block_group">
           <div>
-            <b>Наличие водительских прав (категории):</b>
+            <b>Наличие водительских прав (категории): </b>
             <span>{props.data.driver}</span>
           </div>
         </div>
         <div className="block_group">
           <div>
-            <b>Занятия в свободное время:</b>
+            <b>Занятия в свободное время: </b>
             <span>{props.data.free}</span>
           </div>
         </div>
         <div className="block_group">
           <div>
-            <b>Личные качества:</b>
+            <b>Личные качества: </b>
             <ListGroup>
               {props.data.qualities.map((item, i) => {
                 return <ListGroup.Item key={i}>{item}</ListGroup.Item>
