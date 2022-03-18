@@ -13,9 +13,11 @@ const data = {
     vk: 'bikeauto',
   },
   pay: {
-    rub: '35000₽',
+    rub: '45000₽',
     usd: '$420',
-    eur: '€370',
+    eur: '€380',
+  },
+  shedules: {
     shedule: [
       'Сменный график',
       'Полный рабочий день',
@@ -23,6 +25,14 @@ const data = {
       'Гибкий график',
       'Ненормированный рабочий день',
     ],
+  },
+  employments: {
+    employment: [
+      'Трудовой договор',
+      'ГПД',
+      'Самозанятость'
+    ],
+    information: 'Есть рекомендации от "ВТЭК", при официальном трудоустройстве. Предоставлю, по требованию.'
   },
   languages: {
     lang: [
@@ -42,10 +52,21 @@ const data = {
       { name: 'Node.JS', percent: 50 },
       { name: 'Express.JS', percent: 90 },
       { name: 'React.JS', percent: 30 },
+      { name: 'Electron.JS', percent: 30 },
       { name: 'MySQL', percent: 50 },
       { name: 'MongoDB', percent: 50 },
       { name: 'PostgreSQL', percent: 50 },
       { name: 'C++ / C#', percent: 10 },
+    ]
+  },
+  learns: {
+    learn: [
+      { name: 'k8s' },
+      { name: 'TypeScript' },
+      { name: 'RabbitMQ' },
+      { name: 'Jest.js' },
+      { name: 'ElasticSearch' },
+      { name: 'Redux' },
     ]
   },
   computer: {

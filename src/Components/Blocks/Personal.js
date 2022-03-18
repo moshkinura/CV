@@ -5,6 +5,7 @@ export const Personal = (props) => {
     let spl = date.split('/')
     return spl[2] + '.' + spl[1] + '.' + spl[0]
   }
+
   const age = (date) => {
     const today = new Date()
     const birthDate = new Date(date)
@@ -34,23 +35,23 @@ export const Personal = (props) => {
         </div>
         <div className="block_group">
           <p>
-            <b>Гражданство:</b>
+            <b>Гражданство: </b>
             <span>{props.data.nationality}</span>
           </p>
           <p>
-            <b>Образование:</b>
+            <b>Образование: </b>
             <span>{props.data.education}</span>
           </p>
           <p>
-            <b>Дата рождения:</b>
+            <b>Дата рождения: </b>
             <span>{formatDate(props.data.birthday)}г. ({age(props.data.birthday)} {ageText(age(props.data.birthday))})</span>
           </p>
           <p>
-            <b>Пол:</b>
+            <b>Пол: </b>
             <span>{props.data.gender}</span>
           </p>
           <p>
-            <b>Семейное положение:</b>
+            <b>Семейное положение: </b>
             <span>{props.data.marital}</span>
           </p>
         </div>

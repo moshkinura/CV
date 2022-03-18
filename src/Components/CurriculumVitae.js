@@ -11,6 +11,9 @@ import { Personal } from "./Blocks/Personal"
 import { Expirience } from "./Blocks/Expirience"
 import { Details } from "./Blocks/Details"
 import { Information } from "./Center/Information"
+import { Shedule } from "./Details/Shedule"
+import { Employment } from "./Details/Employment"
+import { Learns } from "./Details/Learns"
 
 export const CurriculumVitae = (props) => {
   return (
@@ -23,11 +26,14 @@ export const CurriculumVitae = (props) => {
         </Row>
 
         <Row>
-          <Col xs={12} lg={{span:3, offset:2}}>
+          <Col xs={12} lg={{ span: 3, offset: 2 }}>
             <Contacts data={props.data.contacts} />
             <Pay data={props.data.pay} />
+            <Shedule data={props.data.shedules} />
+            <Employment data={props.data.employments} />
             <Languages data={props.data.languages} />
             <Skills data={props.data.skills} />
+            <Learns data={props.data.learns} />
             <Computer data={props.data.computer} />
             <Software data={props.data.software} />
           </Col>
