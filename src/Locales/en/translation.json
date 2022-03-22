@@ -1,0 +1,279 @@
+{
+  "bio": {
+    "name": "Biography",
+    "fio": "Moshkin Yury Alekseevich",
+    "position": "Junior NODE.JS backend developer",
+    "geo": "Kuzbass, Yurga (business trips are possible)"
+  },
+  "contacts": {
+    "name": "Contacts",
+    "tel": "+7(900)100-10-10",
+    "email": "moshkin_ura@mail.ru",
+    "vk": "bikeauto",
+    "tg": "bikeauto"
+  },
+  "pay": {
+    "name": "Desired salary",
+    "from": "from",
+    "rub": "45000₽",
+    "usd": "$420",
+    "eur": "€380"
+  },
+  "shedules": {
+    "name": "Shedule",
+    "shedule": [
+      "Shift shedule",
+      "Full-time",
+      "Part-time",
+      "Flexible shedule",
+      "Irregular working hours"
+    ]
+  },
+  "employments": {
+    "name": "Employment options",
+    "employment": [
+      "Employment contract",
+      "Civil contract",
+      "Self-employed"
+    ],
+    "information": "There are recommendations from the \"Medical and Labor Expert Commission\", for official employment. I will provide it on demand."
+  },
+  "languages": {
+    "name": "Languages",
+    "language": [
+      {
+        "name": "Russia (Native)",
+        "percent": 99
+      },
+      {
+        "name": "English (Basic - A1)",
+        "percent": 10
+      }
+    ]
+  },
+  "skills": {
+    "name": "Skills",
+    "skill": [
+      {
+        "name": "PC ownership",
+        "percent": 95
+      },
+      {
+        "name": "HTML5 / CSS3",
+        "percent": 85
+      },
+      {
+        "name": "BOOTSTRAP >= 4.5",
+        "percent": 80
+      },
+      {
+        "name": "GIT (Version Control Systems)",
+        "percent": 70
+      },
+      {
+        "name": "Bash / Console",
+        "percent": 40
+      },
+      {
+        "name": "Docker",
+        "percent": 30
+      },
+      {
+        "name": "PHP >= 5.2",
+        "percent": 60
+      },
+      {
+        "name": "Node.JS",
+        "percent": 50
+      },
+      {
+        "name": "Express.JS",
+        "percent": 90
+      },
+      {
+        "name": "React.JS",
+        "percent": 30
+      },
+      {
+        "name": "Electron.JS",
+        "percent": 30
+      },
+      {
+        "name": "MySQL",
+        "percent": 50
+      },
+      {
+        "name": "MongoDB",
+        "percent": 50
+      },
+      {
+        "name": "PostgreSQL",
+        "percent": 50
+      },
+      {
+        "name": "C++ / C#",
+        "percent": 10
+      }
+    ],
+    "information": "* - The assessment of a skill may differ from reality, an objectively evaluative judgment"
+  },
+  "learns": {
+    "name": "I want to study",
+    "learn": [
+      {
+        "name": "k8s"
+      },
+      {
+        "name": "TypeScript"
+      },
+      {
+        "name": "RabbitMQ"
+      },
+      {
+        "name": "Jest.js"
+      },
+      {
+        "name": "ElasticSearch"
+      },
+      {
+        "name": "Redux"
+      },
+      {
+        "name": "React Native"
+      }
+    ]
+  },
+  "computer": {
+    "name": "My PC",
+    "cpu": "Intel XEON E5-2689",
+    "ram": "16GB",
+    "gpu": "NVIDIA GeForce GTX750"
+  },
+  "software": {
+    "name": "Computer software",
+    "soft": [
+      "Windows 10 PRO build 1909",
+      "Visual Studio Code (VSC)",
+      "Adobe Illustrator",
+      "Paint.NET"
+    ]
+  },
+  "personal": {
+    "name": "Personal Information",
+    "nationality": {
+      "name": "Citizenship",
+      "value": "Russian Federation"
+    },
+    "education": {
+      "name": "Education",
+      "value": "Secondary"
+    },
+    "birthday": {
+      "name": "Birthday",
+      "value": "1997/02/25"
+    },
+    "gender": {
+      "name": "Gender",
+      "value": "Male"
+    },
+    "marital": {
+      "name": "Marital status",
+      "value": "Single"
+    }
+  },
+  "expirience": {
+    "main": {
+      "name": "Work expirience",
+      "data": [
+        {
+          "position": "Fullstack developer",
+          "company": "Auto-Moto spare parts store (AUTOAVENU / MOTOAVENU)",
+          "city": "Moscow",
+          "period": [
+            "2013/02/01",
+            null
+          ],
+          "details": "Development and maintenance of websites from scratch, writing programs, repair and maintenance of computer equipment, software configuration.",
+          "skills": [
+            "HTML5 / CSS3",
+            "BOOTSTRAP",
+            "NodeJS",
+            "ExpressJS",
+            "PostgreSQL"
+          ]
+        },
+        {
+          "position": "System administrator",
+          "company": "Tattoo studio «сТАТУс»",
+          "city": "Yurga",
+          "period": [
+            "2020/09/01",
+            null
+          ],
+          "details": "Maintenance of computer equipment 5+ units."
+        },
+        {
+          "position": "System administrator",
+          "company": "Taxi «Фунтик/Casper»",
+          "city": "Yurga",
+          "period": [
+            "2020/11/01",
+            null
+          ],
+          "details": "Maintenance of computer equipment 2+ units."
+        }
+      ]
+    },
+    "more": {
+      "name": "Additional work expirience",
+      "data": [
+        {
+          "position": "Sales department manager",
+          "company": "Goodline (ООО \"Е-Лайт-Телеком\")",
+          "city": "Yurga",
+          "period": [
+            "2015/05/01",
+            "2015/08/01"
+          ],
+          "details": "Sale of network provider products: Internet, cable TV, set-top boxes, etc. In the course of work, I took courses on cold sales."
+        },
+        {
+          "position": "Business owner (Auto Parts store / Yandex.Taxi franchise)",
+          "company": "Individual entrepreneur",
+          "city": "Yurga",
+          "period": [
+            "2016/08/26",
+            "2019/05/15"
+          ],
+          "details": "Opening and development from scratch, with subsequent sale, of a ready-made business. In the course of his work, he studied the basics of accounting, doing business, current aspects of the legislation of the Tax Code of the Russian Federation and the Labor Code of the Russian Federation."
+        }
+      ]
+    }
+  },
+  "details": {
+    "name": "Additional information",
+    "driver": {
+      "name": "Driver's license (category)",
+      "value": "Missing"
+    },
+    "free": {
+      "name": "Classes in your free time",
+      "value": "I study specialized literature, create and design my smart home management system (from scratch), in addition to studying specialized materials, I repair computer equipment and study the basics of welding, I also have a very broad outlook, therefore I am interested in many topics."
+    },
+    "qualities": {
+      "name": "Personal qualities",
+      "value": [
+        "Ambition",
+        "Communication skills",
+        "Polite",
+        "Willingness to help",
+        "Openness",
+        "TeamWork",
+        "Stress resistance",
+        "Neatness",
+        "Thrift",
+        "Striving for self-development"
+      ]
+    }
+  }
+}

@@ -1,6 +1,10 @@
 import React from "react"
 
-export const Personal = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Personal = () => {
+  const { t } = useTranslation()
+
   const formatDate = (date) => {
     let spl = date.split('/')
     return spl[2] + '.' + spl[1] + '.' + spl[0]
@@ -31,28 +35,28 @@ export const Personal = (props) => {
     <>
       <div className="col-12 block">
         <div className="block_title title_personal">
-          Личная информация
+          {t('personal.name')}
         </div>
         <div className="block_group">
           <p>
-            <b>Гражданство: </b>
-            <span>{props.data.nationality}</span>
+            <b>{t('personal.nationality.name')}: </b>
+            <span>{t('personal.nationality.value')}</span>
           </p>
           <p>
-            <b>Образование: </b>
-            <span>{props.data.education}</span>
+            <b>{t('personal.education.name')}: </b>
+            <span>{t('personal.education.value')}</span>
           </p>
           <p>
-            <b>Дата рождения: </b>
-            <span>{formatDate(props.data.birthday)}г. ({age(props.data.birthday)} {ageText(age(props.data.birthday))})</span>
+            <b>{t('personal.birthday.name')}: </b>
+            <span>{formatDate(t('personal.birthday.value'))}г. ({age(t('personal.birthday.value'))} {ageText(age(t('personal.birthday.value')))})</span>
           </p>
           <p>
-            <b>Пол: </b>
-            <span>{props.data.gender}</span>
+            <b>{t('personal.gender.name')}: </b>
+            <span>{t('personal.gender.value')}</span>
           </p>
           <p>
-            <b>Семейное положение: </b>
-            <span>{props.data.marital}</span>
+            <b>{t('personal.marital.name')}: </b>
+            <span>{t('personal.marital.value')}</span>
           </p>
         </div>
       </div>

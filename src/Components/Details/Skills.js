@@ -2,14 +2,18 @@ import React from "react"
 
 import { ProgressBar } from 'react-bootstrap'
 
-export const Skills = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Skills = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Навыки
+          {t('skills.name')}
         </div>
-        {props.data.skill.map((item, i) => {
+        {t('skills.skill', { returnObjects: true }).map((item, i) => {
           return (
             <div key={i}>
               <p className="details_line">{item.name}</p>
@@ -18,7 +22,7 @@ export const Skills = (props) => {
           )
         })}
         <div>
-          <p className="details_line">* - Оценка навыка, может отличаться от действительности, чисто объективно-оценочное суждение</p>
+          <p className="details_line">{t('skills.information')}</p>
         </div>
       </div>
     </>

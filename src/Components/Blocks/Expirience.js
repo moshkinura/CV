@@ -2,7 +2,10 @@ import React from "react"
 
 import { ListGroup } from 'react-bootstrap'
 
-export const Expirience = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Expirience = () => {
+  const { t } = useTranslation()
 
   const expiration = (start, end) => {
     let current = end ? new Date(end) : new Date()
@@ -45,10 +48,10 @@ export const Expirience = (props) => {
     <>
       <div className="col-12 block">
         <div className="block_title title_expirience">
-          Опыт работы
+          {t('expirience.main.name')}
         </div>
 
-        {props.data.main.map((item, i) => {
+        {t('expirience.main.data', { returnObjects: true }).map((item, i) => {
           return (
             <div className="block_group" key={i}>
               <div className="expirience_position">
@@ -63,10 +66,8 @@ export const Expirience = (props) => {
                   {periodDate(item.period)}
                 </span>
               </div>
-
               {item.details ? (
                 <div className="expirience_details">
-                  Описание:
                   <span>
                     {item.details}
                   </span>
@@ -93,10 +94,10 @@ export const Expirience = (props) => {
 
       <div className="col-12 block">
         <div className="block_title title_expirience">
-          Дополнительный опыт работы
+          {t('expirience.more.name')}
         </div>
 
-        {props.data.more.map((item, i) => {
+        {t('expirience.more.data', { returnObjects: true }).map((item, i) => {
           return (
             <div className="block_group" key={i}>
               <div className="expirience_position">
@@ -111,10 +112,8 @@ export const Expirience = (props) => {
                   {periodDate(item.period)}
                 </span>
               </div>
-
               {item.details ? (
                 <div className="expirience_details">
-                  Описание:
                   <span>
                     {item.details}
                   </span>

@@ -1,13 +1,17 @@
 import React from "react"
 
-export const Shedule = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Shedule = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          График работы
+          {t('shedules.name')}
         </div>
-        {props.data.shedule.map((item, i) => {
+        {t('shedules.shedule', { returnObjects: true }).map((item, i) => {
           return <p className="details_line_small" key={i}>{item}</p>
         })}
       </div>

@@ -5,13 +5,10 @@ import { CurriculumVitae } from "./Components/CurriculumVitae"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './Css/App.css'
 
-import {data} from './data'
-
-export const App = (props) => {
-  const DATA = data
+export const App = () => {
   return (
     <>
-      <CurriculumVitae data={DATA} />
+      <CurriculumVitae />
     </>
   )
 }

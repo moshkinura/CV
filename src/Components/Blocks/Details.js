@@ -1,30 +1,34 @@
 import React from "react"
 import { ListGroup } from 'react-bootstrap'
 
-export const Details = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Details = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="col-12 block">
         <div className="block_title title_info">
-          Дополнительная информация
+          {t('details.name')}
         </div>
         <div className="block_group">
           <div>
-            <b>Наличие водительских прав (категории): </b>
-            <span>{props.data.driver}</span>
+            <b>{t('details.driver.name')}: </b>
+            <span>{t('details.driver.value')}</span>
           </div>
         </div>
         <div className="block_group">
           <div>
-            <b>Занятия в свободное время: </b>
-            <span>{props.data.free}</span>
+            <b>{t('details.free.name')}: </b>
+            <span>{t('details.free.value')}</span>
           </div>
         </div>
         <div className="block_group">
           <div>
-            <b>Личные качества: </b>
+            <b>{t('details.qualities.name')}: </b>
             <ListGroup>
-              {props.data.qualities.map((item, i) => {
+              {t('details.qualities.value', { returnObjects: true }).map((item, i) => {
                 return <ListGroup.Item key={i}>{item}</ListGroup.Item>
               })}
             </ListGroup>

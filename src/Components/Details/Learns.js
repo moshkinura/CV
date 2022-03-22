@@ -1,13 +1,17 @@
 import React from "react"
 
-export const Learns = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Learns = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Хочу научиться
+          {t('learns.name')}
         </div>
-        {props.data.learn.map((item, i) => {
+        {t('learns.learn', { returnObjects: true }).map((item, i) => {
           return (
             <div key={i}>
               <p className="details_line">{item.name}</p>

@@ -1,13 +1,17 @@
 import React from "react"
 
-export const Pay = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Pay = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Желаемая зарплата
+          {t('pay.name')}
         </div>
-        <p className="details_line">от {props.data.rub} / {props.data.usd} / {props.data.eur}</p>
+        <p className="details_line">{t('pay.from')} {t('pay.rub')} / {t('pay.usd')} / {t('pay.eur')}</p>
       </div>
     </>
   )

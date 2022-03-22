@@ -1,17 +1,21 @@
 import React from "react"
 
-export const Employment = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Employment = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Варианты трудоустройства
+          {t('employments.name')}
         </div>
-        {props.data.employment.map((item, i) => {
+        {t('employments.employment', { returnObjects: true }).map((item, i) => {
           return <p className="details_line" key={i}>{item}</p>
         })}
 
-        <p className="details_line_small bg-warning text-black">{props.data.information}</p>
+        <p className="details_line_small bg-warning text-black">{t('employments.information')}</p>
       </div>
     </>
   )

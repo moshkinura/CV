@@ -1,13 +1,17 @@
 import React from "react"
 
-export const Software = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Software = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Программное обеспечение
+          {t('software.name')}
         </div>
-        {props.data.soft.map((item, i) => {
+        {t('software.soft', { returnObjects: true }).map((item, i) => {
           return <p className="details_line" key={i}>{item}</p>
         })}
       </div>

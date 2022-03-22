@@ -1,22 +1,32 @@
 import React from "react"
 
-export const Contacts = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Contacts = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Контакты
+          {t('contacts.name')}
         </div>
         <p className="details_line">
-          <a href={'tel:' + props.data.tel}>{props.data.tel}</a>
+          <a href={'tel:' + t('contacts.tel')}>{t('contacts.tel')}</a>
         </p>
         <p className="details_line">
-          <a href={'mailto:' + props.data.email}>{props.data.email}</a>
+          <a href={'mailto:' + t('contacts.email')}>{t('contacts.email')}</a>
         </p>
         <p className="details_line">
-          VK: 
-          <a href={'https://vk.com/' + props.data.vk} target='_blank' rel="noopener noreferrer">
-            {'@' + props.data.vk}
+          VK:
+          <a href={'https://vk.com/' + t('contacts.vk')} target='_blank' rel="noopener noreferrer">
+            {'@' + t('contacts.vk')}
+          </a>
+        </p>
+        <p className="details_line">
+          Telegram:
+          <a href={'https://t.me/' + t('contacts.tg')} target='_blank' rel="noopener noreferrer">
+            {'@' + t('contacts.tg')}
           </a>
         </p>
       </div>

@@ -2,14 +2,18 @@ import React from "react"
 
 import { ProgressBar } from 'react-bootstrap'
 
-export const Languages = (props) => {
+import { useTranslation } from 'react-i18next'
+
+export const Languages = () => {
+  const { t } = useTranslation()
+
   return (
     <>
       <div className="text-center details">
         <div className="details_label">
-          Языки
+          {t('languages.name')}
         </div>
-        {props.data.lang.map((item, i) => {
+        {t('languages.language', { returnObjects: true }).map((item, i) => {
           return (
             <div key={i}>
               <p className="details_line">{item.name}</p>

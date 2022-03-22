@@ -1,52 +1,57 @@
 import React from "react"
 import { Container, Row, Col } from 'react-bootstrap'
 
+import { Information } from "./Center/Information"
 import { Contacts } from "./Details/Contacts"
 import { Pay } from "./Details/Pay"
+import { Shedule } from "./Details/Shedule"
+import { Employment } from "./Details/Employment"
 import { Languages } from "./Details/Languages"
 import { Skills } from "./Details/Skills"
+import { Learns } from "./Details/Learns"
 import { Computer } from "./Details/Computer"
 import { Software } from "./Details/Software"
 import { Personal } from "./Blocks/Personal"
 import { Expirience } from "./Blocks/Expirience"
 import { Details } from "./Blocks/Details"
-import { Information } from "./Center/Information"
-import { Shedule } from "./Details/Shedule"
-import { Employment } from "./Details/Employment"
-import { Learns } from "./Details/Learns"
 
-export const CurriculumVitae = (props) => {
+import { Language } from "./Language"
+
+export const CurriculumVitae = () => {
   return (
     <div className="section">
+      <div className="language">
+        <Language />
+      </div>
       <Container>
         <Row>
           <Col xs={12} className="text-center">
-            <Information data={props.data.bio} />
+            <Information />
           </Col>
         </Row>
 
         <Row>
           <Col xs={12} lg={{ span: 3, offset: 2 }}>
-            <Contacts data={props.data.contacts} />
-            <Pay data={props.data.pay} />
-            <Shedule data={props.data.shedules} />
-            <Employment data={props.data.employments} />
-            <Languages data={props.data.languages} />
-            <Skills data={props.data.skills} />
-            <Learns data={props.data.learns} />
-            <Computer data={props.data.computer} />
-            <Software data={props.data.software} />
+            <Contacts />
+            <Pay />
+            <Shedule />
+            <Employment />
+            <Languages />
+            <Skills />
+            <Learns />
+            <Computer />
+            <Software />
           </Col>
 
           <Col xs={12} lg={5}>
             <Row>
-              <Personal data={props.data.personal} />
-              <Expirience data={props.data.expirience} />
-              <Details data={props.data.details} />
+              <Personal />
+              <Expirience />
+              <Details />
             </Row>
           </Col>
         </Row>
       </Container>
-    </div>
+    </div >
   )
 }
