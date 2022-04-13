@@ -99,6 +99,22 @@
         "percent": 30
       },
       {
+        "name": "React Native/Expo",
+        "percent": 5
+      },
+      {
+        "name": "Nest.JS",
+        "percent": 10
+      },
+      {
+        "name": "TypeScript",
+        "percent": 30
+      },
+      {
+        "name": "TypeORM",
+        "percent": 5
+      },
+      {
         "name": "MySQL",
         "percent": 50
       },
@@ -122,9 +138,6 @@
     "learn": [
       {
         "name": "k8s"
-      },
-      {
-        "name": "TypeScript"
       },
       {
         "name": "RabbitMQ"
@@ -191,7 +204,7 @@
           "city": "г.Москва",
           "period": [
             "2013/02/01",
-            null
+            "2022/04/01"
           ],
           "details": "Разработка и обслуживание сайтов с нуля, написание программ, ремонт и обслуживание компьютерной техники, настройка ПО.",
           "skills": [
@@ -208,7 +221,7 @@
           "city": "г.Юрга",
           "period": [
             "2020/09/01",
-            null
+            "2022/04/01"
           ],
           "details": "Обслуживание компьютерной техники 5+ ед."
         },
@@ -218,9 +231,26 @@
           "city": "г.Юрга",
           "period": [
             "2020/11/01",
-            null
+            "2022/04/01"
           ],
           "details": "Обслуживание компьютерной техники 2+ ед."
+        },
+        {
+          "position": "Junior backend developer",
+          "company": "ИП Гостев А.В",
+          "city": "г.Краснодар",
+          "period": [
+            "2022/04/04",
+            null
+          ],
+          "details": "Разработка программного обеспечения",
+          "skills": [
+            "Nest.JS",
+            "TypeORM",
+            "NodeJS",
+            "PostgreSQL",
+            "Jest.JS"
+          ]
         }
       ]
     },

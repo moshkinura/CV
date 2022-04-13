@@ -99,6 +99,22 @@
         "percent": 30
       },
       {
+        "name": "React Native/Expo",
+        "percent": 5
+      },
+      {
+        "name": "Nest.JS",
+        "percent": 10
+      },
+      {
+        "name": "TypeScript",
+        "percent": 30
+      },
+      {
+        "name": "TypeORM",
+        "percent": 5
+      },
+      {
         "name": "MySQL",
         "percent": 50
       },
@@ -122,9 +138,6 @@
     "learn": [
       {
         "name": "k8s"
-      },
-      {
-        "name": "TypeScript"
       },
       {
         "name": "RabbitMQ"
@@ -191,7 +204,7 @@
           "city": "Moscow",
           "period": [
             "2013/02/01",
-            null
+            "2022/04/01"
           ],
           "details": "Development and maintenance of websites from scratch, writing programs, repair and maintenance of computer equipment, software configuration.",
           "skills": [
@@ -208,7 +221,7 @@
           "city": "Yurga",
           "period": [
             "2020/09/01",
-            null
+            "2022/04/01"
           ],
           "details": "Maintenance of computer equipment 5+ units."
         },
@@ -218,9 +231,26 @@
           "city": "Yurga",
           "period": [
             "2020/11/01",
-            null
+            "2022/04/01"
           ],
           "details": "Maintenance of computer equipment 2+ units."
+        },
+        {
+          "position": "Junior backend developer",
+          "company": "Individual Entrepreneur Gostev А.V",
+          "city": "Krasnodar",
+          "period": [
+            "2022/04/04",
+            null
+          ],
+          "details": "Software development",
+          "skills": [
+            "Nest.JS",
+            "TypeORM",
+            "NodeJS",
+            "PostgreSQL",
+            "Jest.JS"
+          ]
         }
       ]
     },
