@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react'
-import { render } from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
+import React, { Suspense } from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 
-import './i18n' // language module i18next
+import './i18n'; // language module i18next
 
-import { App } from './App'
+import { App } from './App';
 
-const RootElement = document.getElementById('root')
+const RootElement = document.getElementById('root');
 
 render(
   <Suspense fallback="loading...">
@@ -14,5 +14,5 @@ render(
       <App />
     </BrowserRouter>
   </Suspense>,
-  RootElement
-)
+  RootElement,
+);

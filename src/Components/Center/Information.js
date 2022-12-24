@@ -1,15 +1,15 @@
-import React from "react"
+import React from 'react';
 
-import { Image, Col, Row } from 'react-bootstrap'
+import { Image, Col, Row } from 'react-bootstrap';
 
-import { FontAwesome } from '../FontAwesome'
+import { FontAwesome } from '../FontAwesome';
 
-import Photo from '../../Image/photo.jpg'
+import Photo from '../../Image/photo.jpg';
 
-import { useTranslation } from 'react-i18next'
+import { useTranslation } from 'react-i18next';
 
 export const Information = () => {
-  const { t } = useTranslation()
+  const { t } = useTranslation();
 
   return (
     <>
@@ -23,14 +23,14 @@ export const Information = () => {
       <h2>{t('bio.fio')}</h2>
       <Row className="justify-content-center">
         <Col xs={12}>
-          <FontAwesome icon="fa-solid fa-terminal" className='px-1' />
+          <FontAwesome icon="fa-solid fa-terminal" className="px-1" />
           {t('bio.position')}
         </Col>
         <Col xs={12}>
-          <FontAwesome icon="fa-solid fa-location-dot" className='px-1' />
+          <FontAwesome icon="fa-solid fa-location-dot" className="px-1" />
           {t('bio.geo')}
         </Col>
       </Row>
     </>
-  )
-}
+  );
+};

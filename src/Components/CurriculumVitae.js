@@ -1,21 +1,21 @@
-import React from "react"
-import { Container, Row, Col } from 'react-bootstrap'
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 
-import { Information } from "./Center/Information"
-import { Contacts } from "./Details/Contacts"
-import { Pay } from "./Details/Pay"
-import { Shedule } from "./Details/Shedule"
-import { Employment } from "./Details/Employment"
-import { Languages } from "./Details/Languages"
-import { Skills } from "./Details/Skills"
-import { Learns } from "./Details/Learns"
-import { Computer } from "./Details/Computer"
-import { Software } from "./Details/Software"
-import { Personal } from "./Blocks/Personal"
-import { Expirience } from "./Blocks/Expirience"
-import { Details } from "./Blocks/Details"
+import { Information } from './Center/Information';
+import { Contacts } from './Details/Contacts';
+import { Pay } from './Details/Pay';
+import { Shedule } from './Details/Shedule';
+import { Employment } from './Details/Employment';
+import { Languages } from './Details/Languages';
+import { Skills } from './Details/Skills';
+import { Learns } from './Details/Learns';
+import { Computer } from './Details/Computer';
+import { Software } from './Details/Software';
+import { Personal } from './Blocks/Personal';
+import { Expirience } from './Blocks/Expirience';
+import { Details } from './Blocks/Details';
 
-import { Language } from "./Language"
+import { Language } from './Language';
 
 export const CurriculumVitae = () => {
   return (
@@ -52,6 +52,6 @@ export const CurriculumVitae = () => {
           </Col>
         </Row>
       </Container>
-    </div >
-  )
-}
+    </div>
+  );
+};

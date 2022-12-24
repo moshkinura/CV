@@ -1,20 +1,20 @@
-import React from "react"
+import React from 'react';
 
-import { Dropdown } from 'react-bootstrap'
+import { Dropdown } from 'react-bootstrap';
 
-import { FontAwesome } from './FontAwesome'
-import { useTranslation } from 'react-i18next'
+import { FontAwesome } from './FontAwesome';
+import { useTranslation } from 'react-i18next';
 
 export const Language = () => {
-  const { i18n } = useTranslation()
+  const { i18n } = useTranslation();
   const languages = [
     { code: 'en', country_code: 'en', name: 'English' },
-    { code: 'ru', country_code: 'ru', name: 'Русский' }
-  ]
+    { code: 'ru', country_code: 'ru', name: 'Русский' },
+  ];
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng)
-  }
+    i18n.changeLanguage(lng);
+  };
 
   return (
     <>
@@ -26,11 +26,13 @@ export const Language = () => {
         <Dropdown.Menu>
           {languages.map((item, i) => {
             return (
-              <Dropdown.Item onClick={() => changeLanguage(item.code)} key={i}>{item.name}</Dropdown.Item>
-            )
+              <Dropdown.Item onClick={() => changeLanguage(item.code)} key={i}>
+                {item.name}
+              </Dropdown.Item>
+            );
           })}
         </Dropdown.Menu>
       </Dropdown>
     </>
-  )
-}
+  );
+};

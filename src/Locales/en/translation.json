@@ -16,8 +16,8 @@
     "name": "Desired salary",
     "from": "from",
     "rub": "45000₽",
-    "usd": "$420",
-    "eur": "€380"
+    "usd": "$650",
+    "eur": "€600"
   },
   "shedules": {
     "name": "Shedule",
@@ -31,11 +31,7 @@
   },
   "employments": {
     "name": "Employment options",
-    "employment": [
-      "Employment contract",
-      "Civil contract",
-      "Self-employed"
-    ],
+    "employment": ["Employment contract", "Civil contract", "Self-employed"],
     "information": "There are recommendations from the \"Medical and Labor Expert Commission\", for official employment. I will provide it on demand."
   },
   "languages": {
@@ -47,7 +43,7 @@
       },
       {
         "name": "English (Basic - A1)",
-        "percent": 10
+        "percent": 15
       }
     ]
   },
@@ -63,36 +59,36 @@
         "percent": 85
       },
       {
-        "name": "BOOTSTRAP >= 4.5",
+        "name": "BOOTSTRAP >= 5.0",
         "percent": 80
       },
       {
         "name": "GIT (Version Control Systems)",
-        "percent": 70
+        "percent": 85
       },
       {
         "name": "Bash / Console",
         "percent": 40
       },
       {
-        "name": "Docker",
-        "percent": 30
+        "name": "Docker / Compose",
+        "percent": 45
       },
       {
         "name": "PHP >= 5.2",
-        "percent": 60
+        "percent": 45
       },
       {
         "name": "Node.JS",
-        "percent": 50
+        "percent": 60
       },
       {
         "name": "Express.JS",
-        "percent": 90
+        "percent": 95
       },
       {
         "name": "React.JS",
-        "percent": 30
+        "percent": 45
       },
       {
         "name": "Electron.JS",
@@ -112,7 +108,7 @@
       },
       {
         "name": "TypeORM",
-        "percent": 5
+        "percent": 15
       },
       {
         "name": "MySQL",
@@ -120,15 +116,23 @@
       },
       {
         "name": "MongoDB",
-        "percent": 50
+        "percent": 70
       },
       {
         "name": "PostgreSQL",
-        "percent": 50
+        "percent": 70
       },
       {
         "name": "C++ / C#",
         "percent": 10
+      },
+      {
+        "name": "Jest.js",
+        "percent": 10
+      },
+      {
+        "name": "GitLab CI/CD",
+        "percent": 15
       }
     ],
     "information": "* - The assessment of a skill may differ from reality, an objectively evaluative judgment"
@@ -143,16 +147,10 @@
         "name": "RabbitMQ"
       },
       {
-        "name": "Jest.js"
-      },
-      {
         "name": "ElasticSearch"
       },
       {
         "name": "Redux"
-      },
-      {
-        "name": "React Native"
       }
     ]
   },
@@ -191,7 +189,7 @@
     },
     "marital": {
       "name": "Marital status",
-      "value": "Single"
+      "value": "Civil marriage"
     }
   },
   "expirience": {
@@ -202,10 +200,7 @@
           "position": "Fullstack developer",
           "company": "Auto-Moto spare parts store (AUTOAVENU / MOTOAVENU)",
           "city": "Moscow",
-          "period": [
-            "2013/02/01",
-            "2022/04/01"
-          ],
+          "period": ["2013/02/01", "2022/04/01"],
           "details": "Development and maintenance of websites from scratch, writing programs, repair and maintenance of computer equipment, software configuration.",
           "skills": [
             "HTML5 / CSS3",
@@ -219,37 +214,32 @@
           "position": "System administrator",
           "company": "Tattoo studio «сТАТУс»",
           "city": "Yurga",
-          "period": [
-            "2020/09/01",
-            "2022/04/01"
-          ],
+          "period": ["2020/09/01", "2022/04/01"],
           "details": "Maintenance of computer equipment 5+ units."
         },
         {
           "position": "System administrator",
           "company": "Taxi «Фунтик/Casper»",
           "city": "Yurga",
-          "period": [
-            "2020/11/01",
-            "2022/04/01"
-          ],
+          "period": ["2020/11/01", "2022/04/01"],
           "details": "Maintenance of computer equipment 2+ units."
         },
         {
           "position": "Junior backend developer",
           "company": "Individual Entrepreneur Gostev А.V",
           "city": "Krasnodar",
-          "period": [
-            "2022/04/04",
-            null
-          ],
+          "period": ["2022/04/04", null],
           "details": "Software development",
           "skills": [
             "Nest.JS",
             "TypeORM",
             "NodeJS",
             "PostgreSQL",
-            "Jest.JS"
+            "Jest.JS",
+            "ExpressJS",
+            "MongoDB",
+            "Prometheus",
+            "Docker/Compose"
           ]
         }
       ]
@@ -261,20 +251,14 @@
           "position": "Sales department manager",
           "company": "Goodline (ООО \"Е-Лайт-Телеком\")",
           "city": "Yurga",
-          "period": [
-            "2015/05/01",
-            "2015/08/01"
-          ],
+          "period": ["2015/05/01", "2015/08/01"],
           "details": "Sale of network provider products: Internet, cable TV, set-top boxes, etc. In the course of work, I took courses on cold sales."
         },
         {
           "position": "Business owner (Auto Parts store / Yandex.Taxi franchise)",
           "company": "Individual entrepreneur",
           "city": "Yurga",
-          "period": [
-            "2016/08/26",
-            "2019/05/15"
-          ],
+          "period": ["2016/08/26", "2019/05/15"],
           "details": "Opening and development from scratch, with subsequent sale, of a ready-made business. In the course of his work, he studied the basics of accounting, doing business, current aspects of the legislation of the Tax Code of the Russian Federation and the Labor Code of the Russian Federation."
         }
       ]
