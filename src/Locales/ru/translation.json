@@ -2,7 +2,7 @@
   "bio": {
     "name": "Биография",
     "fio": "Мошкин Юрий Алексеевич",
-    "position": "Junior NODE.JS backend developer",
+    "position": "Middle NODE.JS backend developer",
     "geo": "КУЗБАСС, г.Юрга (возможны командировки)"
   },
   "contacts": {
@@ -15,7 +15,7 @@
   "pay": {
     "name": "Желаемая зарплата",
     "from": "от",
-    "rub": "45000₽",
+    "rub": "65000₽",
     "usd": "$650",
     "eur": "€600"
   },
@@ -64,7 +64,7 @@
       },
       {
         "name": "GIT (Version Control Systems)",
-        "percent": 85
+        "percent": 90
       },
       {
         "name": "Bash / Console",
@@ -72,15 +72,15 @@
       },
       {
         "name": "Docker / Compose",
-        "percent": 45
+        "percent": 60
       },
       {
         "name": "PHP >= 5.2",
-        "percent": 45
+        "percent": 20
       },
       {
         "name": "Node.JS",
-        "percent": 60
+        "percent": 70
       },
       {
         "name": "Express.JS",
@@ -96,19 +96,19 @@
       },
       {
         "name": "React Native/Expo",
-        "percent": 5
+        "percent": 15
       },
       {
         "name": "Nest.JS",
-        "percent": 10
+        "percent": 45
       },
       {
         "name": "TypeScript",
-        "percent": 30
+        "percent": 70
       },
       {
         "name": "TypeORM",
-        "percent": 15
+        "percent": 60
       },
       {
         "name": "MySQL",
@@ -120,7 +120,7 @@
       },
       {
         "name": "PostgreSQL",
-        "percent": 70
+        "percent": 90
       },
       {
         "name": "C++ / C#",
@@ -140,34 +140,23 @@
   "learns": {
     "name": "Хочу изучить",
     "learn": [
-      {
-        "name": "k8s"
-      },
-      {
-        "name": "RabbitMQ"
-      },
-      {
-        "name": "ElasticSearch"
-      },
-      {
-        "name": "Redux"
-      }
+      { "name": "k8s" },
+      { "name": "RabbitMQ" },
+      { "name": "ElasticSearch" },
+      { "name": "Redux" },
+      { "name": "gRPC" },
+      { "name": "protobuf" }
     ]
   },
   "computer": {
     "name": "Мой компьютер",
-    "cpu": "Intel XEON E5-2689",
-    "ram": "16GB",
-    "gpu": "NVIDIA GeForce GTX750"
+    "cpu": "Intel XEON E5-2696",
+    "ram": "48GB",
+    "gpu": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
   },
   "software": {
     "name": "Программное обеспечение",
-    "soft": [
-      "Windows 10 PRO build 1909",
-      "Visual Studio Code (VSC)",
-      "Adobe Illustrator",
-      "Paint.NET"
-    ]
+    "soft": ["Windows 10 PRO build 1909", "Visual Studio Code (VSC)"]
   },
   "personal": {
     "name": "Личная Информация",
@@ -225,7 +214,7 @@
           "details": "Обслуживание компьютерной техники 2+ ед."
         },
         {
-          "position": "Junior backend developer",
+          "position": "Middle backend developer",
           "company": "ИП Гостев А.В",
           "city": "г.Краснодар",
           "period": ["2022/04/04", null],
@@ -238,8 +227,8 @@
             "Jest.JS",
             "ExpressJS",
             "MongoDB",
-            "Prometheus",
-            "Docker/Compose"
+            "Docker/Compose",
+            "Gitlab CI/CD"
           ]
         }
       ]
