@@ -1,19 +1,19 @@
 import { useTranslation } from 'react-i18next';
 
+import { TEmployments } from '../../Types';
+
 export const Employment = () => {
   const { t } = useTranslation();
 
-  const employmentsName: string = t('employments.name');
-  const employmentsEmployment: any = t('employments.employment', {
+  const employments: TEmployments = t('employments', {
     returnObjects: true,
   });
-  const employmentsInformation: string = t('employments.information');
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{employmentsName}</div>
-        {employmentsEmployment.map((item: any, i: number) => {
+        <div className="details_label">{employments.name}</div>
+        {employments.employment.map((item: string, i: number) => {
           return (
             <p className="details_line" key={i}>
               {item}
@@ -22,7 +22,7 @@ export const Employment = () => {
         })}
 
         <p className="details_line_small bg-warning text-black">
-          {employmentsInformation}
+          {employments.information}
         </p>
       </div>
     </>

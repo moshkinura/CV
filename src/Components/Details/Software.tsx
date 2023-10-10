@@ -1,16 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
+import { TSoftware } from '../../Types/software.types';
+
 export const Software = () => {
   const { t } = useTranslation();
 
-  const softwareName: string = t('software.name');
-  const softwareData: any = t('software.soft', { returnObjects: true });
+  const software: TSoftware = t('software', { returnObjects: true });
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{softwareName}</div>
-        {softwareData.map((item: any, i: number) => {
+        <div className="details_label">{software.name}</div>
+        {software.soft.map((item: string, i: number) => {
           return (
             <p className="details_line" key={i}>
               {item}

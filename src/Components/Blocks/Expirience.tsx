@@ -1,18 +1,14 @@
 import { ListGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import { TExpirience, TWorkExpirienceData } from '../../Types';
+
 export const Expirience = () => {
   const { t } = useTranslation();
-  const expirienceMainName: string = t('expirience.main.name');
-  const expirienceMainData: any = t('expirience.main.data', {
-    returnObjects: true,
-  });
-  const expirienceMoreName: string = t('expirience.more.name');
-  const expirienceMoreData: any = t('expirience.more.data', {
-    returnObjects: true,
-  });
 
-  const expiration = (start: string, end: string) => {
+  const expirience: TExpirience = t('expirience', { returnObjects: true });
+
+  const expiration = (start: string, end: string | null) => {
     const current = end ? new Date(end) : new Date();
     const old = new Date(start);
     const days = Math.ceil(
@@ -44,7 +40,7 @@ export const Expirience = () => {
     return forms[2];
   };
 
-  const periodDate = (period: string[]) => {
+  const periodDate = (period: [string, string | null]) => {
     const age = expiration(period[0], period[1]);
     const splitStart = period[0].split('/');
     const splitEnd = period[1] ? period[1].split('/') : [];
@@ -62,9 +58,11 @@ export const Expirience = () => {
   return (
     <>
       <div className="col-12 block">
-        <div className="block_title title_expirience">{expirienceMainName}</div>
+        <div className="block_title title_expirience">
+          {expirience.main.name}
+        </div>
 
-        {expirienceMainData.map((item: any, i: number) => {
+        {expirience.main.data.map((item: TWorkExpirienceData, i: number) => {
           return (
             <div className="block_group" key={i}>
               <div className="expirience_position">
@@ -90,7 +88,7 @@ export const Expirience = () => {
               {item.skills ? (
                 <div className="expirience_details">
                   <ListGroup>
-                    {item.skills.map((item: any, i: number) => {
+                    {item.skills.map((item: string, i: number) => {
                       return <ListGroup.Item key={i}>{item}</ListGroup.Item>;
                     })}
                   </ListGroup>
@@ -104,9 +102,11 @@ export const Expirience = () => {
       </div>
 
       <div className="col-12 block">
-        <div className="block_title title_expirience">{expirienceMoreName}</div>
+        <div className="block_title title_expirience">
+          {expirience.more.name}
+        </div>
 
-        {expirienceMoreData.map((item: any, i: number) => {
+        {expirience.more.data.map((item: TWorkExpirienceData, i: number) => {
           return (
             <div className="block_group" key={i}>
               <div className="expirience_position">

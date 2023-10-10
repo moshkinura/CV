@@ -1,20 +1,18 @@
 import { useTranslation } from 'react-i18next';
 
+import { TPay } from '../../Types';
+
 export const Pay = () => {
   const { t } = useTranslation();
 
-  const payName: string = t('pay.name');
-  const payFrom: string = t('pay.from');
-  const payRUB: string = t('pay.rub');
-  const payUSD: string = t('pay.usd');
-  const payEUR: string = t('pay.eur');
+  const pay: TPay = t('pay', { returnObjects: true });
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{payName}</div>
+        <div className="details_label">{pay.name}</div>
         <p className="details_line">
-          {payFrom} {payRUB} / {payUSD} / {payEUR}
+          {pay.from} {pay.rub} / {pay.usd} / {pay.eur}
         </p>
       </div>
     </>

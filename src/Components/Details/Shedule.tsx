@@ -1,16 +1,17 @@
 import { useTranslation } from 'react-i18next';
 
+import { TShedules } from '../../Types';
+
 export const Shedule = () => {
   const { t } = useTranslation();
 
-  const shedulesName: string = t('shedules.name');
-  const shedulesData: any = t('shedules.shedule', { returnObjects: true });
+  const shedules: TShedules = t('shedules', { returnObjects: true });
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{shedulesName}</div>
-        {shedulesData.map((item: any, i: number) => {
+        <div className="details_label">{shedules.name}</div>
+        {shedules.shedule.map((item: string, i: number) => {
           return (
             <p className="details_line_small" key={i}>
               {item}

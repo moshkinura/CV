@@ -1,18 +1,18 @@
 import { ProgressBar } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
+import { TSkills, TSkill } from '../../Types/skills.types';
+
 export const Skills = () => {
   const { t } = useTranslation();
 
-  const skillsName: string = t('skills.name');
-  const skillsData: any = t('skills.skill', { returnObjects: true });
-  const skillsInformation: string = t('skills.information');
+  const skills: TSkills = t('skills', { returnObjects: true });
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{skillsName}</div>
-        {skillsData.map((item: any, i: number) => {
+        <div className="details_label">{skills.name}</div>
+        {skills.skill.map((item: TSkill, i: number) => {
           return (
             <div key={i}>
               <p className="details_line">{item.name}</p>
@@ -25,7 +25,7 @@ export const Skills = () => {
           );
         })}
         <div>
-          <p className="details_line">{skillsInformation}</p>
+          <p className="details_line">{skills.information}</p>
         </div>
       </div>
     </>

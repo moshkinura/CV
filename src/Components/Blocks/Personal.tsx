@@ -1,19 +1,11 @@
 import { useTranslation } from 'react-i18next';
 
+import { TPersonal } from '../../Types';
+
 export const Personal = () => {
   const { t } = useTranslation();
 
-  const personalName: string = t('personal.name');
-  const personalNationalityName: string = t('personal.nationality.name');
-  const personalNationalityValue: string = t('personal.nationality.value');
-  const personalEducationName: string = t('personal.education.name');
-  const personalEducationValue: string = t('personal.education.value');
-  const personalBirthdayName: string = t('personal.birthday.name');
-  const personalBirthdayValue: string = t('personal.birthday.value');
-  const personalGenderName: string = t('personal.gender.name');
-  const personalGenderValue: string = t('personal.gender.value');
-  const personalMaritalName: string = t('personal.marital.name');
-  const personalMaritalValue: string = t('personal.marital.value');
+  const personal: TPersonal = t('personal', { returnObjects: true });
 
   const formatDate = (date: string) => {
     const spl = date.split('/');
@@ -50,31 +42,31 @@ export const Personal = () => {
   return (
     <>
       <div className="col-12 block">
-        <div className="block_title title_personal">{personalName}</div>
+        <div className="block_title title_personal">{personal.name}</div>
         <div className="block_group">
           <p>
-            <b>{personalNationalityName}: </b>
-            <span>{personalNationalityValue}</span>
+            <b>{personal.nationality.name}: </b>
+            <span>{personal.nationality.value}</span>
           </p>
           <p>
-            <b>{personalEducationName}: </b>
-            <span>{personalEducationValue}</span>
+            <b>{personal.education.name}: </b>
+            <span>{personal.education.value}</span>
           </p>
           <p>
-            <b>{personalBirthdayName}: </b>
+            <b>{personal.birthday.name}: </b>
             <span>
-              {formatDate(personalBirthdayValue)}г. (
-              {age(personalBirthdayValue)} {ageText(age(personalBirthdayValue))}
-              )
+              {formatDate(personal.birthday.value)}г. (
+              {age(personal.birthday.value)}{' '}
+              {ageText(age(personal.birthday.value))})
             </span>
           </p>
           <p>
-            <b>{personalGenderName}: </b>
-            <span>{personalGenderValue}</span>
+            <b>{personal.gender.name}: </b>
+            <span>{personal.gender.value}</span>
           </p>
           <p>
-            <b>{personalMaritalName}: </b>
-            <span>{personalMaritalValue}</span>
+            <b>{personal.marital.name}: </b>
+            <span>{personal.marital.value}</span>
           </p>
         </div>
       </div>

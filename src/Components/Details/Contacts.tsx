@@ -1,42 +1,40 @@
 import { useTranslation } from 'react-i18next';
 
+import { TContacts } from '../../Types';
+
 export const Contacts = () => {
   const { t } = useTranslation();
 
-  const contactsName: string = t('contacts.name');
-  const contactsTEL: string = t('contacts.tel');
-  const contactsEMAIL: string = t('contacts.email');
-  const contactsVK: string = t('contacts.vk');
-  const contactsTG: string = t('contacts.tg');
+  const contacts: TContacts = t('contacts', { returnObjects: true });
 
   return (
     <>
       <div className="text-center details">
-        <div className="details_label">{contactsName}</div>
+        <div className="details_label">{contacts.name}</div>
         <p className="details_line">
-          <a href={'tel:' + contactsTEL}>{contactsTEL}</a>
+          <a href={'tel:' + contacts.tel}>{contacts.tel}</a>
         </p>
         <p className="details_line">
-          <a href={'mailto:' + contactsEMAIL}>{contactsEMAIL}</a>
+          <a href={'mailto:' + contacts.email}>{contacts.email}</a>
         </p>
         <p className="details_line">
           VK:
           <a
-            href={'https://vk.com/' + contactsVK}
+            href={'https://vk.com/' + contacts.vk}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {'@' + contactsVK}
+            {'@' + contacts.vk}
           </a>
         </p>
         <p className="details_line">
           Telegram:
           <a
-            href={'https://t.me/' + contactsTG}
+            href={'https://t.me/' + contacts.tg}
             target="_blank"
             rel="noopener noreferrer"
           >
-            {'@' + contactsTG}
+            {'@' + contacts.tg}
           </a>
         </p>
       </div>

@@ -6,7 +6,6 @@ import './Css/App.css';
 export const App = () => {
   return (
     <>
-      {/* <div>test</div> */}
       <CurriculumVitae />
     </>
   );

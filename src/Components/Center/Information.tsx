@@ -4,12 +4,12 @@ import { useTranslation } from 'react-i18next';
 import { FontAwesome } from '../FontAwesome';
 import Photo from '../../Image/photo.jpg';
 
+import { TBio } from '../../Types';
+
 export const Information = () => {
   const { t } = useTranslation();
 
-  const bioFIO: string = t('bio.fio');
-  const bioPosition: string = t('bio.position');
-  const bioGeo: string = t('bio.geo');
+  const bio: TBio = t('bio', { returnObjects: true });
 
   return (
     <>
@@ -20,15 +20,15 @@ export const Information = () => {
           alt="photo"
         />
       </Col>
-      <h2>{bioFIO}</h2>
+      <h2>{bio.fio}</h2>
       <Row className="justify-content-center">
         <Col xs={12}>
           <FontAwesome icon="fa-solid fa-terminal" className="px-1" />
-          {bioPosition}
+          {bio.position}
         </Col>
         <Col xs={12}>
           <FontAwesome icon="fa-solid fa-location-dot" className="px-1" />
-          {bioGeo}
+          {bio.geo}
         </Col>
       </Row>
     </>
