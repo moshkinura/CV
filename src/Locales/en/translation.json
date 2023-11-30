@@ -15,9 +15,9 @@
   "pay": {
     "name": "Desired salary",
     "from": "from",
-    "rub": "65000₽",
-    "usd": "$650",
-    "eur": "€600"
+    "rub": "70000₽",
+    "usd": "$780",
+    "eur": "€715"
   },
   "shedules": {
     "name": "Shedule",
@@ -48,7 +48,7 @@
     ]
   },
   "skills": {
-    "name": "Skills",
+    "name": "Hard skills",
     "skill": [
       {
         "name": "PC ownership",
@@ -56,7 +56,7 @@
       },
       {
         "name": "HTML5 / CSS3",
-        "percent": 85
+        "percent": 60
       },
       {
         "name": "BOOTSTRAP >= 5.0",
@@ -104,7 +104,7 @@
       },
       {
         "name": "TypeScript",
-        "percent": 70
+        "percent": 80
       },
       {
         "name": "TypeORM",
@@ -128,7 +128,7 @@
       },
       {
         "name": "Jest.js",
-        "percent": 10
+        "percent": 20
       },
       {
         "name": "GitLab CI/CD",
@@ -140,12 +140,14 @@
   "learns": {
     "name": "I want to study",
     "learn": [
+      { "name": "ChatGPT" },
       { "name": "k8s" },
       { "name": "RabbitMQ" },
       { "name": "ElasticSearch" },
       { "name": "Redux" },
       { "name": "gRPC" },
-      { "name": "protobuf" }
+      { "name": "protobuf" },
+      { "name": "Apache Kafka" }
     ]
   },
   "computer": {
@@ -193,6 +195,7 @@
           "details": "Development and maintenance of websites from scratch, writing programs, repair and maintenance of computer equipment, software configuration.",
           "skills": [
             "HTML5 / CSS3",
+            "PHP",
             "BOOTSTRAP",
             "NodeJS",
             "ExpressJS",
@@ -223,11 +226,12 @@
             "Nest.JS",
             "TypeORM",
             "NodeJS",
+            "TypeScript",
             "PostgreSQL",
             "Jest.JS",
             "ExpressJS",
             "MongoDB",
-            "Docker/Compose",
+            "Docker / Compose",
             "Gitlab CI/CD"
           ]
         }
@@ -257,25 +261,23 @@
     "name": "Additional information",
     "driver": {
       "name": "Driver's license (category)",
-      "value": "Missing"
+      "value": "I am studying for the \"B\" category."
     },
     "free": {
       "name": "Classes in your free time",
-      "value": "I study specialized literature, create and design my smart home management system (from scratch), in addition to studying specialized materials, I repair computer equipment and study the basics of welding, I also have a very broad outlook, therefore I am interested in many topics."
+      "value": "Delving into specialized literature, I craft and implement my own \"smart home\" management system from scratch. Beyond immersing myself in relevant materials, I possess skills in repairing computer hardware and am delving into the fundamentals of welding. My broad-mindedness fuels an interest in diverse subjects, fostering a perpetual quest for knowledge."
     },
     "qualities": {
       "name": "Personal qualities",
       "value": [
         "Ambition",
-        "Communication skills",
-        "Polite",
+        "Communicativeness",
+        "Politeness",
         "Willingness to help",
-        "Openness",
-        "TeamWork",
-        "Stress resistance",
-        "Neatness",
-        "Thrift",
-        "Striving for self-development"
+        "Open-mindedness",
+        "TeamWork skills",
+        "Stress tolerance",
+        "Desire for self-improvement"
       ]
     }
   }
