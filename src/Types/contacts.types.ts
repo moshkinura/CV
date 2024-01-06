@@ -4,4 +4,6 @@ export type TContacts = {
   email: string;
   vk: string;
   tg: string;
+  github: string;
+  gitlab: string;
 };
