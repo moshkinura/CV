@@ -18,7 +18,7 @@ export const Contacts = () => {
           <a href={'mailto:' + contacts.email}>{contacts.email}</a>
         </p>
         <p className="details_line">
-          VK:
+          VK:&nbsp;
           <a
             href={'https://vk.com/' + contacts.vk}
             target="_blank"
@@ -28,13 +28,33 @@ export const Contacts = () => {
           </a>
         </p>
         <p className="details_line">
-          Telegram:
+          Telegram:&nbsp;
           <a
             href={'https://t.me/' + contacts.tg}
             target="_blank"
             rel="noopener noreferrer"
           >
             {'@' + contacts.tg}
+          </a>
+        </p>
+        <p className="details_line">
+          GitHub:&nbsp;
+          <a
+            href={'https://github.com/' + contacts.github}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {'@' + contacts.github}
+          </a>
+        </p>
+        <p className="details_line">
+          GitLab:&nbsp;
+          <a
+            href={'https://gitlab.com/' + contacts.gitlab}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {'@' + contacts.gitlab}
           </a>
         </p>
       </div>
