@@ -1,4 +1,4 @@
-import { Dropdown } from 'react-bootstrap';
+import { Container, Dropdown, Nav, Navbar, NavDropdown } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
 import { FontAwesome } from './FontAwesome';
@@ -16,21 +16,30 @@ export const Language = () => {
 
   return (
     <>
-      <Dropdown>
-        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-          <FontAwesome icon="fa-solid fa-globe" />
-        </Dropdown.Toggle>
+      <Navbar>
+        <Container>
+          <Navbar.Collapse className="justify-content-end">
+            <Dropdown>
+              <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                <FontAwesome icon="fa-solid fa-globe" /> {i18n.t('lang')}
+              </Dropdown.Toggle>
 
-        <Dropdown.Menu>
-          {languages.map((item: any, i: number) => {
-            return (
-              <Dropdown.Item onClick={() => changeLanguage(item.code)} key={i}>
-                {item.name}
-              </Dropdown.Item>
-            );
-          })}
-        </Dropdown.Menu>
-      </Dropdown>
+              <Dropdown.Menu>
+                {languages.map((item: any, i: number) => {
+                  return (
+                    <Dropdown.Item
+                      onClick={() => changeLanguage(item.code)}
+                      key={i}
+                    >
+                      {item.name}
+                    </Dropdown.Item>
+                  );
+                })}
+              </Dropdown.Menu>
+            </Dropdown>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   );
 };
