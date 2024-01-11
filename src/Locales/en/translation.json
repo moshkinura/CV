@@ -1,9 +1,10 @@
 {
+  "lang": "Language",
   "bio": {
     "name": "Biography",
     "fio": "Moshkin Yury Alekseevich",
     "position": "Middle NODE.JS backend developer",
-    "geo": "Kuzbass, Yurga (business trips are possible)"
+    "geo": "Kuzbass, Yurga City (business trips are possible)"
   },
   "contacts": {
     "name": "Contacts",
@@ -15,14 +16,14 @@
     "gitlab": "moshkinura"
   },
   "pay": {
-    "name": "Desired salary",
+    "name": "Desired Salary",
     "from": "from",
-    "rub": "70000₽",
-    "usd": "$780",
-    "eur": "€715"
+    "rub": "90000₽",
+    "usd": "$1020",
+    "eur": "€930"
   },
   "shedules": {
-    "name": "Shedule",
+    "name": "Work Schedule",
     "shedule": [
       "Shift shedule",
       "Full-time",
@@ -32,15 +33,15 @@
     ]
   },
   "employments": {
-    "name": "Employment options",
-    "employment": ["Employment contract", "Civil contract", "Self-employed"],
-    "information": "There are recommendations from the \"Medical and Labor Expert Commission\", for official employment. I will provide it on demand."
+    "name": "Employment Options",
+    "employment": ["Employment Contract", "Civil Contract", "Self-Employment"],
+    "information": "Recommendations available from \"VTEK\" for official employment. Will provide upon request."
   },
   "languages": {
     "name": "Languages",
     "language": [
       {
-        "name": "Russia (Native)",
+        "name": "Russian (native)",
         "percent": 99
       },
       {
@@ -50,7 +51,7 @@
     ]
   },
   "skills": {
-    "name": "Hard skills",
+    "name": "Hard Skills",
     "skill": [
       {
         "name": "PC ownership",
@@ -137,7 +138,7 @@
         "percent": 15
       }
     ],
-    "information": "* - The assessment of a skill may differ from reality, an objectively evaluative judgment"
+    "information": "* - Skill assessment, may differ from the actual level."
   },
   "learns": {
     "name": "I want to study",
@@ -190,71 +191,109 @@
       "name": "Work expirience",
       "data": [
         {
-          "position": "Fullstack developer",
-          "company": "Auto-Moto spare parts store (AUTOAVENU / MOTOAVENU)",
-          "city": "Moscow",
-          "period": ["2013/02/01", "2022/04/01"],
-          "details": "Development and maintenance of websites from scratch, writing programs, repair and maintenance of computer equipment, software configuration.",
-          "skills": [
-            "HTML5 / CSS3",
-            "PHP",
-            "BOOTSTRAP",
-            "NodeJS",
-            "ExpressJS",
-            "PostgreSQL"
+          "company": "Company ITGost",
+          "position": "Middle backend developer",
+          "city": "Krasnodar",
+          "period": ["2022/04/04", "2024/02/01"],
+          "details": [
+            {
+              "project": "**Project: CRM for the website builder**",
+              "worked": [
+                "* Designing and writing modules to improve CRM functionality.",
+                "* Fixing bugs and improving system reliability.",
+                "* Integration with Kubernetes to ensure scalability and efficient container management.",
+                "* Test coverage of code to ensure its stability and reliability.",
+                "* Work with legacy code, including refactoring and optimizing existing code to improve performance and improve support."
+              ],
+              "stacks": [
+                "NodeJS",
+                "Express",
+                "PostgreSQL",
+                "Jest.JS",
+                "Docker/Compose",
+                "k8s",
+                "Redis"
+              ]
+            },
+            {
+              "project": "**Project: An application for manual and automated API testing (analogous to Postman)**",
+              "worked": [
+                "* Design and development of optimized database structures.",
+                "* Development of an API that provides effective interaction between different parts of the application.",
+                "* Work with a microservice architecture that provides flexibility and scalability of the system.",
+                "* Setting up CI/CD processes for development stands, ensuring continuous integration and delivery.",
+                "* Regular bug fixes to improve product quality and reliability."
+              ],
+              "stacks": [
+                "NodeJS",
+                "NestJS",
+                "PostgreSQL",
+                "TypeORM",
+                "Jest.JS",
+                "Docker/Compose",
+                "Redis",
+                "Kafka",
+                "Gitlab CI/CD"
+              ]
+            }
           ]
         },
         {
-          "position": "System administrator",
-          "company": "Tattoo studio «сТАТУс»",
-          "city": "Yurga",
-          "period": ["2020/09/01", "2022/04/01"],
-          "details": "Maintenance of computer equipment 5+ units."
-        },
-        {
-          "position": "System administrator",
-          "company": "Taxi «Фунтик/Casper»",
-          "city": "Yurga",
-          "period": ["2020/11/01", "2022/04/01"],
-          "details": "Maintenance of computer equipment 2+ units."
-        },
-        {
-          "position": "Middle backend developer",
-          "company": "Individual Entrepreneur Gostev А.V",
-          "city": "Krasnodar",
-          "period": ["2022/04/04", null],
-          "details": "Software development",
-          "skills": [
-            "Nest.JS",
-            "TypeORM",
-            "NodeJS",
-            "TypeScript",
-            "PostgreSQL",
-            "Jest.JS",
-            "ExpressJS",
-            "MongoDB",
-            "Docker / Compose",
-            "Gitlab CI/CD"
+          "company": "Auto-Moto spare parts store",
+          "position": "Fullstack developer",
+          "city": "Moscow",
+          "period": ["2013/02/01", "2022/04/01"],
+          "details": [
+            {
+              "project": "**Project: Online store**",
+              "worked": [
+                "* Website development and maintenance",
+                "* Software development for internal work"
+              ],
+              "stacks": [
+                "HTML5 / CSS3",
+                "PHP",
+                "BOOTSTRAP",
+                "Nginx",
+                "NodeJS",
+                "ExpressJS",
+                "PostgreSQL"
+              ]
+            }
           ]
         }
       ]
     },
     "more": {
-      "name": "Additional work expirience",
+      "name": "Additional work experience",
       "data": [
         {
-          "position": "Sales department manager",
-          "company": "Goodline (ООО \"Е-Лайт-Телеком\")",
+          "company": "Tattoo studio «сТАТУс»",
+          "position": "System Administrator",
           "city": "Yurga",
-          "period": ["2015/05/01", "2015/08/01"],
-          "details": "Sale of network provider products: Internet, cable TV, set-top boxes, etc. In the course of work, I took courses on cold sales."
+          "period": ["2020/09/01", "2022/04/01"],
+          "details": "He provided maintenance and support services for more than five pieces of computer equipment."
         },
         {
+          "company": "Taxi «Фунтик/Casper»",
+          "position": "System Administrator",
+          "city": "Yurga",
+          "period": ["2020/11/01", "2022/04/01"],
+          "details": "Provided maintenance and support services for more than two units of computer equipment."
+        },
+        {
+          "company": "Individual Entrepreneur",
           "position": "Business owner (Auto Parts store / Yandex.Taxi franchise)",
-          "company": "Individual entrepreneur",
           "city": "Yurga",
           "period": ["2016/08/26", "2019/05/15"],
-          "details": "Opening and development from scratch, with subsequent sale, of a ready-made business. In the course of his work, he studied the basics of accounting, doing business, current aspects of the legislation of the Tax Code of the Russian Federation and the Labor Code of the Russian Federation."
+          "details": "He was engaged in the creation and development of a business from the zero stage to its successful implementation. In the course of his work, he acquired knowledge in the field of accounting, business management, and also got acquainted with key aspects of tax and labor legislation of the Russian Federation."
+        },
+        {
+          "company": "Goodline (ООО \"Е-Лайт-Телеком\")",
+          "position": "Sales Department Manager",
+          "city": "Yurga",
+          "period": ["2015/05/01", "2015/08/01"],
+          "details": "In the course of his work, he gained experience in the field of implementing network provider products, including Internet services, cable TV and set-top boxes. He took professional courses in cold sales techniques."
         }
       ]
     }
