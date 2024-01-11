@@ -1,7 +1,9 @@
 import { ListGroup } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
+import Markdown from 'react-markdown';
 
 import { TExpirience, TWorkExpirienceData } from '../../Types';
+import { TWorkExpirienceProject } from '../../Types/expirience.types';
 
 export const Expirience = () => {
   const { t } = useTranslation();
@@ -65,11 +67,11 @@ export const Expirience = () => {
         {expirience.main.data.map((item: TWorkExpirienceData, i: number) => {
           return (
             <div className="block_group" key={i}>
-              <div className="expirience_position">
-                <span>{item.position}</span>
-              </div>
               <div className="expirience_company">
                 <span>{item.company}</span>
+              </div>
+              <div className="expirience_position">
+                <span>{item.position}</span>
               </div>
               <div className="expirience_period">
                 <span>
@@ -79,19 +81,41 @@ export const Expirience = () => {
               </div>
               {item.details ? (
                 <div className="expirience_details">
-                  <span>{item.details}</span>
-                </div>
-              ) : (
-                <></>
-              )}
-
-              {item.skills ? (
-                <div className="expirience_details">
-                  <ListGroup>
-                    {item.skills.map((item: string, i: number) => {
-                      return <ListGroup.Item key={i}>{item}</ListGroup.Item>;
-                    })}
-                  </ListGroup>
+                  <span>
+                    {typeof item.details === 'object' ? (
+                      <>
+                        {item.details.map(
+                          (project: TWorkExpirienceProject, ii: number) => {
+                            return (
+                              <span key={ii}>
+                                <Markdown>{project.project}</Markdown>
+                                <Markdown>
+                                  {project.worked?.join('\n')}
+                                </Markdown>
+                                {project.stacks ? (
+                                  <ListGroup>
+                                    {project.stacks?.map(
+                                      (stack: string, iii: number) => {
+                                        return (
+                                          <ListGroup.Item key={iii}>
+                                            {stack}
+                                          </ListGroup.Item>
+                                        );
+                                      },
+                                    )}
+                                  </ListGroup>
+                                ) : (
+                                  <></>
+                                )}
+                              </span>
+                            );
+                          },
+                        )}
+                      </>
+                    ) : (
+                      <Markdown>{item.details}</Markdown>
+                    )}
+                  </span>
                 </div>
               ) : (
                 <></>
@@ -109,11 +133,11 @@ export const Expirience = () => {
         {expirience.more.data.map((item: TWorkExpirienceData, i: number) => {
           return (
             <div className="block_group" key={i}>
-              <div className="expirience_position">
-                <span>{item.position}</span>
-              </div>
               <div className="expirience_company">
                 <span>{item.company}</span>
+              </div>
+              <div className="expirience_position">
+                <span>{item.position}</span>
               </div>
               <div className="expirience_period">
                 <span>
@@ -123,19 +147,43 @@ export const Expirience = () => {
               </div>
               {item.details ? (
                 <div className="expirience_details">
-                  <span>{item.details}</span>
-                </div>
-              ) : (
-                <></>
-              )}
-
-              {item.skills ? (
-                <div className="expirience_details">
-                  <ListGroup>
-                    {item.skills.map((item: any, i: number) => {
-                      return <ListGroup.Item key={i}>{item}</ListGroup.Item>;
-                    })}
-                  </ListGroup>
+                  <span>
+                    {typeof item.details === 'object' ? (
+                      <>
+                        {item.details.map(
+                          (project: TWorkExpirienceProject, ii: number) => {
+                            return (
+                              <span key={ii}>
+                                <Markdown>
+                                  {'**Проект: ' + project.project + '**'}
+                                </Markdown>
+                                <Markdown>
+                                  {project.worked?.join('\n')}
+                                </Markdown>
+                                {project.stacks ? (
+                                  <ListGroup>
+                                    {project.stacks?.map(
+                                      (stack: string, iii: number) => {
+                                        return (
+                                          <ListGroup.Item key={iii}>
+                                            {stack}
+                                          </ListGroup.Item>
+                                        );
+                                      },
+                                    )}
+                                  </ListGroup>
+                                ) : (
+                                  <></>
+                                )}
+                              </span>
+                            );
+                          },
+                        )}
+                      </>
+                    ) : (
+                      <Markdown>{item.details}</Markdown>
+                    )}
+                  </span>
                 </div>
               ) : (
                 <></>

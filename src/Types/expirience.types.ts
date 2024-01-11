@@ -16,6 +16,11 @@ export type TWorkExpirienceData = {
     `${string}/${string}/${string}`,
     `${string}/${string}/${string}` | null,
   ];
-  details: string;
-  skills?: string[];
+  details: TWorkExpirienceProject[] | string;
+};
+
+export type TWorkExpirienceProject = {
+  project: string;
+  worked?: string[];
+  stacks?: string[];
 };

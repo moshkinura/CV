@@ -158,13 +158,13 @@ img {
   color: #757575;
 }
 
-.expirience_position {
+.expirience_company {
   font-size: 16px;
   line-height: 20px;
   font-weight: bold;
 }
 
-.expirience_company {
+.expirience_position {
   margin-top: 10px;
 }
 
@@ -176,6 +176,7 @@ img {
 .expirience_details {
   padding-top: 6px;
   margin-top: 6px;
+  font-size: 15px;
 }
 
 /*/BLOCK*/
