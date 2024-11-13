@@ -1,56 +1,55 @@
-import { Container, Row, Col } from 'react-bootstrap';
+import { Col, Container, Row } from 'react-bootstrap';
 
-import { Information } from './Center/Information';
-import { Contacts } from './Details/Contacts';
-import { Pay } from './Details/Pay';
-import { Shedule } from './Details/Shedule';
-import { Employment } from './Details/Employment';
-import { Languages } from './Details/Languages';
-import { Skills } from './Details/Skills';
-import { Learns } from './Details/Learns';
-import { Computer } from './Details/Computer';
-import { Software } from './Details/Software';
-import { Personal } from './Blocks/Personal';
-import { Expirience } from './Blocks/Expirience';
-import { Details } from './Blocks/Details';
-
-import { Language } from './Language';
+import { Language } from '@/components/Language';
+import { Details } from '@/components/blocks/Details';
+import { Expirience } from '@/components/blocks/Expirience';
+import { Personal } from '@/components/blocks/Personal';
+import { Information } from '@/components/center/Information';
+import { Computer } from '@/components/details/Computer';
+import { Contacts } from '@/components/details/Contacts';
+import { Employment } from '@/components/details/Employment';
+import { Languages } from '@/components/details/Languages';
+import { Learns } from '@/components/details/Learns';
+import { Pay } from '@/components/details/Pay';
+import { Shedule } from '@/components/details/Shedule';
+import { Skills } from '@/components/details/Skills';
+import { Software } from '@/components/details/Software';
 
 export const CurriculumVitae = () => {
-  return (
-    <div className="section">
-      <div className="language">
-        <Language />
-      </div>
-      <Container>
-        <Row>
-          <Col xs={12} className="text-center">
-            <Information />
-          </Col>
-        </Row>
+	return (
+		<div className='section'>
+			<div className='language'>
+				<Language />
+			</div>
+			<Container>
+				<Row>
+					<Col xs={12} className='text-center'>
+						<Information />
+					</Col>
+				</Row>
 
-        <Row>
-          <Col xs={12} lg={{ span: 3, offset: 2 }}>
-            <Contacts />
-            <Pay />
-            <Shedule />
-            <Employment />
-            <Languages />
-            <Skills />
-            <Learns />
-            <Computer />
-            <Software />
-          </Col>
+				<Row>
+					<Col xs={12} lg={{ span: 3, offset: 2 }}>
+						<Contacts />
+						<Pay />
+						<Shedule />
+						<Employment />
+						<Languages />
+						<Skills />
+						<Learns />
+						<Computer />
+						<Software />
+					</Col>
 
-          <Col xs={12} lg={5}>
-            <Row>
-              <Personal />
-              <Expirience />
-              <Details />
-            </Row>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-  );
+					<Col xs={12} lg={5}>
+						<Row>
+							<Personal />
+							<Expirience />
+							<Details />
+						</Row>
+					</Col>
+				</Row>
+			</Container>
+		</div>
+	);
 };
