@@ -1,4 +1,4 @@
 export type TSoftware = {
-  name: string;
-  soft: string[];
+	name: string;
+	soft: string[];
 };

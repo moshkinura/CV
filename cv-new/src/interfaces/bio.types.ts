@@ -1,6 +1,6 @@
 export type TBio = {
-  name: string;
-  fio: string;
-  position: string;
-  geo: string;
+	name: string;
+	fio: string;
+	position: string;
+	geo: string;
 };
