@@ -109,15 +109,15 @@ img {
 }
 
 .title_personal {
-  background-image: url(../Lib/fontawesome/svgs/light/user.svg);
+  background-image: url(../lib/fontawesome/svgs/light/user.svg);
 }
 
 .title_expirience {
-  background-image: url(../Lib/fontawesome/svgs/light/briefcase.svg);
+  background-image: url(../lib/fontawesome/svgs/light/briefcase.svg);
 }
 
 .title_info {
-  background-image: url(../Lib/fontawesome/svgs/light/info-circle.svg);
+  background-image: url(../lib/fontawesome/svgs/light/info-circle.svg);
 }
 
 .block_group {
