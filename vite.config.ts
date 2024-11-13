@@ -68,15 +68,15 @@ export default ({ mode }: { mode: string }) => {
 					},
 					entryFileNames: 'assets/[name]-[hash].js',
 					chunkFileNames: 'assets/[name]-[hash].js',
-					manualChunks(id) {
-						if (id.includes('node_modules')) {
-							if (id.includes('node_modules/react')) return 'react';
-							if (id.includes('node_modules/react-dom')) return 'react-dom';
-							if (id.includes('node_modules/bootstrap')) return 'bootstrap';
+					// manualChunks(id) {
+					// 	if (id.includes('node_modules')) {
+					// 		if (id.includes('node_modules/react')) return 'react';
+					// 		if (id.includes('node_modules/react-dom')) return 'react-dom';
+					// 		if (id.includes('node_modules/bootstrap')) return 'bootstrap';
 
-							return 'vendor';
-						}
-					},
+					// 		return 'vendor';
+					// 	}
+					// },
 					minifyInternalExports: true,
 				},
 			},
