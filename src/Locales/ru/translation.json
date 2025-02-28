@@ -20,7 +20,7 @@
 		"from": "от",
 		"rub": "300000₽",
 		"usd": "$3300",
-		"eur": "€3080"
+		"eur": "€3150"
 	},
 	"shedules": {
 		"name": "График работы",
@@ -156,7 +156,7 @@
 	},
 	"software": {
 		"name": "Программное обеспечение",
-		"soft": ["Windows 10 PRO build 1909", "Visual Studio Code (VSC)", "Cursor"]
+		"soft": ["Windows 10 Корпоративная LTSC", "Visual Studio Code (VSC)", "Cursor"]
 	},
 	"personal": {
 		"name": "Личная Информация",
