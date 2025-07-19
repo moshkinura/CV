@@ -8,68 +8,68 @@ import Inspect from 'vite-plugin-inspect';
 
 // https://vitejs.dev/config/
 export default ({ mode }: { mode: string }) => {
-  process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
-  console.log(`NODE_ENV is ${process.env.NODE_ENV}, `, `mode is ${mode}, `);
-  return defineConfig({
-    base: '/CV',
-    plugins: [
-      terser(),
-      react(),
-      viteImagemin({
-        gifsicle: { optimizationLevel: 7, interlaced: false },
-        optipng: { optimizationLevel: 7 },
-        mozjpeg: { quality: 20 },
-        pngquant: { quality: [0.8, 0.9], speed: 4 },
-        svgo: {
-          plugins: [
-            { name: 'removeViewBox' },
-            { name: 'removeEmptyAttrs', active: false },
-          ],
-        },
-      }),
-      Inspect(),
+	process.env = { ...process.env, ...loadEnv(mode, process.cwd()) };
+	console.log(`NODE_ENV is ${process.env.NODE_ENV}, `, `mode is ${mode}, `);
+	return defineConfig({
+		base: '/CV',
+		plugins: [
+			terser(),
+			react(),
+			viteImagemin({
+				gifsicle: { optimizationLevel: 7, interlaced: false },
+				optipng: { optimizationLevel: 7 },
+				mozjpeg: { quality: 20 },
+				pngquant: { quality: [0.8, 0.9], speed: 4 },
+				svgo: {
+					plugins: [
+						{ name: 'removeViewBox' },
+						{ name: 'removeEmptyAttrs', active: false },
+					],
+				},
+			}),
+			Inspect(),
 
-      ...(mode === 'development'
-        ? [
-          visualizer({
-            filename: 'analysis/bundle.html',
-            template: 'treemap', // Формат визуализации: 'treemap', 'sunburst', 'network'
-            open: true, // Автоматически открывает график в браузере
-            gzipSize: true, // Показывает размер после gzip-компрессии
-            brotliSize: true, // Показывает размер после brotli-компрессии
-          }),
-        ]
-        : []),
-    ],
-    build: {
-      chunkSizeWarningLimit: 1024,
-      assetsInlineLimit: 0,
-      minify: 'terser',
-      rollupOptions: {
-        output: {
-          assetFileNames: assetInfo => {
-            if (assetInfo.names && assetInfo.names.includes('index.css')) {
-              return 'assets/[name]-[hash].css';
-            }
+			...(mode === 'development'
+				? [
+						visualizer({
+							filename: 'analysis/bundle.html',
+							template: 'treemap', // Формат визуализации: 'treemap', 'sunburst', 'network'
+							open: true, // Автоматически открывает график в браузере
+							gzipSize: true, // Показывает размер после gzip-компрессии
+							brotliSize: true, // Показывает размер после brotli-компрессии
+						}),
+					]
+				: []),
+		],
+		build: {
+			chunkSizeWarningLimit: 1024,
+			assetsInlineLimit: 0,
+			minify: 'terser',
+			rollupOptions: {
+				output: {
+					assetFileNames: assetInfo => {
+						if (assetInfo.names && assetInfo.names.includes('index.css')) {
+							return 'assets/[name]-[hash].css';
+						}
 
-            return 'assets/[name]-[hash][extname]';
-          },
-          entryFileNames: 'assets/[name]-[hash].js',
-          chunkFileNames: 'assets/[name]-[hash].js',
-          manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('@fortawesome')) return 'fortawesome';
+						return 'assets/[name]-[hash][extname]';
+					},
+					entryFileNames: 'assets/[name]-[hash].js',
+					chunkFileNames: 'assets/[name]-[hash].js',
+					manualChunks(id) {
+						if (id.includes('node_modules')) {
+							if (id.includes('@fortawesome')) return 'fortawesome';
 
-              // if (id.includes('node_modules/react-dom')) return 'react-dom';
-              // if (id.includes('node_modules/bootstrap')) return 'bootstrap';
+							// if (id.includes('node_modules/react-dom')) return 'react-dom';
+							// if (id.includes('node_modules/bootstrap')) return 'bootstrap';
 
-              return 'vendor';
-            }
-          },
-          minifyInternalExports: true,
-        },
-      },
-    },
-    resolve: { alias: { '@': path.resolve(__dirname, './src/') } },
-  });
+							return 'vendor';
+						}
+					},
+					minifyInternalExports: true,
+				},
+			},
+		},
+		resolve: { alias: { '@': path.resolve(__dirname, './src/') } },
+	});
 };
