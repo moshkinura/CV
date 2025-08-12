@@ -14,12 +14,15 @@ import {
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
+import { Badge } from '@/shared/ui/badge';
+import { Card } from '@/shared/ui/card';
+import { formatBirthday } from '@/shared/utils/formatBirthday.utils';
+import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
+
 import { TPersonals } from '@/interfaces/personals.types';
 
 const PersonalInfo: FC = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const {
 		title,
 		description,
@@ -48,7 +51,10 @@ const PersonalInfo: FC = () => {
 		{
 			icon: Calendar,
 			name: personal.data.birthday.name,
-			value: personal.data.birthday.value,
+			value: formatBirthday(
+				personal.data.birthday.value,
+				getDateFnsLocale(i18n.resolvedLanguage),
+			),
 		},
 		{
 			icon: User,

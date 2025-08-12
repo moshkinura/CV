@@ -1,10 +1,11 @@
 import { Zap } from 'lucide-react';
 import { FC } from 'react';
 
+import { Card } from '@/shared/ui/card';
+
 import HeaderCard from './ui/HeaderCard';
 import Responsibilities from './ui/Responsibilities';
 import Technologies from './ui/Technologies';
-import { Card } from '@/components/ui/card';
 import { TWorkExpirienceData } from '@/interfaces/expirience.types';
 
 interface Props {

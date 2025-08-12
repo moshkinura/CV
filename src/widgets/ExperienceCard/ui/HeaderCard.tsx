@@ -1,33 +1,28 @@
 import { CalendarDays, MapPin } from 'lucide-react';
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
-import { Badge } from '@/components/ui/badge';
-import { TWorkExpirienceData } from '@/interfaces/expirience.types';
+import { Badge } from '@/shared/ui/badge';
+import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 
-const calculateExperience = (startDate: string, endDate: string): number => {
-	const start = new Date(startDate);
-	const end = endDate === null ? new Date() : new Date(endDate);
-	const diffTime = Math.abs(end.getTime() - start.getTime());
-	const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
-	return Math.round(diffYears * 10) / 10; // округляем до 1 знака
-};
+import { calculateExperience } from '../model/calculateExperience.utils';
+import { formatDate } from '../model/formatDate.utils';
 
-const formatExperience = (years: number): string => {
-	if (years < 1) {
-		const months = Math.round(years * 12);
-		return `${months} месяцев`;
-	}
-	return `${years} лет`;
-};
+import {
+	TExpirience,
+	TWorkExpirienceData,
+} from '@/interfaces/expirience.types';
 
 interface Props {
 	experience: TWorkExpirienceData;
 }
+
 const HeaderCard: FC<Props> = ({ experience }) => {
-	const experienceYears = calculateExperience(
-		experience.period[0],
-		experience.period[1],
-	);
+	const { i18n, t } = useTranslation();
+	const locale = getDateFnsLocale(i18n.resolvedLanguage);
+	const textExperience = calculateExperience(experience.period, locale);
+
+	const { now } = t('experience', { returnObjects: true }) as TExpirience;
 
 	return (
 		<>
@@ -46,7 +41,7 @@ const HeaderCard: FC<Props> = ({ experience }) => {
 					className='self-start bg-primary/10 text-primary border-primary/20'
 				>
 					<CalendarDays className='w-4 h-4 mr-2' />
-					{formatExperience(experienceYears)}
+					{textExperience}
 				</Badge>
 			</div>
 
@@ -58,7 +53,7 @@ const HeaderCard: FC<Props> = ({ experience }) => {
 				</div>
 				<div className='flex items-center gap-2'>
 					<CalendarDays className='w-4 h-4' />
-					<span>{`${experience.period[0]} - ${experience.period[1] || 'Настоящее время'}`}</span>
+					<span>{formatDate(experience.period, now)}</span>
 				</div>
 			</div>
 		</>

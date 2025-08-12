@@ -2,8 +2,9 @@ import { FC } from 'react';
 
 import SkillBar from '@/widgets/SkillCard/ui/SkillBar';
 
-import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
+import { Badge } from '@/shared/ui/badge';
+import { Card } from '@/shared/ui/card';
+
 import { TSkillsCategory } from '@/interfaces/skills.types';
 
 interface Props {

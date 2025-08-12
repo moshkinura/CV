@@ -1,6 +1,5 @@
 export type TExpirience = {
-	month: string;
-	years: string;
+	now: string;
 	responsibility: string;
 	technologies: string;
 	total: {

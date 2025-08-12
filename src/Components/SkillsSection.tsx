@@ -3,8 +3,9 @@ import { useTranslation } from 'react-i18next';
 
 import SkillCard from '@/widgets/SkillCard/SkillCard';
 
-import { Badge } from '@/components/ui/badge';
-import { Card } from '@/components/ui/card';
+import { Badge } from '@/shared/ui/badge';
+import { Card } from '@/shared/ui/card';
+
 import { TLearns } from '@/interfaces/learns.types';
 import { TSkills } from '@/interfaces/skills.types';
 

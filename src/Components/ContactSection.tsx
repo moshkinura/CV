@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 
-import Contacts from '@/shared/ui/Contacts/Contacts';
+import Contacts from '@/widgets/Contacts/Contacts';
 
-import { Card } from '@/components/ui/card';
+import { Card } from '@/shared/ui/card';
 
 const ContactSection = () => {
 	const { t } = useTranslation();

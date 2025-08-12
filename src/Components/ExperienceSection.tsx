@@ -3,11 +3,14 @@ import { useTranslation } from 'react-i18next';
 
 import ExperienceCard from '@/widgets/ExperienceCard/ExperienceCard';
 
-import { Card } from '@/components/ui/card';
+import { Card } from '@/shared/ui/card';
+import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
+import { getTotalExperienceText } from '@/shared/utils/getTotalExperience.utils';
+
 import { TExpirience } from '@/interfaces/expirience.types';
 
 const ExperienceSection: FC = () => {
-	const { t } = useTranslation();
+	const { t, i18n } = useTranslation();
 	const {
 		responsibility: responsibilityText,
 		technologies: technologiesText,
@@ -18,10 +21,10 @@ const ExperienceSection: FC = () => {
 		returnObjects: true,
 	}) as TExpirience;
 
-	// Подсчет общего стажа
-	// const totalExperience = experiences.reduce((total, exp) => {
-	// 	return total + calculateExperience(exp.startDate, exp.endDate);
-	// }, 0);
+	const totalExperience = getTotalExperienceText(
+		main.data,
+		getDateFnsLocale(i18n.resolvedLanguage),
+	);
 
 	return (
 		<section className='py-20 bg-gradient-to-b from-secondary/20 to-background'>
@@ -42,8 +45,7 @@ const ExperienceSection: FC = () => {
 							{total.title}
 						</h3>
 						<p className='text-3xl font-bold text-gradient'>
-							{/* {formatExperience(totalExperience, t)} */}
-							undefined
+							{totalExperience}
 						</p>
 						<p className='text-muted-foreground mt-2'>{total.description}</p>
 					</Card>

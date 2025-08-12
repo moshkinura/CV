@@ -2,7 +2,8 @@ import { Languages } from 'lucide-react';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { Button } from '@/components/ui/button';
+import { Button } from '@/shared/ui/button';
+
 import { ELanguage } from '@/interfaces/languagesI18N.interface';
 
 const LanguageSwitcher: FC = () => {

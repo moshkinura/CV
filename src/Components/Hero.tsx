@@ -1,9 +1,9 @@
 import { MapPin } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-import Avatar from '@/shared/ui/Avatar/Avatar';
-import Contacts from '@/shared/ui/Contacts/Contacts';
-import TypingText from '@/shared/ui/TypingText/TypingText';
+import Avatar from '@/widgets/Avatar/Avatar';
+import Contacts from '@/widgets/Contacts/Contacts';
+import TypingText from '@/widgets/TypingText/TypingText';
 
 import { TBio } from '@/interfaces/bio.types';
 import { TPay } from '@/interfaces/pay.types';
