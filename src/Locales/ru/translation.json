@@ -7,13 +7,30 @@
 		"geo": "КУЗБАСС, г.Юрга (возможны командировки)"
 	},
 	"contacts": {
-		"name": "Контакты",
-		"tel": "+7(900)100-10-10",
-		"email": "moshkin_ura@mail.ru",
-		"vk": "bikeauto",
-		"tg": "bikeauto",
-		"github": "moshkinura",
-		"gitlab": "moshkinura"
+		"title": "Связаться со мной",
+		"subtitle": "Готов обсудить возможности или просто пообщаться?",
+		"copy": "Копировать",
+		"copied": "Скопировано",
+		"phone": {
+			"name": "Телефон",
+			"value": "+7(900)100-10-10"
+		},
+		"email": {
+			"name": "Email",
+			"value": "moshkin_ura@mail.ru"
+		},
+		"telegram": {
+			"name": "Telegram",
+			"value": "bikeauto"
+		},
+		"github": {
+			"name": "GitHub",
+			"value": "moshkinura"
+		},
+		"gitlab": {
+			"name": "GitLab",
+			"value": "moshkinura"
+		}
 	},
 	"pay": {
 		"name": "Желаемая зарплата",
@@ -22,119 +39,139 @@
 		"usd": "$3300",
 		"eur": "€3150"
 	},
-	"shedules": {
-		"name": "График работы",
-		"shedule": [
-			"Сменный график",
-			"Полный рабочий день",
-			"Неполный рабочий день",
-			"Гибкий график",
-			"Ненормированный рабочий день"
-		]
-	},
-	"employments": {
-		"name": "Варианты трудоустройства",
-		"employment": ["Трудовой договор", "ГПД", "Самозанятость"],
-		"information": "Есть рекомендации от \"ВТЭК\", при официальном трудоустройстве. Предоставлю, по требованию."
-	},
-	"languages": {
-		"name": "Языки",
-		"language": [
-			{
-				"name": "Русский (родной)",
-				"percent": 99
-			},
-			{
-				"name": "English (Basic - A1)",
-				"percent": 15
-			}
-		]
-	},
 	"skills": {
-		"name": "Hard skills",
-		"skill": [
-			{
-				"name": "Владение компьютером",
-				"percent": 95
+		"name": "Технические навыки",
+		"description": "Мой опыт работы с различными технологиями и фреймворками",
+		"disclamer": "* - Оценка навыка, может отличаться от действительности, чисто объективно-оценочное суждение",
+		"categories": {
+			"language": {
+				"name": "Language",
+				"data": [
+					{
+						"name": "Node.JS",
+						"percent": 85
+					},
+					{
+						"name": "TypeScript",
+						"percent": 85
+					}
+				]
 			},
-			{
-				"name": "HTML5 / CSS3",
-				"percent": 60
+			"backend": {
+				"name": "Backend",
+				"data": [
+					{
+						"name": "Express.JS",
+						"percent": 95
+					},
+					{
+						"name": "Nest.JS",
+						"percent": 90
+					}
+				]
 			},
-			{
-				"name": "BOOTSTRAP >= 5.0",
-				"percent": 50
+			"frontend": {
+				"name": "Frontend",
+				"data": [
+					{
+						"name": "React.JS",
+						"percent": 45
+					},
+					{
+						"name": "HTML5 / CSS3",
+						"percent": 60
+					},
+					{
+						"name": "BOOTSTRAP >= 5.0",
+						"percent": 50
+					},
+					{ "name": "TailWind >= 4.0", "percent": 30 }
+				]
 			},
-			{
-				"name": "GIT (Version Control Systems)",
-				"percent": 90
+			"database": {
+				"name": "Database",
+				"data": [
+					{
+						"name": "TypeORM",
+						"percent": 85
+					},
+					{
+						"name": "PostgreSQL",
+						"percent": 90
+					},
+					{
+						"name": "MongoDB",
+						"percent": 50
+					},
+					{
+						"name": "MySQL",
+						"percent": 65
+					}
+				]
 			},
-			{
-				"name": "Bash / Console",
-				"percent": 40
+			"devops": {
+				"name": "DevOps",
+				"data": [
+					{
+						"name": "Docker / Compose",
+						"percent": 60
+					},
+					{
+						"name": "GitLab CI/CD",
+						"percent": 35
+					}
+				]
 			},
-			{
-				"name": "Docker / Compose",
-				"percent": 60
+			"tools": {
+				"name": "Tools",
+				"data": [
+					{
+						"name": "GIT (Version Control Systems)",
+						"percent": 90
+					},
+					{
+						"name": "Bash / Console",
+						"percent": 40
+					}
+				]
 			},
-			{
-				"name": "Node.JS",
-				"percent": 85
+			"desktop": {
+				"name": "Desktop",
+				"data": [
+					{
+						"name": "Electron.JS",
+						"percent": 30
+					}
+				]
 			},
-			{
-				"name": "Express.JS",
-				"percent": 95
+			"mobile": {
+				"name": "Mobile",
+				"data": [
+					{
+						"name": "React Native/Expo",
+						"percent": 15
+					}
+				]
 			},
-			{
-				"name": "React.JS",
-				"percent": 45
+			"testing": {
+				"name": "Testing",
+				"data": [
+					{
+						"name": "Jest.js",
+						"percent": 20
+					}
+				]
 			},
-			{
-				"name": "Electron.JS",
-				"percent": 30
-			},
-			{
-				"name": "React Native/Expo",
-				"percent": 15
-			},
-			{
-				"name": "Nest.JS",
-				"percent": 90
-			},
-			{
-				"name": "TypeScript",
-				"percent": 85
-			},
-			{
-				"name": "TypeORM",
-				"percent": 85
-			},
-			{
-				"name": "MySQL",
-				"percent": 65
-			},
-			{
-				"name": "MongoDB",
-				"percent": 50
-			},
-			{
-				"name": "PostgreSQL",
-				"percent": 90
-			},
-			{
-				"name": "C++ / C#",
-				"percent": 10
-			},
-			{
-				"name": "Jest.js",
-				"percent": 20
-			},
-			{
-				"name": "GitLab CI/CD",
-				"percent": 35
+			"general": {
+				"name": "General",
+				"data": [
+					{
+						"name": "Владение компьютером",
+						"percent": 95
+					}
+				]
 			}
-		],
-		"information": "* - Оценка навыка, может отличаться от действительности, чисто объективно-оценочное суждение"
+		}
 	},
 	"learns": {
 		"name": "Хочу изучить",
@@ -148,59 +185,36 @@
 			{ "name": "Apache Kafka" }
 		]
 	},
-	"computer": {
-		"name": "Мой компьютер",
-		"cpu": "Intel XEON E5-2696",
-		"ram": "48GB",
-		"gpu": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
-	},
-	"software": {
-		"name": "Программное обеспечение",
-		"soft": ["Windows 10 Корпоративная LTSC", "Visual Studio Code (VSC)", "Cursor"]
-	},
-	"personal": {
-		"name": "Личная Информация",
-		"nationality": {
-			"name": "Гражданство",
-			"value": "Российская Федерация"
-		},
-		"education": {
-			"name": "Образование",
-			"value": "Среднее"
-		},
-		"birthday": {
-			"name": "Дата рождения",
-			"value": "1997/02/25"
-		},
-		"gender": {
-			"name": "Пол",
-			"value": "Мужской"
-		},
-		"marital": {
-			"name": "Семейное положение",
-			"value": "Гражданский брак"
-		}
-	},
 	"expirience": {
+		"month": "месяцев",
+		"years": "лет",
+		"responsibility": "Основные обязанности",
+		"technologies": "Используемые технологии",
+		"total": {
+			"title": "Общий стаж работы",
+			"description": "в профессиональной разработке"
+		},
 		"main": {
-			"name": "Основной опыт работы",
+			"title": "Основной опыт работы",
+			"subtitle": "Профессиональный путь и достижения",
 			"data": [
 				{
 					"company": "Dats.Games",
 					"position": "Senior backend developer",
-					"city": "г.Москва",
-					"period": ["2024/03/01", "2024/11/01"],
-					"details": [
+					"location": "г.Москва",
+					"period": ["2024/03/01", "present"],
+					"projects": [
 						{
 							"project": "**Проект: Портал для UNITY/WEBGL игр**",
-							"worked": [
+							"description": "Комплексная игровая платформа, обеспечивающая бесшовную интеграцию Unity и WebGL игр с продвинутым управлением пользователями и обработкой платежей",
+							"responsibilities": [
 								"* Руководство командой разработки из 3 человек (2 frontend и 1 backend) в роли team lead, включая распределение задач и управление процессом разработки.",
 								"* Разработка и оптимизация серверной части, обеспечение высокой производительности и масштабируемости сервиса.",
 								"* Поддержка frontend-разработчиков в реализации бизнес-логики на React и оптимизация взаимодействия клиент-сервер.",
 								"* Интеграция с платёжным шлюзом для обеспечения безопасных и надёжных транзакций.",
 								"* Настройка CI/CD пайплайнов для автоматизированного деплоя на production-сервер и сокращения времени вывода продукта на рынок."
 							],
-							"stacks": [
+							"technologies": [
 								"NodeJS",
 								"NestJS",
 								"PostgreSQL",
@@ -214,14 +228,15 @@
 						},
 						{
 							"project": "**Проект: Telegram WEBAPP игра/приложение(NDA)**",
-							"worked": [
+							"description": "",
+							"responsibilities": [
 								"* Проектирование и разработка высоконагруженного backend для поддержки сложных игровых сценариев и взаимодействий в Telegram WebApp.",
 								"* Оптимизация производительности на уровне базы данных PostgreSQL, внедрение индексирования и написание сложных запросов для минимизации задержек.",
 								"* Настройка и поддержка системы кэширования с использованием Redis для снижения нагрузки и увеличения скорости отклика приложения.",
 								"* Интеграция с Telegram API.",
 								"* Реализация CI/CD пайплайнов на Gitlab, что позволило сократить время вывода обновлений в production."
 							],
-							"stacks": [
+							"technologies": [
 								"NodeJS",
 								"NestJS",
 								"PostgreSQL",
@@ -237,19 +252,20 @@
 				{
 					"company": "Компания ITGost",
 					"position": "Middle backend developer",
-					"city": "г.Краснодар",
+					"location": "г.Краснодар",
 					"period": ["2022/04/04", "2024/02/01"],
-					"details": [
+					"projects": [
 						{
 							"project": "**Проект: CRM для конструктора сайтов**",
-							"worked": [
+							"description": "",
+							"responsibilities": [
 								"* Разработка и интеграция новых модулей для расширения возможностей CRM.",
 								"* Поиск и исправление багов, улучшение стабильности системы.",
 								"* Интеграция с Kubernetes для обеспечения масштабируемости и управления контейнерами.",
 								"* Написание тестов с использованием Jest для повышения надёжности кода.",
 								"* Оптимизация legacy-кода: рефакторинг и улучшение производительности."
 							],
-							"stacks": [
+							"technologies": [
 								"NodeJS",
 								"Express",
 								"PostgreSQL",
@@ -261,14 +277,15 @@
 						},
 						{
 							"project": "**Проект: Приложение для ручного и автоматизированного тестирования API (аналог Postman)**",
-							"worked": [
+							"description": "",
+							"responsibilities": [
 								"* Проектирование структуры базы данных для оптимальной работы приложения.",
 								"* Разработка API для обеспечения взаимодействия компонентов системы.",
 								"* Работа с микросервисной архитектурой для повышения гибкости и масштабируемости.",
 								"* Настройка CI/CD процессов для автоматизации сборки и деплоя.",
 								"* Обнаружение и устранение багов для улучшения качества продукта."
 							],
-							"stacks": [
+							"technologies": [
 								"NodeJS",
 								"NestJS",
 								"PostgreSQL",
@@ -287,14 +304,15 @@
 					"position": "Fullstack разработчик",
 					"city": "г.Москва",
 					"period": ["2013/02/01", "2022/04/01"],
-					"details": [
+					"projects": [
 						{
 							"project": "**Проект: Интернет магазин**",
-							"worked": [
+							"description": "",
+							"responsibilities": [
 								"* Разработка и обслуживание сайта",
 								"* Разработка программ, для внутренней работы"
 							],
-							"stacks": [
+							"technologies": [
 								"HTML5 / CSS3",
 								"PHP",
 								"BOOTSTRAP",
@@ -310,6 +328,7 @@
 		},
 		"more": {
 			"name": "Дополнительный опыт работы",
+			"subtitle": "Дополнительный опыт и достижения",
 			"data": [
 				{
 					"company": "Тату студия «сТАТУс»",
@@ -342,14 +361,73 @@
 			]
 		}
 	},
+	"personal": {
+		"name": "Личная Информация",
+		"description": "Professional details and preferences",
+		"nationality": {
+			"name": "Гражданство",
+			"value": "Российская Федерация"
+		},
+		"education": {
+			"name": "Образование",
+			"value": "Среднее"
+		},
+		"birthday": {
+			"name": "Дата рождения",
+			"value": "1997/02/25"
+		},
+		"gender": {
+			"name": "Пол",
+			"value": "Мужской"
+		},
+		"marital": {
+			"name": "Семейное положение",
+			"value": "Гражданский брак"
+		}
+	},
+	"languages": {
+		"name": "Языки",
+		"language": [
+			{
+				"name": "Русский (родной)",
+				"level": "родной",
+				"percent": 99
+			},
+			{
+				"name": "English (Basic - A1)",
+				"level": "Basic - A1",
+				"percent": 15
+			}
+		]
+	},
+	"shedules": {
+		"name": "График работы",
+		"shedule": [
+			"Сменный график",
+			"Полный рабочий день",
+			"Неполный рабочий день",
+			"Гибкий график",
+			"Ненормированный рабочий день"
+		]
+	},
+	"employments": {
+		"name": "Варианты трудоустройства",
+		"employment": ["Трудовой договор", "ГПД", "Самозанятость"],
+		"recommendation": {
+			"name": "Рекомендации",
+			"information": "Есть рекомендации от \"ВТЭК\", при официальном трудоустройстве.",
+			"note": "Предоставлю, по требованию."
+		}
+	},
+
 	"details": {
 		"name": "Дополнительная информация",
 		"driver": {
-			"name": "Наличие водительских прав (категории)",
+			"name": "Водительское удостоверение",
 			"value": "Обучаюсь на категорию \"B\"."
 		},
-		"free": {
-			"name": "Занятия в свободное время",
+		"hobbies": {
+			"name": "Хобби и интересы",
 			"value": "Изучаю профессиональную литературу и создаю несколько pet-проектов с нуля. Также развиваюсь в разных направлениях, что мотивирует к постоянному обучению и самосовершенствованию."
 		},
 		"qualities": {
@@ -365,5 +443,27 @@
 				"Стремление к саморазвитию"
 			]
 		}
+	},
+	"configure": {
+		"name": "Кофигурация моего компьютера",
+		"elements": [
+			{ "component": "CPU", "spec": "Intel XEON E5-2696" },
+			{ "component": "RAM", "spec": "48GB" },
+			{
+				"component": "GPU",
+				"spec": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
+			},
+			{ "component": "OS", "spec": "Windows 10 Enterprise LTSC" },
+			{ "component": "IDE", "spec": "Visual Studio Code (VSC), Cursor" }
+		],
+		"cpu": "Intel XEON E5-2696",
+		"ram": "48GB",
+		"gpu": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
+	},
+	"cta": {
+		"title": "Давайте работать вместе",
+		"subtitle": "Меня всегда интересуют новые возможности и сложные проекты. Не стесняйтесь обращаться к мне, если вы хотите обсудить потенциальное сотрудничество.",
+		"sendEmail": "Отправить письмо",
+		"sendTelegram": "Написать в Telegram"
 	}
 }

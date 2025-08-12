@@ -1,9 +1,7 @@
 # Ignore artifacts:
 dist
 node_modules
+analysis
 
 # Ignore all HTML files:
 *.html
-
-# Ignore lib folder
-src/lib

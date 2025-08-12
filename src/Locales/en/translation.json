@@ -6,12 +6,18 @@
 		"position": "Senior NODE.JS backend developer",
 		"geo": "Kuzbass, Yurga City (business trips are possible)"
 	},
+	"buttons": {
+		"call": "Call Me",
+		"email": "Email",
+		"telegram": "Telegram",
+		"github": "GitHub",
+		"gitlab": "GitLab"
+	},
 	"contacts": {
 		"name": "Contacts",
-		"tel": "+7(900)100-10-10",
+		"phone": "+7(900)100-10-10",
 		"email": "moshkin_ura@mail.ru",
-		"vk": "bikeauto",
-		"tg": "bikeauto",
+		"telegram": "bikeauto",
 		"github": "moshkinura",
 		"gitlab": "moshkinura"
 	},

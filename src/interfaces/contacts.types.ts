@@ -1,9 +1,12 @@
+interface NameValue {
+	name: string;
+	value: string;
+}
 export type TContacts = {
 	name: string;
-	tel: string;
-	email: string;
-	vk: string;
-	tg: string;
-	github: string;
-	gitlab: string;
+	phone: NameValue;
+	email: NameValue;
+	telegram: NameValue;
+	github: NameValue;
+	gitlab: NameValue;
 };
