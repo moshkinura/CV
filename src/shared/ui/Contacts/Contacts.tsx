@@ -164,7 +164,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 											) : (
 												<>
 													<Copy className='w-4 h-4 mr-1' />
-													{t('contacts.copy')}
+													{contacts.copy}
 												</>
 											)}
 										</Button>

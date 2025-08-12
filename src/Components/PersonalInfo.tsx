@@ -11,45 +11,54 @@ import {
 	Monitor,
 	User,
 } from 'lucide-react';
+import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Badge } from '@/components/ui/badge';
 import { Card } from '@/components/ui/card';
+import { TPersonals } from '@/interfaces/personals.types';
 
-const PersonalInfo = () => {
+const PersonalInfo: FC = () => {
 	const { t } = useTranslation();
-	const personal = t('personal', { returnObjects: true }) as any;
-	const languages = t('languages', { returnObjects: true }) as any;
-	const shedules = t('shedules', { returnObjects: true }) as any;
-	const employments = t('employments', { returnObjects: true }) as any;
-	const details = t('details', { returnObjects: true }) as any;
-	const configure = t('configure', { returnObjects: true }) as any;
+	const {
+		title,
+		description,
+		personal,
+		details,
+		languages,
+		shedules,
+		employments,
+		recommendations,
+		configure,
+	} = t('personals', {
+		returnObjects: true,
+	}) as TPersonals;
 
 	const personalData = [
 		{
 			icon: Flag,
-			label: personal.nationality.name,
-			value: personal.nationality.value,
+			name: personal.data.nationality.name,
+			value: personal.data.nationality.value,
 		},
 		{
 			icon: GraduationCap,
-			label: personal.education.name,
-			value: personal.education.value,
+			name: personal.data.education.name,
+			value: personal.data.education.value,
 		},
 		{
 			icon: Calendar,
-			label: personal.birthday.name,
-			value: personal.birthday.value,
+			name: personal.data.birthday.name,
+			value: personal.data.birthday.value,
 		},
 		{
 			icon: User,
-			label: personal.gender.name,
-			value: personal.gender.value,
+			name: personal.data.gender.name,
+			value: personal.data.gender.value,
 		},
 		{
 			icon: Heart,
-			label: personal.marital.name,
-			value: personal.marital.value,
+			name: personal.data.marital.name,
+			value: personal.data.marital.value,
 		},
 	];
 
@@ -58,10 +67,10 @@ const PersonalInfo = () => {
 			<div className='container mx-auto px-4'>
 				<div className='text-center mb-16'>
 					<h2 className='text-4xl md:text-5xl font-bold text-gradient mb-4'>
-						{personal.name}
+						{title}
 					</h2>
 					<p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
-						{personal.description}
+						{description}
 					</p>
 				</div>
 
@@ -70,14 +79,14 @@ const PersonalInfo = () => {
 					<Card className='glass-effect p-6 animate-slide-up'>
 						<div className='flex items-center gap-3 mb-6'>
 							<User className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>Personal Details</h3>
+							<h3 className='text-xl font-semibold'>{personal.title}</h3>
 						</div>
 						<div className='space-y-4'>
 							{personalData.map((item, index) => (
 								<div key={index} className='flex items-center gap-4'>
 									<item.icon className='w-5 h-5 text-accent' />
 									<div className='flex-1'>
-										<span className='text-muted-foreground'>{item.label}:</span>
+										<span className='text-muted-foreground'>{item.name}:</span>
 										<span className='ml-2 font-medium'>{item.value}</span>
 									</div>
 								</div>
@@ -92,7 +101,7 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-6'>
 							<Info className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>{details.name}</h3>
+							<h3 className='text-xl font-semibold'>{details.title}</h3>
 						</div>
 						<div className='space-y-4'>
 							<div>
@@ -135,7 +144,7 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-6'>
 							<Languages className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>{languages.name}</h3>
+							<h3 className='text-xl font-semibold'>{languages.title}</h3>
 						</div>
 						<div className='space-y-4'>
 							{languages.language.map((lang, index) => (
@@ -165,7 +174,7 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-6'>
 							<Clock className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>{shedules.name}</h3>
+							<h3 className='text-xl font-semibold'>{shedules.title}</h3>
 						</div>
 						<div className='flex flex-wrap gap-2'>
 							{shedules.shedule.map((schedule, index) => (
@@ -183,7 +192,7 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-6'>
 							<FileText className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>{employments.name}</h3>
+							<h3 className='text-xl font-semibold'>{employments.title}</h3>
 						</div>
 						<div className='flex flex-wrap gap-2 mb-10'>
 							{employments.employment.map((option, index) => (
@@ -201,15 +210,13 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-4'>
 							<BadgeCheck className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>
-								{employments.recommendation.name}
-							</h3>
+							<h3 className='text-xl font-semibold'>{recommendations.title}</h3>
 						</div>
 						<p className='text-muted-foreground'>
-							{employments.recommendation.information}
+							{recommendations.information}
 						</p>
 						<p className='text-sm text-muted-foreground mt-2'>
-							{employments.recommendation.note}
+							{recommendations.note}
 						</p>
 					</Card>
 
@@ -220,7 +227,7 @@ const PersonalInfo = () => {
 					>
 						<div className='flex items-center gap-3 mb-6'>
 							<Monitor className='w-6 h-6 text-primary' />
-							<h3 className='text-xl font-semibold'>My PC Setup</h3>
+							<h3 className='text-xl font-semibold'>{configure.title}</h3>
 						</div>
 						<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
 							{configure.elements.map((spec, index) => (

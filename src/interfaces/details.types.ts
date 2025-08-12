@@ -1,9 +1,9 @@
 import { TNameAndValue } from './NameAndValue.types';
 
 export type TDetails = {
-	name: string;
+	title: string;
 	driver: TNameAndValue;
-	free: TNameAndValue;
+	hobbies: TNameAndValue;
 	qualities: TQualities;
 };
 

@@ -1,8 +1,7 @@
 import { useTranslation } from 'react-i18next';
 
 import { FontAwesome } from '@/components/FontAwesome';
-
-import { TComputer } from '@/interfaces/computer.types';
+import { TComputer } from '@/interfaces/configure.types';
 
 export const Computer = () => {
 	const { t } = useTranslation();

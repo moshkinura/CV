@@ -56,6 +56,7 @@ const SkillsSection: FC = () => {
 				<div className='grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto'>
 					{skillCategories.map((category, categoryIndex) => (
 						<SkillCard
+							key={categoryIndex}
 							index={categoryIndex}
 							category={skills.categories[category]}
 							isVisible={isVisible}

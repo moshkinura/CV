@@ -1,7 +1,4 @@
-interface NameValue {
-	name: string;
-	value: string;
-}
+import { TNameAndValue } from './NameAndValue.types';
 
 export type TContacts = {
 	title: string;
@@ -10,9 +7,9 @@ export type TContacts = {
 	copied: string;
 	sendEmail: string;
 	sendTelegram: string;
-	phone: NameValue;
-	email: NameValue;
-	telegram: NameValue;
-	github: NameValue;
-	gitlab: NameValue;
+	phone: TNameAndValue;
+	email: TNameAndValue;
+	telegram: TNameAndValue;
+	github: TNameAndValue;
+	gitlab: TNameAndValue;
 };

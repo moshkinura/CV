@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import { TPersonal } from '@/interfaces/personal.types';
+import { TPersonal } from '@/interfaces/personals.types';
 
 export const Personal = () => {
 	const { t } = useTranslation();
