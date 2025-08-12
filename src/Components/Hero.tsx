@@ -11,8 +11,8 @@ import { TPay } from '@/interfaces/pay.types';
 const Hero = () => {
 	const { t } = useTranslation();
 
-	const bio: TBio = t('bio', { returnObjects: true }) as TBio;
-	const pay: TPay = t('pay', { returnObjects: true }) as TPay;
+	const bio = t('bio', { returnObjects: true }) as TBio;
+	const pay = t('pay', { returnObjects: true }) as TPay;
 
 	return (
 		<section className='relative min-h-screen flex items-center justify-center py-20 overflow-hidden'>
@@ -49,7 +49,7 @@ const Hero = () => {
 						className='glass-effect rounded-2xl p-6 max-w-md mx-auto animate-scale-in'
 						style={{ animationDelay: '0.6s' }}
 					>
-						<h3 className='text-lg font-semibold mb-2'>{pay.name}</h3>
+						<h3 className='text-lg font-semibold mb-2'>{pay.title}</h3>
 						<p className='text-2xl font-bold text-primary'>
 							{pay.from} {pay.rub} / {pay.usd} / {pay.eur}
 						</p>

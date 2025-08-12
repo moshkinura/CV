@@ -2,6 +2,7 @@ interface NameValue {
 	name: string;
 	value: string;
 }
+
 export type TContacts = {
 	title: string;
 	subtitle: string;
