@@ -27,7 +27,7 @@ const Hero = () => {
 						className='space-y-4 animate-slide-up'
 						style={{ animationDelay: '0.2s' }}
 					>
-						<h1 className='text-5xl md:text-7xl font-bold text-gradient'>
+						<h1 className='text-4xl md:text-6xl font-bold text-gradient pb-5'>
 							{bio.fio}
 						</h1>
 						<div className='text-xl md:text-2xl text-muted-foreground font-mono'>
