@@ -54,8 +54,7 @@
 	--animate-slide-in-right: slide-in-right 0.6s ease-out;
 	--animate-scale-in: scale-in 0.4s ease-out;
 	--animate-pulse-glow: pulse-glow 2s ease-in-out infinite;
-	--animate-typing:
-		typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+	--animate-typing: blink-caret 0.75s step-end infinite;
 
 	--radius-lg: var(--radius);
 	--radius-md: calc(var(--radius) - 2px);
