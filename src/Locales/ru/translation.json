@@ -62,11 +62,11 @@
 				"data": [
 					{
 						"name": "Express.JS",
-						"percent": 95
+						"percent": 90
 					},
 					{
 						"name": "Nest.JS",
-						"percent": 90
+						"percent": 95
 					}
 				]
 			},
@@ -75,17 +75,18 @@
 				"data": [
 					{
 						"name": "React.JS",
-						"percent": 45
+						"percent": 80
 					},
 					{
 						"name": "HTML5 / CSS3",
-						"percent": 60
+						"percent": 65
 					},
 					{
 						"name": "BOOTSTRAP >= 5.0",
-						"percent": 50
+						"percent": 30
 					},
-					{ "name": "TailWind >= 4.0", "percent": 30 }
+					{ "name": "TailWind >= 4.0", "percent": 50 },
+					{ "name": "React Redux", "percent": 50 }
 				]
 			},
 			"database": {
@@ -114,11 +115,15 @@
 				"data": [
 					{
 						"name": "Docker / Compose",
-						"percent": 60
+						"percent": 70
 					},
 					{
 						"name": "GitLab CI/CD",
-						"percent": 35
+						"percent": 50
+					},
+					{
+						"name": "K8S",
+						"percent": 5
 					}
 				]
 			},
@@ -127,7 +132,7 @@
 				"data": [
 					{
 						"name": "GIT (Version Control Systems)",
-						"percent": 90
+						"percent": 95
 					},
 					{
 						"name": "Bash / Console",
@@ -140,7 +145,7 @@
 				"data": [
 					{
 						"name": "Electron.JS",
-						"percent": 30
+						"percent": 15
 					}
 				]
 			},
@@ -178,11 +183,10 @@
 		"learn": [
 			{ "name": "k8s" },
 			{ "name": "RabbitMQ" },
-			{ "name": "ElasticSearch" },
-			{ "name": "Redux" },
+			{ "name": "Apache Kafka" },
 			{ "name": "gRPC" },
 			{ "name": "protobuf" },
-			{ "name": "Apache Kafka" }
+			{ "name": "n8n" }
 		]
 	},
 	"experience": {
@@ -297,7 +301,13 @@
 							]
 						}
 					]
-				},
+				}
+			]
+		},
+		"more": {
+			"title": "Дополнительный опыт работы",
+			"subtitle": "Дополнительный опыт и достижения",
+			"data": [
 				{
 					"company": "Авто-Мото магазин запчастей",
 					"position": "Fullstack разработчик",
@@ -322,13 +332,7 @@
 							]
 						}
 					]
-				}
-			]
-		},
-		"more": {
-			"title": "Дополнительный опыт работы",
-			"subtitle": "Дополнительный опыт и достижения",
-			"data": [
+				},
 				{
 					"company": "Тату студия «сТАТУс»",
 					"position": "Системный администратор",
@@ -338,7 +342,7 @@
 						{
 							"name": "",
 							"description": "Обеспечивал техническое обслуживание и поддержку более пяти единиц компьютерной техники.",
-							"responsilities": [],
+							"responsibilities": [""],
 							"technologies": [""]
 						}
 					]
@@ -352,7 +356,7 @@
 						{
 							"name": "",
 							"description": "Осуществлял техническое обслуживание и поддержку двух единиц компьютерной техники.",
-							"responsilities": [],
+							"responsibilities": [""],
 							"technologies": [""]
 						}
 					]
@@ -366,7 +370,7 @@
 						{
 							"name": "",
 							"description": "Создал и развил бизнес с нуля до успешной реализации. Получил опыт в области бухгалтерского учета, управления бизнесом, а также изучил ключевые аспекты налогового и трудового законодательства РФ.",
-							"responsilities": [],
+							"responsibilities": [""],
 							"technologies": [""]
 						}
 					]
@@ -380,7 +384,7 @@
 						{
 							"name": "",
 							"description": "Получил опыт продаж продуктов сетевого провайдера, включая интернет-услуги, кабельное ТВ и ТВ-приставки. Прошел обучение техникам холодных продаж.",
-							"responsilities": [],
+							"responsibilities": [""],
 							"technologies": [""]
 						}
 					]

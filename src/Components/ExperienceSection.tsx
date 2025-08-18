@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import ExperienceCard from '@/widgets/ExperienceCard/ExperienceCard';
 
 import { Card } from '@/shared/ui/card';
+import { Separator } from '@/shared/ui/separator';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 import { getTotalExperienceText } from '@/shared/utils/getTotalExperience.utils';
 
@@ -16,19 +17,19 @@ const ExperienceSection: FC = () => {
 		technologies: technologiesText,
 		total,
 		main,
-		//more,
-	} = t('experience', {
-		returnObjects: true,
-	}) as TExpirience;
+		more,
+	} = t('experience', { returnObjects: true }) as TExpirience;
 
-	const totalExperience = getTotalExperienceText(
-		main.data,
-		getDateFnsLocale(i18n.resolvedLanguage),
-	);
+	const locale = getDateFnsLocale(i18n.resolvedLanguage);
+	const totalProfessionalExperience = getTotalExperienceText(main.data, locale);
+	const totalMoreExperience = more?.data?.length
+		? getTotalExperienceText(more.data, locale)
+		: null;
 
 	return (
 		<section className='py-20 bg-gradient-to-b from-secondary/20 to-background'>
 			<div className='container mx-auto px-4'>
+				{/* Header */}
 				<div className='text-center mb-16'>
 					<h2 className='text-4xl md:text-5xl font-bold text-gradient mb-4 pb-4'>
 						{main.title}
@@ -38,23 +39,44 @@ const ExperienceSection: FC = () => {
 					</p>
 				</div>
 
-				{/* Total Experience Summary */}
+				{/* Totals */}
 				<div className='max-w-4xl mx-auto mb-12'>
-					<Card className='glass-effect p-6 text-center border-2 bg-primary/5'>
-						<h3 className='text-xl font-bold text-primary mb-2'>
-							{total.title}
-						</h3>
-						<p className='text-3xl font-bold text-gradient'>
-							{totalExperience}
-						</p>
-						<p className='text-muted-foreground mt-2'>{total.description}</p>
+					<Card className='glass-effect p-6 border-2 bg-primary/5'>
+						<div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
+							<div className='text-center'>
+								<h3 className='text-base font-semibold text-primary mb-1'>
+									{total.title}
+								</h3>
+								<p className='text-3xl font-bold text-gradient'>
+									{totalProfessionalExperience}
+								</p>
+								<p className='text-sm text-muted-foreground mt-1'>
+									{total.description}
+								</p>
+							</div>
+
+							{totalMoreExperience && (
+								<div className='text-center'>
+									<h3 className='text-base font-semibold text-primary mb-1'>
+										Дополнительный стаж работы
+									</h3>
+									<p className='text-3xl font-bold text-gradient'>
+										{totalMoreExperience}
+									</p>
+									<p className='text-sm text-muted-foreground mt-1'>
+										дополнительного опыта
+									</p>
+								</div>
+							)}
+						</div>
 					</Card>
 				</div>
 
+				{/* Main experience */}
 				<div className='max-w-4xl mx-auto space-y-8'>
 					{main.data.map((experience, index) => (
 						<ExperienceCard
-							key={index}
+							key={`main-${index}`}
 							experience={experience}
 							index={index}
 							responsibilityText={responsibilityText}
@@ -62,6 +84,37 @@ const ExperienceSection: FC = () => {
 						/>
 					))}
 				</div>
+
+				{/* Labeled divider */}
+				{more?.data?.length ? (
+					<div className='max-w-4xl mx-auto mt-12'>
+						<div className='relative my-10'>
+							<Separator />
+							<span className='absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-3 text-xs md:text-sm text-muted-foreground whitespace-nowrap'>
+								{more.title}
+								{totalMoreExperience ? ` · ${totalMoreExperience}` : ''}
+							</span>
+						</div>
+
+						{more.subtitle && (
+							<p className='text-center text-muted-foreground mb-8 text-balance'>
+								{more.subtitle}
+							</p>
+						)}
+
+						<div className='space-y-8'>
+							{more.data.map((experience, index) => (
+								<ExperienceCard
+									key={`more-${index}`}
+									experience={experience}
+									index={main.data.length + index}
+									responsibilityText={responsibilityText}
+									technologiesText={technologiesText}
+								/>
+							))}
+						</div>
+					</div>
+				) : null}
 			</div>
 		</section>
 	);
