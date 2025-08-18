@@ -28,12 +28,20 @@ jest.mock('@/components/ContactSection', () => ({
 	default: () => <div data-testid='ContactSection' />,
 }));
 
-describe('Index page', () => {
-	it('рендерит контейнер и все секции', () => {
+describe('Index (lazy sections + Suspense)', () => {
+	it('рендерит LanguageSwitcher и Hero сразу, а секции появляются (lazy) позже', async () => {
 		const { container } = render(<Index />);
 
-		const root = container.querySelector('div.min-h-screen') as HTMLDivElement;
+		const root = container.querySelector('div.min-h-screen');
 		expect(root).toBeInTheDocument();
+
+		expect(screen.getByTestId('LanguageSwitcher')).toBeInTheDocument();
+		expect(screen.getByTestId('Hero')).toBeInTheDocument();
+
+		expect(await screen.findByTestId('SkillsSection')).toBeInTheDocument();
+		expect(await screen.findByTestId('ExperienceSection')).toBeInTheDocument();
+		expect(await screen.findByTestId('PersonalInfo')).toBeInTheDocument();
+		expect(await screen.findByTestId('ContactSection')).toBeInTheDocument();
 
 		const ids = [
 			'LanguageSwitcher',
@@ -44,11 +52,7 @@ describe('Index page', () => {
 			'ContactSection',
 		] as const;
 
-		ids.forEach(id => {
-			expect(screen.getByTestId(id)).toBeInTheDocument();
-		});
-
-		const nodes = Array.from(root.querySelectorAll('[data-testid]'));
+		const nodes = Array.from(root!.querySelectorAll('[data-testid]'));
 		const positions = ids.map(id => nodes.indexOf(screen.getByTestId(id)));
 		const sorted = [...positions].sort((a, b) => a - b);
 		expect(positions).toEqual(sorted);
