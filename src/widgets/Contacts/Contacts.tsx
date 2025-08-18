@@ -8,7 +8,7 @@ import {
 	Phone,
 	Send,
 } from 'lucide-react';
-import { FC, useState } from 'react';
+import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/shared/ui/button';
@@ -35,137 +35,181 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 
 	const [copied, setCopied] = useState(false);
 
-	const contactItems: Contact[] = [
-		{
-			icon: Phone,
-			label: contacts.phone.name,
-			value: contacts.phone.value,
-			href: `tel:${contacts.phone.value}`,
-			type: 'phone',
-			copyable: true,
-		},
-		{
-			icon: Mail,
-			label: contacts.email.name,
-			value: contacts.email.value,
-			href: `mailto:${contacts.email.value}`,
-			type: 'email',
-			copyable: true,
-		},
-		{
-			icon: Send,
-			label: contacts.telegram.name,
-			value: `@${contacts.telegram.value}`,
-			href: `https://t.me/${contacts.telegram.value}`,
-			type: 'social',
-		},
-		{
-			icon: Github,
-			label: contacts.github.name,
-			value: `@${contacts.github.value}`,
-			href: `https://github.com/${contacts.github.value}`,
-			type: 'social',
-		},
-		{
-			icon: Gitlab,
-			label: contacts.gitlab.name,
-			value: `@${contacts.gitlab.value}`,
-			href: `https://gitlab.com/${contacts.gitlab.value}`,
-			type: 'social',
-		},
-	];
+	const contactItems: Contact[] = useMemo(() => {
+		const items: (Contact | null)[] = [
+			contacts?.phone?.value
+				? {
+						icon: Phone,
+						label: contacts?.phone?.name ?? 'Phone',
+						value: contacts?.phone?.value ?? '',
+						href: `tel:${contacts?.phone?.value}`,
+						type: 'phone',
+						copyable: true,
+					}
+				: null,
+			contacts?.email?.value
+				? {
+						icon: Mail,
+						label: contacts?.email?.name ?? 'Email',
+						value: contacts?.email?.value ?? '',
+						href: `mailto:${contacts?.email?.value}`,
+						type: 'email',
+						copyable: true,
+					}
+				: null,
+			contacts?.telegram?.value
+				? {
+						icon: Send,
+						label: contacts?.telegram?.name ?? 'Telegram',
+						value: `@${contacts?.telegram?.value}`,
+						href: `https://t.me/${contacts?.telegram?.value}`,
+						type: 'social',
+					}
+				: null,
+			contacts?.github?.value
+				? {
+						icon: Github,
+						label: contacts?.github?.name ?? 'GitHub',
+						value: `@${contacts?.github?.value}`,
+						href: `https://github.com/${contacts?.github?.value}`,
+						type: 'social',
+					}
+				: null,
+			contacts?.gitlab?.value
+				? {
+						icon: Gitlab,
+						label: contacts?.gitlab?.name ?? 'GitLab',
+						value: `@${contacts?.gitlab?.value}`,
+						href: `https://gitlab.com/${contacts?.gitlab?.value}`,
+						type: 'social',
+					}
+				: null,
+		];
+
+		return items.filter((x): x is Contact => Boolean(x?.href));
+	}, [contacts]);
+
+	const handleCopy = useCallback(async (text: string) => {
+		try {
+			if (navigator.clipboard?.writeText) {
+				await navigator.clipboard.writeText(text);
+			} else {
+				// Fallback для небезопасных контекстов / старых браузеров
+				const ta = document.createElement('textarea');
+				ta.value = text;
+				ta.setAttribute('readonly', '');
+				ta.style.position = 'fixed';
+				ta.style.opacity = '0';
+				document.body.appendChild(ta);
+				ta.select();
+				document.execCommand('copy');
+				document.body.removeChild(ta);
+			}
+			setCopied(true);
+			window.setTimeout(() => setCopied(false), 1600);
+		} catch {
+			// no-op
+		}
+	}, []);
+
+	const getContactColor = useCallback((type: Contact['type']) => {
+		switch (type) {
+			case 'phone':
+				return 'text-success';
+			case 'email':
+				return 'text-primary';
+			case 'social':
+				return 'text-accent';
+			default:
+				return 'text-muted-foreground';
+		}
+	}, []);
 
 	if (variant === 'short') {
 		return (
-			<>
-				{contactItems.map((contact, i) => {
+			<div className='flex w-full flex-wrap justify-center gap-2'>
+				{contactItems.map(contact => {
+					const Icon = contact.icon;
 					return (
 						<Button
-							key={i}
+							key={contact.href}
 							variant='outline'
 							size='lg'
 							asChild
-							className='transition-bounce hover:shadow-glow'
+							className='w-full sm:w-auto transition-bounce hover:shadow-glow'
 						>
-							<a href={contact.href} className='flex items-center gap-2'>
-								<contact.icon className='w-5 h-5' />
-								{contact.label}
+							<a
+								href={contact.href}
+								className='flex min-w-0 items-center justify-center gap-2'
+								aria-label={`${contact.label}: ${contact.value}`}
+								target={contact.type === 'social' ? '_blank' : undefined}
+								rel={
+									contact.type === 'social' ? 'noopener noreferrer' : undefined
+								}
+							>
+								<Icon className='h-5 w-5 shrink-0' aria-hidden='true' />
+								<span className='truncate'>{contact.label}</span>
 							</a>
 						</Button>
 					);
 				})}
-			</>
+				<span className='sr-only' aria-live='polite'>
+					{copied ? 'Copied' : ''}
+				</span>
+			</div>
 		);
 	}
 
 	if (variant === 'card') {
-		const handleCopy = async (text: string) => {
-			try {
-				await navigator.clipboard.writeText(text);
-				setCopied(true);
-				// toast({
-				// 	title: t('contacts.copied'),
-				// 	description: `${text} has been copied to your clipboard.`,
-				// });
-				setTimeout(() => setCopied(false), 2000);
-			} catch (err) {
-				// toast({
-				// 	title: 'Copy failed',
-				// 	description: 'Failed to copy to clipboard.',
-				// 	variant: 'destructive',
-				// });
-			}
-		};
-
-		const getContactColor = (type: string) => {
-			switch (type) {
-				case 'phone':
-					return 'text-success';
-				case 'email':
-					return 'text-primary';
-				case 'social':
-					return 'text-accent';
-				default:
-					return 'text-muted-foreground';
-			}
-		};
-
 		return (
-			<>
+			<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2'>
 				{contactItems.map((contact, i) => {
+					const Icon = contact.icon;
+					const color = getContactColor(contact.type);
 					return (
 						<Card
-							key={i}
-							className='glass-effect p-6 transition-all duration-500 hover:shadow-glow animate-slide-up group'
-							style={{ animationDelay: `${i * 0.1}s` }}
+							key={contact.href}
+							className='glass-effect group p-5 transition-all duration-500 hover:shadow-glow animate-slide-up motion-reduce:transition-none motion-reduce:animate-none'
+							style={{ animationDelay: `${i * 0.08}s` }}
+							data-testid='card'
 						>
-							<div className='flex items-center justify-between'>
-								<div className='flex items-center gap-4'>
+							<div className='flex items-center justify-between gap-3'>
+								<div className='flex min-w-0 items-center gap-4'>
 									<div
-										className={`p-3 rounded-full bg-secondary/50 ${getContactColor(contact.type)} group-hover:scale-110 transition-transform duration-300`}
+										className={`rounded-full bg-secondary/50 p-3 ${color} group-hover:scale-110 transition-transform duration-300 motion-reduce:transition-none`}
 									>
-										<contact.icon className='w-6 h-6' />
+										<Icon className='h-6 w-6' aria-hidden='true' />
 									</div>
-									<div>
-										<h3 className='font-semibold text-lg'>{contact.label}</h3>
-										<p className='text-muted-foreground'>{contact.value}</p>
+									<div className='min-w-0'>
+										<h3 className='text-lg font-semibold leading-tight text-balance'>
+											{contact.label}
+										</h3>
+										<p className='text-sm text-muted-foreground break-all'>
+											{contact.value}
+										</p>
 									</div>
 								</div>
 
-								<div className='flex items-center gap-2'>
+								<div className='flex items-center gap-1 sm:gap-2'>
 									{contact.copyable && (
 										<Button
 											variant='ghost'
 											size='sm'
 											onClick={() => handleCopy(contact.value)}
-											className='transition-bounce hover:shadow-accent'
+											className='h-10 px-3 transition-bounce hover:shadow-accent'
+											aria-label={`Copy ${contact.label}: ${contact.value}`}
 										>
 											{copied ? (
-												<CheckCircle className='w-4 h-4 text-success' />
+												<CheckCircle
+													className='h-4 w-4 text-success'
+													aria-hidden='true'
+												/>
 											) : (
 												<>
-													<Copy className='w-4 h-4 mr-1' />
-													{contacts.copy}
+													<Copy className='mr-1 h-4 w-4' aria-hidden='true' />
+													<span className='hidden lg:inline'>
+														{contacts?.copy ?? 'Copy'}
+													</span>
 												</>
 											)}
 										</Button>
@@ -174,7 +218,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 										variant='ghost'
 										size='sm'
 										asChild
-										className='transition-bounce hover:shadow-glow'
+										className='h-10 px-3 transition-bounce hover:shadow-glow'
 									>
 										<a
 											href={contact.href}
@@ -184,8 +228,9 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 													? 'noopener noreferrer'
 													: undefined
 											}
+											aria-label={`Open ${contact.label}`}
 										>
-											<ExternalLink className='w-4 h-4' />
+											<ExternalLink className='h-4 w-4' aria-hidden='true' />
 										</a>
 									</Button>
 								</div>
@@ -193,26 +238,30 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 						</Card>
 					);
 				})}
-			</>
+				<span className='sr-only' aria-live='polite'>
+					{copied ? 'Copied' : ''}
+				</span>
+			</div>
 		);
 	}
 
 	if (variant === 'cta') {
-		const targetEmail = new Set([contacts.email.name]);
-		const targetTelegram = new Set([contacts.telegram.name]);
-		const findEmail = contactItems.filter(({ label }) =>
-			targetEmail.has(label),
-		)[0];
-		const findTelegram = contactItems.filter(({ label }) =>
-			targetTelegram.has(label),
-		)[0];
+		const findEmail = contactItems.find(
+			c => c.label === contacts?.email?.name,
+		)!;
+		const findTelegram = contactItems.find(
+			c => c.label === contacts?.telegram?.name,
+		)!;
+
+		const EmailIcon = findEmail.icon;
+		const TelegramIcon = findTelegram.icon;
 
 		return (
-			<div className='flex flex-wrap justify-center gap-4'>
+			<div className='flex flex-wrap justify-center gap-3 sm:gap-4'>
 				<Button
 					size='lg'
 					asChild
-					className='transition-bounce hover:shadow-glow'
+					className='w-full sm:w-auto transition-bounce hover:shadow-glow'
 				>
 					<a
 						href={findEmail.href}
@@ -220,9 +269,11 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 						rel={
 							findEmail.type === 'social' ? 'noopener noreferrer' : undefined
 						}
+						aria-label='Send Email'
+						className='flex items-center justify-center'
 					>
-						<findEmail.icon className='w-5 h-5 mr-2' />
-						{contacts.sendEmail}
+						<EmailIcon className='mr-2 h-5 w-5' aria-hidden='true' />
+						{contacts?.sendEmail}
 					</a>
 				</Button>
 
@@ -230,7 +281,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 					variant='outline'
 					size='lg'
 					asChild
-					className='transition-bounce hover:shadow-accent'
+					className='w-full sm:w-auto transition-bounce hover:shadow-accent'
 				>
 					<a
 						href={findTelegram.href}
@@ -238,11 +289,17 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 						rel={
 							findTelegram.type === 'social' ? 'noopener noreferrer' : undefined
 						}
+						aria-label='Send Telegram'
+						className='flex items-center justify-center'
 					>
-						<findTelegram.icon className='w-5 h-5 mr-2' />
-						{contacts.sendTelegram}
+						<TelegramIcon className='mr-2 h-5 w-5' aria-hidden='true' />
+						{contacts?.sendTelegram}
 					</a>
 				</Button>
+
+				<span className='sr-only' aria-live='polite'>
+					{copied ? 'Copied' : ''}
+				</span>
 			</div>
 		);
 	}
@@ -250,4 +307,4 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 	return null;
 };
 
-export default Contacts;
+export default memo(Contacts);

@@ -95,16 +95,20 @@ describe('Contacts (variant="short")', () => {
 		render(<Contacts variant='short' />);
 
 		const phoneLink = screen.getByRole('link', {
-			name: contactsMock.phone.name,
+			name: `${contactsMock.phone.name}: ${contactsMock.phone.value}`,
 		});
 		const emailLink = screen.getByRole('link', {
-			name: contactsMock.email.name,
+			name: `${contactsMock.email.name}: ${contactsMock.email.value}`,
 		});
 		const tgLink = screen.getByRole('link', {
-			name: contactsMock.telegram.name,
+			name: `${contactsMock.telegram.name}: @${contactsMock.telegram.value}`,
 		});
-		const ghLink = screen.getByRole('link', { name: contactsMock.github.name });
-		const glLink = screen.getByRole('link', { name: contactsMock.gitlab.name });
+		const ghLink = screen.getByRole('link', {
+			name: `${contactsMock.github.name}: @${contactsMock.github.value}`,
+		});
+		const glLink = screen.getByRole('link', {
+			name: `${contactsMock.gitlab.name}: @${contactsMock.gitlab.value}`,
+		});
 
 		expect(phoneLink).toHaveAttribute(
 			'href',
@@ -144,7 +148,7 @@ describe('Contacts (variant="card")', () => {
 		) as HTMLElement;
 
 		const copyBtn = within(phoneCard).getByRole('button', {
-			name: contactsMock.copy,
+			name: `Copy ${contactsMock.phone.name}: ${contactsMock.phone.value}`,
 		});
 		await user.click(copyBtn);
 
@@ -158,7 +162,9 @@ describe('Contacts (variant="card")', () => {
 			jest.advanceTimersByTime(2000);
 		});
 		expect(
-			within(phoneCard).getByRole('button', { name: contactsMock.copy }),
+			within(phoneCard).getByRole('button', {
+				name: `Copy ${contactsMock.phone.name}: ${contactsMock.phone.value}`,
+			}),
 		).toBeInTheDocument();
 
 		jest.useRealTimers();
