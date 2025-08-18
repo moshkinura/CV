@@ -16,7 +16,7 @@ const ExperienceSection: FC = () => {
 		technologies: technologiesText,
 		total,
 		main,
-		// more,
+		//more,
 	} = t('experience', {
 		returnObjects: true,
 	}) as TExpirience;

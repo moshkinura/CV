@@ -53,9 +53,6 @@ const Hero = () => {
 						<p className='text-2xl font-bold text-primary'>
 							{pay.from} {pay.rub} / {pay.usd} / {pay.eur}
 						</p>
-						{/* <p className='text-sm text-muted-foreground mt-1'>
-							{t('hero.salary.monthly')}
-						</p> */}
 					</div>
 
 					{/* Quick Contact */}

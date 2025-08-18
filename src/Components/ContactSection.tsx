@@ -4,13 +4,14 @@ import Contacts from '@/widgets/Contacts/Contacts';
 
 import { Card } from '@/shared/ui/card';
 
+import { TContacts } from '@/interfaces/contacts.types';
+import { TCta } from '@/interfaces/cta.types';
+
 const ContactSection = () => {
 	const { t } = useTranslation();
 
-	//eslint-disable-next-line
-	const contacts = t('contacts', { returnObjects: true }) as any;
-	//eslint-disable-next-line
-	const cta = t('cta', { returnObjects: true }) as any;
+	const contacts = t('contacts', { returnObjects: true }) as TContacts;
+	const cta = t('cta', { returnObjects: true }) as TCta;
 
 	return (
 		<section className='py-20 bg-linear-to-b from-secondary/20 to-background'>

@@ -10,6 +10,7 @@ lerna-debug.log*
 node_modules
 dist
 analysis
+coverage
 dist-ssr
 *.local
 bloom-cv-canvas

@@ -1,11 +1,9 @@
-import { Zap } from 'lucide-react';
 import { FC } from 'react';
 
 import { Card } from '@/shared/ui/card';
 
 import HeaderCard from './ui/HeaderCard';
-import Responsibilities from './ui/Responsibilities';
-import Technologies from './ui/Technologies';
+import Project from './ui/Project/Project';
 import { TWorkExpirienceData } from '@/interfaces/expirience.types';
 
 interface Props {
@@ -32,31 +30,13 @@ const ExperienceCard: FC<Props> = ({
 
 			{/* Projects */}
 			<div className='space-y-6'>
-				{projects.map((project, projectIndex) => (
-					<div key={projectIndex} className='border-l-4 border-accent pl-6'>
-						<div className='flex items-center gap-2 mb-3'>
-							<Zap className='w-5 h-5 text-accent' />
-							<h5 className='font-semibold text-lg text-foreground'>
-								{project.name}
-							</h5>
-						</div>
-
-						<p className='text-muted-foreground mb-4 leading-relaxed'>
-							{project.description}
-						</p>
-
-						{/* Responsibilities */}
-						<Responsibilities
-							responsibilityText={responsibilityText}
-							responsibilities={project.responsibilities}
-						/>
-
-						{/* Technologies */}
-						<Technologies
-							technologiesText={technologiesText}
-							technologies={project.technologies}
-						/>
-					</div>
+				{projects.map((project, i) => (
+					<Project
+						key={i}
+						project={project}
+						responsibilityText={responsibilityText}
+						technologiesText={technologiesText}
+					/>
 				))}
 			</div>
 		</Card>
