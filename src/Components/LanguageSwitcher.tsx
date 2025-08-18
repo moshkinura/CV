@@ -1,5 +1,5 @@
 import { Languages } from 'lucide-react';
-import { FC } from 'react';
+import { FC, useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/shared/ui/button';
@@ -9,12 +9,16 @@ import { ELanguage } from '@/interfaces/languagesI18N.interface';
 const LanguageSwitcher: FC = () => {
 	const { i18n } = useTranslation();
 
-	const currentLang = i18n.language as ELanguage;
+	// Нормализуем язык (учтём en-US/ru-RU)
+	const currentLang = useMemo<ELanguage>(() => {
+		const l = (i18n.resolvedLanguage || i18n.language || '').toLowerCase();
+		return l.startsWith('ru') ? ELanguage.RU : ELanguage.EN;
+	}, [i18n.resolvedLanguage, i18n.language]) as ELanguage;
 
-	const toggleLanguage = () => {
-		const newLang = currentLang === ELanguage.EN ? ELanguage.RU : ELanguage.EN;
-		i18n.changeLanguage(newLang);
-	};
+	const toggleLanguage = useCallback(() => {
+		const next = currentLang === ELanguage.EN ? ELanguage.RU : ELanguage.EN;
+		i18n.changeLanguage(next);
+	}, [currentLang, i18n]);
 
 	return (
 		<Button
