@@ -111,6 +111,9 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 				},
 			},
 		},
+		server: {
+			allowedHosts: ['.ngrok-free.app'],
+		},
 		resolve: { alias: { '@': path.resolve(__dirname, './src/') } },
 	});
 };

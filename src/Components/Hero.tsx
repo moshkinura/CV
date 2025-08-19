@@ -20,7 +20,7 @@ const parseRub = (rub: string | number) => {
 	return Number.isFinite(n) ? n : 0;
 };
 
-const fmt = (currency: 'USD' | 'EUR', value: number, locale?: string) =>
+const fmt = (currency: 'USD' | 'EUR' | 'RUB', value: number, locale?: string) =>
 	new Intl.NumberFormat(locale || undefined, {
 		style: 'currency',
 		currency,
@@ -51,6 +51,8 @@ const Hero = () => {
 		return ceilStep(rubAmount * rate, 10);
 	}, [data, rubAmount]);
 
+	const rubText =
+		rubAmount !== null ? fmt('RUB', rubAmount, i18n.resolvedLanguage) : pay.rub;
 	const usdText =
 		usd !== null ? fmt('USD', usd, i18n.resolvedLanguage) : pay.usd;
 	const eurText =
@@ -106,7 +108,7 @@ const Hero = () => {
 					>
 						<h3 className='text-lg font-semibold mb-2'>{pay.title}</h3>
 						<p className='text-2xl font-bold text-primary'>
-							{pay.from} {pay.rub} / {usdText} / {eurText}
+							{pay.from} {rubText} / {usdText} / {eurText}
 						</p>
 						{loadingRates && (
 							<span

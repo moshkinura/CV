@@ -149,9 +149,9 @@
 			"subtitle": "Professional path and achievements",
 			"data": [
 				{
-					"company": "Dats.Games",
-					"position": "Senior backend developer",
-					"location": "Moscow",
+					"company": "Freelance",
+					"position": "Senior fullstack developer",
+					"location": "-",
 					"period": ["2024/03/01", null],
 					"projects": [
 						{
@@ -161,7 +161,8 @@
 								"Designed the architecture and domain model (job pipelines, presets, versions).",
 								"Set up storage and delivery via S3.",
 								"Implemented limits/quotas and billing, role-based access control.",
-								"Configured CI/CD (GitLab): Docker image builds, migrations, deployments."
+								"Configured CI/CD (GitLab): Docker image builds, migrations, deployments.",
+								"Long-term maintenance: bug fixes + uptime monitoring."
 							],
 							"technologies": [
 								"NodeJS",
@@ -182,7 +183,8 @@
 								"Designed and optimized the backend for high performance and scalability.",
 								"Aligned FE/BE business logic; supported the React team with API integration.",
 								"Integrated a payment gateway and ensured secure transaction processing.",
-								"Implemented CI/CD (GitLab) for automated production releases."
+								"Implemented CI/CD (GitLab) for automated production releases.",
+								"Long-term maintenance: bug fixes + uptime monitoring."
 							],
 							"technologies": [
 								"NodeJS",
@@ -194,7 +196,15 @@
 								"React/Vite",
 								"GitLab CI/CD"
 							]
-						},
+						}
+					]
+				},
+				{
+					"company": "Dats.Games",
+					"position": "Senior backend developer",
+					"location": "Moscow",
+					"period": ["2024/05/01", "2025/01/01"],
+					"projects": [
 						{
 							"name": "Project: Telegram MiniApp game/app with a unique crash mechanic (NDA)",
 							"description": "",
