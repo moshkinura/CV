@@ -15,7 +15,7 @@ const ExperienceSection: FC = () => {
 	const {
 		responsibility: responsibilityText,
 		technologies: technologiesText,
-		total,
+		total: { main: mainTotal, more: moreTotal },
 		main,
 		more,
 	} = t('experience', { returnObjects: true }) as TExpirience;
@@ -27,7 +27,10 @@ const ExperienceSection: FC = () => {
 		: null;
 
 	return (
-		<section className='py-20 bg-gradient-to-b from-secondary/20 to-background'>
+		<section
+			id='experience'
+			className='py-20 bg-gradient-to-b from-secondary/20 to-background'
+		>
 			<div className='container mx-auto px-4'>
 				{/* Header */}
 				<div className='text-center mb-16'>
@@ -45,26 +48,26 @@ const ExperienceSection: FC = () => {
 						<div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
 							<div className='text-center'>
 								<h3 className='text-base font-semibold text-primary mb-1'>
-									{total.title}
+									{mainTotal.title}
 								</h3>
 								<p className='text-3xl font-bold text-gradient'>
 									{totalProfessionalExperience}
 								</p>
 								<p className='text-sm text-muted-foreground mt-1'>
-									{total.description}
+									{mainTotal.description}
 								</p>
 							</div>
 
 							{totalMoreExperience && (
 								<div className='text-center'>
 									<h3 className='text-base font-semibold text-primary mb-1'>
-										Дополнительный стаж работы
+										{moreTotal.title}
 									</h3>
 									<p className='text-3xl font-bold text-gradient'>
 										{totalMoreExperience}
 									</p>
 									<p className='text-sm text-muted-foreground mt-1'>
-										дополнительного опыта
+										{moreTotal.description}
 									</p>
 								</div>
 							)}

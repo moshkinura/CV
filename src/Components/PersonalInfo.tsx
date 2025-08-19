@@ -69,7 +69,10 @@ const PersonalInfo: FC = () => {
 	];
 
 	return (
-		<section className='py-20 bg-linear-to-b from-background to-secondary/20'>
+		<section
+			id='personal'
+			className='py-20 bg-linear-to-b from-background to-secondary/20'
+		>
 			<div className='container mx-auto px-4'>
 				<div className='text-center mb-16'>
 					<h2 className='text-4xl md:text-5xl font-bold text-gradient mb-4'>

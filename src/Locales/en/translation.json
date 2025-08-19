@@ -1,22 +1,30 @@
 {
+	"nav": {
+		"brand": "Yury Moshkin",
+		"home": "Home",
+		"skills": "Skills",
+		"experience": "Experience",
+		"personal": "Personal",
+		"contacts": "Contact"
+	},
 	"bio": {
-		"fio": "Yury Alekseevich Moshkin",
+		"fio": "Yury Moshkin",
 		"position": "Senior Node.js Backend Developer",
-		"geo": "Kuzbass, Yurga (open to business trips)"
+		"geo": "KUZBASS, Yurga (business trips possible)"
 	},
 	"pay": {
-		"title": "Desired Salary",
+		"title": "Desired salary",
 		"from": "from",
 		"rub": "300000₽",
 		"usd": "$3300",
 		"eur": "€3150"
 	},
 	"contacts": {
-		"title": "Contact Me",
-		"subtitle": "Open to new opportunities or just want to chat?",
+		"title": "Contact me",
+		"subtitle": "Open to discussing opportunities or just to connect",
 		"copy": "Copy",
 		"copied": "Copied",
-		"sendEmail": "Send Email",
+		"sendEmail": "Send email",
 		"sendTelegram": "Message on Telegram",
 		"phone": {
 			"name": "Phone",
@@ -40,9 +48,9 @@
 		}
 	},
 	"skills": {
-		"title": "Technical Skills",
+		"title": "Technical skills",
 		"description": "My experience with various technologies* and frameworks*",
-		"disclamer": "* Skill ratings are approximate and subjective; actual proficiency may vary.",
+		"disclamer": "* Skill ratings are subjective and may differ from reality",
 		"categories": {
 			"language": {
 				"name": "Language",
@@ -54,17 +62,18 @@
 			"backend": {
 				"name": "Backend",
 				"data": [
-					{ "name": "Express.js", "percent": 95 },
-					{ "name": "NestJS", "percent": 90 }
+					{ "name": "Express.js", "percent": 90 },
+					{ "name": "NestJS", "percent": 95 }
 				]
 			},
 			"frontend": {
 				"name": "Frontend",
 				"data": [
-					{ "name": "React.js", "percent": 45 },
-					{ "name": "HTML5 / CSS3", "percent": 60 },
-					{ "name": "Bootstrap ≥ 5.0", "percent": 50 },
-					{ "name": "Tailwind ≥ 4.0", "percent": 30 }
+					{ "name": "React.js", "percent": 80 },
+					{ "name": "HTML5 / CSS3", "percent": 65 },
+					{ "name": "Bootstrap ≥ 5.0", "percent": 30 },
+					{ "name": "Tailwind ≥ 4.0", "percent": 50 },
+					{ "name": "React Redux", "percent": 50 }
 				]
 			},
 			"database": {
@@ -79,20 +88,21 @@
 			"devops": {
 				"name": "DevOps",
 				"data": [
-					{ "name": "Docker / Compose", "percent": 60 },
-					{ "name": "GitLab CI/CD", "percent": 35 }
+					{ "name": "Docker / Compose", "percent": 70 },
+					{ "name": "GitLab CI/CD", "percent": 50 },
+					{ "name": "K8s", "percent": 5 }
 				]
 			},
 			"tools": {
 				"name": "Tools",
 				"data": [
-					{ "name": "Git (Version Control)", "percent": 90 },
+					{ "name": "Git (Version Control Systems)", "percent": 95 },
 					{ "name": "Bash / Console", "percent": 40 }
 				]
 			},
 			"desktop": {
 				"name": "Desktop",
-				"data": [{ "name": "Electron.js", "percent": 30 }]
+				"data": [{ "name": "Electron.js", "percent": 15 }]
 			},
 			"mobile": {
 				"name": "Mobile",
@@ -104,33 +114,39 @@
 			},
 			"general": {
 				"name": "General",
-				"data": [{ "name": "Computer literacy", "percent": 95 }]
+				"data": [{ "name": "Computer proficiency", "percent": 95 }]
 			}
 		}
 	},
 	"learns": {
-		"title": "I want to study",
+		"title": "Want to learn",
 		"learn": [
-			{ "name": "k8s" },
+			{ "name": "K8s" },
 			{ "name": "RabbitMQ" },
-			{ "name": "Elasticsearch" },
-			{ "name": "Redux" },
+			{ "name": "Apache Kafka" },
 			{ "name": "gRPC" },
 			{ "name": "Protocol Buffers" },
-			{ "name": "Apache Kafka" }
+			{ "name": "n8n" }
 		]
 	},
+
 	"experience": {
 		"now": "present",
-		"responsibility": "Key Responsibilities",
-		"technologies": "Technologies Used",
+		"responsibility": "Key responsibilities",
+		"technologies": "Technologies used",
 		"total": {
-			"title": "Total Work Experience",
-			"description": "in professional software development"
+			"main": {
+				"title": "Total work experience",
+				"description": "in professional software development"
+			},
+			"more": {
+				"title": "Additional work experience",
+				"description": "additional experience"
+			}
 		},
 		"main": {
-			"title": "Primary Work Experience",
-			"subtitle": "Professional journey and achievements",
+			"title": "Primary work experience",
+			"subtitle": "Professional path and achievements",
 			"data": [
 				{
 					"company": "Dats.Games",
@@ -139,14 +155,13 @@
 					"period": ["2024/03/01", null],
 					"projects": [
 						{
-							"name": "**Project: Portal for UNITY/WEBGL games**",
-							"description": "A comprehensive gaming platform that provides seamless integration of Unity and WebGL games with advanced user management and payment processing.",
+							"name": "Project: AI Image Processing Portal (NDA)",
+							"description": "Portal for image generation, background removal and upscaling: job queues, progress tracking, billing, S3 storage.",
 							"responsibilities": [
-								"* Led a development team of 3 (2 frontend, 1 backend) as a team lead, including task allocation and development process management.",
-								"* Developed and optimized the backend to ensure high performance and scalability.",
-								"* Supported frontend developers implementing business logic in React and optimized client–server interaction.",
-								"* Integrated with a payment gateway to enable secure and reliable transactions.",
-								"* Set up CI/CD pipelines for automated production deployments, reducing time-to-market."
+								"Designed the architecture and domain model (job pipelines, presets, versions).",
+								"Set up storage and delivery via S3.",
+								"Implemented limits/quotas and billing, role-based access control.",
+								"Configured CI/CD (GitLab): Docker image builds, migrations, deployments."
 							],
 							"technologies": [
 								"NodeJS",
@@ -154,21 +169,41 @@
 								"PostgreSQL",
 								"TypeORM",
 								"Docker/Compose",
-								"Redis",
 								"S3",
 								"React/Vite",
-								"Gitlab CI/CD"
+								"GitLab CI/CD"
 							]
 						},
 						{
-							"name": "**Project: Telegram WebApp game/application (NDA)**",
+							"name": "Project: UNITY/WEBGL Games Portal (NDA)",
+							"description": "Platform for Unity/WebGL games with user management and payments.",
+							"responsibilities": [
+								"Led a team of 3 developers (2 FE, 1 BE): planning, prioritization, reviews.",
+								"Designed and optimized the backend for high performance and scalability.",
+								"Aligned FE/BE business logic; supported the React team with API integration.",
+								"Integrated a payment gateway and ensured secure transaction processing.",
+								"Implemented CI/CD (GitLab) for automated production releases."
+							],
+							"technologies": [
+								"NodeJS",
+								"NestJS",
+								"PostgreSQL",
+								"TypeORM",
+								"Docker/Compose",
+								"S3",
+								"React/Vite",
+								"GitLab CI/CD"
+							]
+						},
+						{
+							"name": "Project: Telegram MiniApp game/app with a unique crash mechanic (NDA)",
 							"description": "",
 							"responsibilities": [
-								"* Designed and developed a high-load backend to support complex gameplay scenarios and interactions in a Telegram WebApp.",
-								"* Optimized PostgreSQL performance, introduced indexing, and wrote complex queries to minimize latency.",
-								"* Set up and maintained caching with Redis to reduce load and improve app responsiveness.",
-								"* Integrated with the Telegram API.",
-								"* Implemented CI/CD pipelines in GitLab, accelerating delivery to production."
+								"Designed a high-load backend for complex gameplay scenarios in Telegram MiniApp.",
+								"Optimized PostgreSQL: indexes and complex queries.",
+								"Implemented Redis caching to reduce DB load and speed up responses.",
+								"Integrated Telegram API.",
+								"Set up CI/CD (GitLab) for fast and predictable releases."
 							],
 							"technologies": [
 								"NodeJS",
@@ -178,7 +213,7 @@
 								"Docker/Compose",
 								"Redis",
 								"Telegram API",
-								"Gitlab CI/CD"
+								"GitLab CI/CD"
 							]
 						}
 					]
@@ -190,14 +225,13 @@
 					"period": ["2022/04/04", "2024/02/04"],
 					"projects": [
 						{
-							"name": "**Project: CRM for a website builder**",
+							"name": "Project: CRM for a website builder",
 							"description": "",
 							"responsibilities": [
-								"* Developed and integrated new modules to extend CRM capabilities.",
-								"* Identified and fixed bugs, improving system stability.",
-								"* Integrated with Kubernetes to ensure scalability and container management.",
-								"* Wrote tests with Jest to increase code reliability.",
-								"* Optimized legacy code for performance and maintainability."
+								"Developed and integrated new CRM modules.",
+								"Diagnosed and fixed bugs, improved system stability.",
+								"Wrote unit tests with Jest to increase reliability.",
+								"Refactored legacy code and optimized performance."
 							],
 							"technologies": [
 								"NodeJS",
@@ -210,14 +244,14 @@
 							]
 						},
 						{
-							"name": "**Project: App for manual and automated API testing (Postman‑like)**",
+							"name": "Project: Tool for manual and automated API testing (Postman-like)",
 							"description": "",
 							"responsibilities": [
-								"* Designed the database structure for optimal app performance.",
-								"* Developed APIs to enable interaction between system components.",
-								"* Worked with a microservices architecture to improve flexibility and scalability.",
-								"* Set up CI/CD processes for automated build and deployment.",
-								"* Detected and fixed bugs to improve product quality."
+								"Designed the data model and database structure.",
+								"Implemented APIs for interaction between system components.",
+								"Worked with microservices architecture for flexibility and scalability.",
+								"Set up CI/CD for automated build and deployment.",
+								"Fixed defects and improved product quality."
 							],
 							"technologies": [
 								"NodeJS",
@@ -228,32 +262,7 @@
 								"Docker/Compose",
 								"Redis",
 								"Kafka",
-								"Gitlab CI/CD"
-							]
-						}
-					]
-				},
-				{
-					"company": "Auto‑Moto spare parts store",
-					"position": "Full‑stack developer",
-					"location": "Moscow",
-					"period": ["2013/02/01", "2022/04/01"],
-					"projects": [
-						{
-							"name": "**Project: Online store**",
-							"description": "",
-							"responsibilities": [
-								"* Developed and maintained the website.",
-								"* Built internal tools for business operations."
-							],
-							"technologies": [
-								"HTML5 / CSS3",
-								"PHP",
-								"Bootstrap",
-								"Nginx",
-								"NodeJS",
-								"ExpressJS",
-								"PostgreSQL"
+								"GitLab CI/CD"
 							]
 						}
 					]
@@ -261,111 +270,195 @@
 			]
 		},
 		"more": {
-			"name": "Additional Work Experience",
+			"title": "Additional work experience",
 			"subtitle": "Additional experience and achievements",
 			"data": [
 				{
-					"company": "Tattoo studio ‘sTATUS’",
+					"company": "Auto-Moto Spare Parts Store",
+					"position": "Fullstack Developer",
+					"location": "Moscow",
+					"period": ["2013/02/01", "2022/04/01"],
+					"projects": [
+						{
+							"name": "Project: Online store",
+							"description": "E-commerce site and internal services to automate operations (catalog, orders, inventory).",
+							"responsibilities": [
+								"Developed and maintained the company website.",
+								"Built internal tools for operational activities."
+							],
+							"technologies": [
+								"HTML5/CSS3",
+								"PHP",
+								"Bootstrap",
+								"Nginx",
+								"Node.js",
+								"Express",
+								"PostgreSQL"
+							]
+						}
+					]
+				},
+				{
+					"company": "Tattoo Studio “sTATUS”",
 					"position": "System Administrator",
-					"city": "Yurga",
+					"location": "Yurga",
 					"period": ["2020/09/01", "2022/04/01"],
-					"details": "Provided technical maintenance and support for 5+ computers."
+					"projects": [
+						{
+							"name": "IT infrastructure support",
+							"description": "Small office support: 5+ workstations and peripherals, basic network, backups.",
+							"responsibilities": [
+								"Serviced and diagnosed workstations and peripherals.",
+								"Basic network and software setup, updates and antivirus.",
+								"Backups and hardware inventory."
+							],
+							"technologies": [
+								"OS & office software",
+								"Peripherals",
+								"Backup",
+								"LAN (basic)"
+							]
+						}
+					]
 				},
 				{
+					"company": "Taxi “Funtik/Casper”",
 					"position": "System Administrator",
-					"company": "Taxi ‘Funtik/Casper’",
-					"city": "Yurga",
+					"location": "Yurga",
 					"period": ["2020/11/01", "2022/04/01"],
-					"details": "Maintained and supported two computers."
+					"projects": [
+						{
+							"name": "Workstation support",
+							"description": "Support for 2 workstations: network/software, peripherals, basic security.",
+							"responsibilities": [
+								"Configured and maintained PCs and peripherals.",
+								"Basic network configuration and software updates."
+							],
+							"technologies": [
+								"OS & office software",
+								"Peripherals",
+								"LAN (basic)"
+							]
+						}
+					]
 				},
 				{
-					"position": "Business Owner (auto parts store / Yandex.Taxi franchise)",
 					"company": "Sole Proprietor",
-					"city": "Yurga",
+					"position": "Business owner (auto parts store / Yandex.Taxi franchise)",
+					"location": "Yurga",
 					"period": ["2016/08/26", "2019/05/15"],
-					"details": "Built and grew a business from scratch to successful operation. Gained experience in accounting and business management, and learned key aspects of Russian tax and labor law."
+					"projects": [
+						{
+							"name": "Operations management",
+							"description": "Launched and grew the business to sale: finance, procurement, operations.",
+							"responsibilities": [
+								"Organized sales and operations, maintained basic accounting.",
+								"Worked with suppliers and contracts, managed inventory."
+							],
+							"technologies": [
+								"Operations management",
+								"Accounting & procurement",
+								"Contract work"
+							]
+						}
+					]
 				},
 				{
-					"position": "Sales Department Manager",
-					"company": "Goodline (LLC ‘E‑Light‑Telecom’)",
-					"city": "Yurga",
+					"company": "Goodline (LLC “E-Light-Telecom”)",
+					"position": "Sales Manager",
+					"location": "Yurga",
 					"period": ["2015/05/01", "2015/08/01"],
-					"details": "Gained sales experience with a network provider’s products, including internet services, cable TV, and set‑top boxes. Trained in cold‑calling techniques."
+					"projects": [
+						{
+							"name": "Telecom services sales",
+							"description": "B2C sales of ISP services (internet, TV); trained in cold-calling techniques.",
+							"responsibilities": [
+								"Consulted customers and arranged connections.",
+								"Met sales targets; conducted cold outreach."
+							],
+							"technologies": ["CRM", "Sales scripts", "Cold outreach"]
+						}
+					]
 				}
 			]
 		}
 	},
+
 	"personals": {
-		"title": "Personal Information",
+		"title": "Personal information",
 		"description": "Professional details and preferences",
 		"personal": {
-			"title": "Personal Data",
+			"title": "Personal data",
 			"data": {
 				"nationality": { "name": "Citizenship", "value": "Russian Federation" },
 				"education": { "name": "Education", "value": "Secondary" },
-				"birthday": { "name": "Date of Birth", "value": "1997/02/25" },
+				"birthday": { "name": "Date of birth", "value": "1997/02/25" },
 				"gender": { "name": "Gender", "value": "Male" },
-				"marital": { "name": "Marital Status", "value": "Civil partnership" }
+				"marital": { "name": "Marital status", "value": "Civil partnership" }
 			}
 		},
 		"details": {
-			"title": "Additional Information",
+			"title": "Additional information",
 			"driver": {
-				"name": "Driver’s License",
-				"value": "Training for Category ‘B’."
+				"name": "Driver’s license",
+				"value": "Category B — in progress."
 			},
 			"hobbies": {
-				"name": "Hobbies & Interests",
-				"value": "I read professional literature and build several pet projects from scratch. I also develop in different areas, which keeps me motivated to learn and improve."
+				"name": "Hobbies & interests",
+				"value": "Read professional literature, run several pet projects from scratch (NestJS, React, Kubernetes). Constantly expanding the stack and improving skills."
 			},
 			"qualities": {
-				"name": "Personal Qualities",
+				"name": "Personal qualities",
 				"value": [
-					"Ambition",
+					"Ambitious",
 					"Communicative",
-					"Polite",
+					"Tactful",
 					"Willing to help",
-					"Open‑minded",
+					"Open to feedback",
 					"Team player",
-					"Stress‑resilient",
-					"Committed to self‑development"
+					"Stress-resistant",
+					"Continuous self-development"
 				]
 			}
 		},
 		"languages": {
 			"title": "Languages",
 			"language": [
-				{ "name": "Russian (native)", "level": "Native", "percent": 99 },
-				{ "name": "English (Basic – A1)", "level": "Basic – A1", "percent": 15 }
+				{ "name": "Russian (native)", "level": "native", "percent": 99 },
+				{ "name": "English (Basic — A1)", "level": "Basic — A1", "percent": 15 }
 			]
 		},
 		"shedules": {
-			"title": "Work Schedule",
+			"title": "Work schedule",
 			"shedule": [
-				"Shift schedule",
-				"Full‑time",
-				"Part‑time",
+				"Shift work",
+				"Full-time",
+				"Part-time",
 				"Flexible schedule",
-				"Irregular working hours"
+				"Irregular hours"
 			]
 		},
 		"employments": {
-			"title": "Employment Options",
-			"employment": ["Employment contract", "Civil contract", "Self‑employment"]
+			"title": "Employment options",
+			"employment": [
+				"Employment contract",
+				"Civil law contract",
+				"Self-employment"
+			]
 		},
 		"recommendations": {
 			"title": "References",
-			"information": "References from ‘VTEK’ are available upon formal employment.",
+			"information": "References from “VTEK” available upon official employment.",
 			"note": "Provided upon request."
 		},
 		"configure": {
-			"title": "My Computer Configuration",
+			"title": "My computer configuration",
 			"elements": [
-				{ "component": "CPU", "spec": "Intel Xeon E5‑2696" },
+				{ "component": "CPU", "spec": "Intel XEON E5-2696" },
 				{ "component": "RAM", "spec": "48GB" },
 				{
 					"component": "GPU",
-					"spec": "NVIDIA GeForce GTX 750 / AMD Radeon RX 580"
+					"spec": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
 				},
 				{ "component": "OS", "spec": "Windows 10 Enterprise LTSC" },
 				{ "component": "IDE", "spec": "Visual Studio Code (VSC), Cursor" }
@@ -373,7 +466,7 @@
 		}
 	},
 	"cta": {
-		"title": "Let’s Work Together",
-		"subtitle": "I’m always interested in new opportunities and challenging projects. Feel free to reach out if you’d like to discuss potential collaboration."
+		"title": "Let’s work together",
+		"subtitle": "I’m always interested in new opportunities and challenging projects. Feel free to reach out to discuss potential collaboration."
 	}
 }

@@ -22,10 +22,10 @@ const LanguageSwitcher: FC = () => {
 
 	return (
 		<Button
-			variant='outline'
+			variant='ghost'
 			size='sm'
 			onClick={toggleLanguage}
-			className='fixed top-6 right-6 z-50 glass-effect border-primary/20 hover:border-primary/40 transition-smooth'
+			className='border border-primary/20 hover:border-primary/40 transition-smooth'
 		>
 			<Languages className='w-4 h-4 mr-2' />
 			<span className='font-semibold'>{currentLang.toUpperCase()}</span>

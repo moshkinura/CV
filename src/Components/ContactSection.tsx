@@ -20,6 +20,7 @@ const ContactSection = () => {
 
 	return (
 		<section
+			id='contacts'
 			aria-labelledby={titleId}
 			className='py-16 md:py-20 bg-linear-to-b from-secondary/20 to-background'
 		>

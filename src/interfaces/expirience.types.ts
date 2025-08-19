@@ -3,8 +3,14 @@ export type TExpirience = {
 	responsibility: string;
 	technologies: string;
 	total: {
-		title: string;
-		description: string;
+		main: {
+			title: string;
+			description: string;
+		};
+		more: {
+			title: string;
+			description: string;
+		};
 	};
 	main: TWorkExpirience;
 	more: TWorkExpirience;

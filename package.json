@@ -20,6 +20,7 @@
 		"test:coverage": "jest --coverage"
 	},
 	"dependencies": {
+		"@tanstack/react-query": "^5.85.3",
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
 		"date-fns": "^4.1.0",

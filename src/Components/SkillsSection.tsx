@@ -76,6 +76,7 @@ const SkillsSection: FC = () => {
 
 	return (
 		<section
+			id='skills'
 			ref={sectionRef}
 			aria-labelledby={titleId}
 			className='py-16 md:py-20 bg-linear-to-b from-background to-secondary/20'
