@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ButtonHTMLAttributes, ReactNode, SVGProps } from 'react';
 
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import LanguageSwitcher from '@/Components1/LanguageSwitcher';
 import { ELanguage } from '@/interfaces/languagesI18N.interface';
 
 jest.mock('@/shared/ui/button', () => ({

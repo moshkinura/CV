@@ -9,17 +9,17 @@ import {
 	GIT_TAG,
 } from '@/shared/config';
 
-import Hero from '@/components/Hero';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
-import ContactSectionSkeleton from '@/components/skeletons/ContactSectionSkeleton';
-import ExperienceSectionSkeleton from '@/components/skeletons/ExperienceSectionSkeleton';
-import PersonalInfoSkeleton from '@/components/skeletons/PersonalInfoSkeleton';
-import SkillsSectionSkeleton from '@/components/skeletons/SkillsSectionSkeleton';
+import Hero from '@/Components1/Hero';
+import LanguageSwitcher from '@/Components1/LanguageSwitcher';
+import ContactSectionSkeleton from '@/Components1/skeletons/ContactSectionSkeleton';
+import ExperienceSectionSkeleton from '@/Components1/skeletons/ExperienceSectionSkeleton';
+import PersonalInfoSkeleton from '@/Components1/skeletons/PersonalInfoSkeleton';
+import SkillsSectionSkeleton from '@/Components1/skeletons/SkillsSectionSkeleton';
 
-const SkillsSection = lazy(() => import('@/components/SkillsSection'));
-const ExperienceSection = lazy(() => import('@/components/ExperienceSection'));
-const PersonalInfo = lazy(() => import('@/components/PersonalInfo'));
-const ContactSection = lazy(() => import('@/components/ContactSection'));
+const SkillsSection = lazy(() => import('@/Components1/SkillsSection'));
+const ExperienceSection = lazy(() => import('@/Components1/ExperienceSection'));
+const PersonalInfo = lazy(() => import('@/Components1/PersonalInfo'));
+const ContactSection = lazy(() => import('@/Components1/ContactSection'));
 
 const Index = () => {
 	return (

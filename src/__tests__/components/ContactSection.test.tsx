@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import ContactSection from '../../components/ContactSection';
+import ContactSection from '../../Components1/ContactSection';
 
 // ---- Моки i18n ----
 const contactsMock = {

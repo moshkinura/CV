@@ -5,7 +5,7 @@ import type { HTMLAttributes, ReactNode, SVGProps } from 'react';
 import { formatBirthday } from '@/shared/utils/formatBirthday.utils';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 
-import PersonalInfo from '@/components/PersonalInfo';
+import PersonalInfo from '@/Components1/PersonalInfo';
 
 // ---- Моки i18n-данных ----
 const personalsMock = {

@@ -5,7 +5,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 import { getTotalExperienceText } from '@/shared/utils/getTotalExperience.utils';
 
-import ExperienceSection from '@/components/ExperienceSection';
+import ExperienceSection from '@/Components1/ExperienceSection';
 
 // ---- Моки данных i18n ----
 const experienceMock = {

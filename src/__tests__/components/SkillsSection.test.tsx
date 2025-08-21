@@ -2,7 +2,7 @@ import '@testing-library/jest-dom';
 import { render, screen } from '@testing-library/react';
 import type { HTMLAttributes, ReactNode } from 'react';
 
-import SkillsSection from '@/components/SkillsSection';
+import SkillsSection from '@/Components1/SkillsSection';
 
 // ---- Моки i18n-данных ----
 const skillsMock = {

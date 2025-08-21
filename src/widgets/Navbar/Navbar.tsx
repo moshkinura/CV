@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/shared/ui/button';
 
-import LanguageSwitcher from '@/components/LanguageSwitcher';
+import LanguageSwitcher from '@/Components1/LanguageSwitcher';
 
 const Navbar = () => {
 	const { t } = useTranslation();

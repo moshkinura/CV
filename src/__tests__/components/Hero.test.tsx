@@ -4,7 +4,7 @@ import '@testing-library/jest-dom';
 import { render, screen, within } from '@testing-library/react';
 import type { SVGProps } from 'react';
 
-import Hero from '@/components/Hero';
+import Hero from '@/Components1/Hero';
 
 // ---- моки зависимостей (до импорта компонента!) ----
 jest.mock('@/widgets/Avatar/Avatar', () => ({
