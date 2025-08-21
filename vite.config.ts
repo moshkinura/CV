@@ -1,10 +1,15 @@
 import tailwindcss from '@tailwindcss/vite';
+import viteImagemin from '@vheemstra/vite-plugin-imagemin';
 import react from '@vitejs/plugin-react';
 import { execSync } from 'child_process';
+import imageminGifsicle from 'imagemin-gifsicle';
+import imageminMozjpeg from 'imagemin-mozjpeg';
+import imageminPngQuant from 'imagemin-pngquant';
+import imageminSvgo from 'imagemin-svgo';
+import imageminWebp from 'imagemin-webp';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
-import viteImagemin from 'vite-plugin-imagemin';
 import Inspect from 'vite-plugin-inspect';
 import tsconfigPaths from 'vite-tsconfig-paths';
 
@@ -45,33 +50,33 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 			mode === 'development' && Inspect(),
 			isProd &&
 				viteImagemin({
-					gifsicle: {
-						optimizationLevel: 3,
-						interlaced: true,
+					plugins: {
+						gif: imageminGifsicle({ optimizationLevel: 3, interlaced: true }),
+						png: imageminPngQuant({
+							strip: true,
+							speed: 3,
+							quality: [0.65, 0.9],
+						}),
+						jpg: imageminMozjpeg({
+							quality: 70,
+						}),
+						svg: imageminSvgo({ multipass: true, plugins: [] }),
+						webp: imageminWebp({ quality: 65 }),
 					},
-					optipng: {
-						optimizationLevel: 9,
-					},
-					mozjpeg: {
-						quality: 70,
-					},
-					pngquant: {
-						quality: [0.65, 0.9],
-						speed: 3,
-					},
-					svgo: {
-						multipass: true,
-						plugins: [
-							{
-								name: 'removeViewBox',
-								active: false,
-							},
-							{
-								name: 'removeEmptyAttrs',
-								active: false,
-							},
-						],
-					},
+
+					// svgo: {
+					// 	multipass: true,
+					// 	plugins: [
+					// 		{
+					// 			name: 'removeViewBox',
+					// 			active: false,
+					// 		},
+					// 		{
+					// 			name: 'removeEmptyAttrs',
+					// 			active: false,
+					// 		},
+					// 	],
+					// },
 				}),
 			...(mode === 'development'
 				? [
@@ -86,7 +91,7 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 				: []),
 		].filter(Boolean),
 		build: {
-			minify: isProd ? 'terser' : false,
+			minify: isProd ? 'esbuild' : false,
 			cssMinify: isProd ? 'lightningcss' : false,
 			chunkSizeWarningLimit: 1024,
 			assetsInlineLimit: 1024,
@@ -102,8 +107,6 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 					chunkFileNames: 'assets/[name]-[hash].js',
 					manualChunks(id) {
 						if (id.includes('node_modules')) {
-							if (id.includes('@fortawesome')) return 'fortawesome';
-
 							return 'vendor'; // Остальные библиотеки
 						}
 					},
