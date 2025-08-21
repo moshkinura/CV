@@ -1,0 +1,568 @@
+{
+	"nav": {
+		"brand": "Мошкин Юрий",
+		"home": "Главная",
+		"skills": "Навыки",
+		"experience": "Опыт",
+		"personal": "Личное",
+		"contacts": "Контакты"
+	},
+	"bio": {
+		"fio": "Мошкин Юрий Алексеевич",
+		"position": "Senior NODE.JS backend developer",
+		"geo": "КУЗБАСС, г.Юрга (возможны командировки)"
+	},
+	"pay": {
+		"title": "Желаемая зарплата:",
+		"from": "от",
+		"rub": "300000₽",
+		"usd": "$3300",
+		"eur": "€3150"
+	},
+	"contacts": {
+		"title": "Связаться со мной",
+		"subtitle": "Открыт для новых возможностей и налаживания связей",
+		"copy": "Копировать",
+		"copied": "Скопировано",
+		"sendEmail": "Отправить письмо",
+		"sendTelegram": "Написать в Telegram",
+		"phone": {
+			"name": "Телефон",
+			"value": "+7(900)100-10-10"
+		},
+		"email": {
+			"name": "Email",
+			"value": "moshkin_ura@mail.ru"
+		},
+		"telegram": {
+			"name": "Telegram",
+			"value": "bikeauto"
+		},
+		"github": {
+			"name": "GitHub",
+			"value": "moshkinura"
+		},
+		"gitlab": {
+			"name": "GitLab",
+			"value": "moshkinura"
+		}
+	},
+	"skills": {
+		"title": "Технические навыки",
+		"description": "Опыт работы со следующими технологиями* и фреймворками*",
+		"disclamer": "* - Оценка навыка, может отличаться от действительности, чисто объективно-оценочное суждение",
+		"categories": {
+			"language": {
+				"name": "Языки",
+				"data": [
+					{
+						"name": "Node (Javascript)",
+						"percent": 85
+					},
+					{
+						"name": "TypeScript",
+						"percent": 85
+					}
+				]
+			},
+			"backend": {
+				"name": "Backend",
+				"data": [
+					{
+						"name": "Express",
+						"percent": 90
+					},
+					{
+						"name": "Nest",
+						"percent": 95
+					}
+				]
+			},
+			"frontend": {
+				"name": "Frontend",
+				"data": [
+					{
+						"name": "React 18+",
+						"percent": 80
+					},
+					{
+						"name": "HTML5 / CSS3",
+						"percent": 65
+					},
+					{
+						"name": "BOOTSTRAP 5+",
+						"percent": 30
+					},
+					{ "name": "TailWind 4+", "percent": 50 },
+					{ "name": "React Redux", "percent": 50 },
+					{ "name": "React Router Dom", "percent": 70 },
+					{ "name": "Tanstack Query", "percent": 70 }
+				]
+			},
+			"database": {
+				"name": "Базы данных",
+				"data": [
+					{
+						"name": "TypeORM",
+						"percent": 85
+					},
+					{
+						"name": "PostgreSQL",
+						"percent": 90
+					},
+					{
+						"name": "MongoDB",
+						"percent": 50
+					},
+					{
+						"name": "MySQL",
+						"percent": 65
+					}
+				]
+			},
+			"devops": {
+				"name": "DevOps",
+				"data": [
+					{
+						"name": "Docker / Compose",
+						"percent": 70
+					},
+					{
+						"name": "GitLab CI/CD",
+						"percent": 50
+					},
+					{
+						"name": "Kubernetes (k8s)",
+						"percent": 5
+					}
+				]
+			},
+			"tools": {
+				"name": "Инструменты",
+				"data": [
+					{
+						"name": "GIT (Version Control Systems)",
+						"percent": 95
+					},
+					{
+						"name": "Bash / Console",
+						"percent": 40
+					}
+				]
+			},
+			"desktop": {
+				"name": "Desktop",
+				"data": [
+					{
+						"name": "Electron.JS",
+						"percent": 15
+					}
+				]
+			},
+			"mobile": {
+				"name": "Мобильная платформа",
+				"data": [
+					{
+						"name": "React Native/Expo",
+						"percent": 15
+					}
+				]
+			},
+			"testing": {
+				"name": "Тестирование",
+				"data": [
+					{
+						"name": "Jest.js",
+						"percent": 20
+					}
+				]
+			},
+			"general": {
+				"name": "Компьютерная грамотность",
+				"data": [
+					{
+						"name": "Владение компьютером",
+						"percent": 95
+					}
+				]
+			}
+		}
+	},
+	"learns": {
+		"title": "Далее хочу изучить:",
+		"learn": [
+			{ "name": "Kubernetes (k8s)" },
+			{ "name": "RabbitMQ" },
+			{ "name": "Apache Kafka" },
+			{ "name": "gRPC" },
+			{ "name": "Protocol Buffers" },
+			{ "name": "n8n" }
+		]
+	},
+
+	"experience": {
+		"now": "настоящее время",
+		"responsibility": "Основные обязанности",
+		"technologies": "Используемые технологии",
+		"total": {
+			"main": {
+				"title": "Профессиональный опыт работы:",
+				"description": ""
+			},
+			"more": {
+				"title": "Дополнительный опыт работы:",
+				"description": ""
+			}
+		},
+		"main": {
+			"title": "Основной опыт работы",
+			"subtitle": "Профессиональный путь и достижения",
+			"data": [
+				{
+					"company": "Фриланс",
+					"position": "Senior fullstack developer",
+					"location": "-",
+					"period": ["2024/03/01", null],
+					"projects": [
+						{
+							"name": "Проект: Портал обработки изображений с ИИ (NDA)",
+							"description": "Портал для генерации, удаления фона и апскейла изображений: очереди задач, прогресс выполнения, биллинг, хранение в S3.",
+							"responsibilities": [
+								"Спроектировал архитектуру и доменную модель (job-пайплайны, пресеты, версии).",
+								"Настроил хранение и выдачу через S3.",
+								"Встроил лимиты/квоты и биллинг, разграничение ролей пользователей.",
+								"Настроил CI/CD (GitLab): сборка Docker-образов, миграции, деплой.",
+								"Долгосрочная поддержка: правки и мониторинг доступности."
+							],
+							"technologies": [
+								"Node (Javascript)",
+								"Nest",
+								"PostgreSQL",
+								"TypeORM",
+								"Docker/Compose",
+								"S3",
+								"React/Vite",
+								"Gitlab CI/CD"
+							]
+						},
+						{
+							"name": "Проект: Портал для Unity/WebGL игр (NDA)",
+							"description": "Платформа для Unity/WebGL-игр с управлением пользователями и платежами.",
+							"responsibilities": [
+								"Руководил командой из 3 (2 FE, 1 BE): планирование, приоритизация, ревью.",
+								"Спроектировал и оптимизировал backend для высокой производительности и масштабируемости.",
+								"Синхронизировал бизнес-логику FE/BE, поддерживал команду React в интеграции API.",
+								"Интегрировал платёжный шлюз и настроил безопасную обработку транзакций.",
+								"Внедрил CI/CD (GitLab) для автоматизированных релизов на production.",
+								"Долгосрочная поддержка: правки и мониторинг доступности."
+							],
+							"technologies": [
+								"Node (Javascript)",
+								"Nest",
+								"PostgreSQL",
+								"TypeORM",
+								"Docker/Compose",
+								"S3",
+								"React/Vite",
+								"Gitlab CI/CD"
+							]
+						}
+					]
+				},
+
+				{
+					"company": "Dats.Games",
+					"position": "Senior backend developer",
+					"location": "г.Москва",
+					"period": ["2024/05/01", "2025/01/01"],
+					"projects": [
+						{
+							"name": "Проект: Telegram Mini App игра/приложение c уникальной краш-механикой (NDA)",
+							"description": "",
+							"responsibilities": [
+								"Спроектировал высоконагруженный backend под игровые сценарии в Telegram MiniApp.",
+								"Оптимизировал PostgreSQL: индексы и сложные запросы.",
+								"Внедрил кэширование на Redis для разгрузки БД и ускорения отклика.",
+								"Интегрировал Telegram API.",
+								"Настроил CI/CD (GitLab) для быстрых и предсказуемых релизов."
+							],
+							"technologies": [
+								"Node (Javascript)",
+								"Nest",
+								"PostgreSQL",
+								"TypeORM",
+								"Docker/Compose",
+								"Redis",
+								"Telegram API",
+								"Gitlab CI/CD"
+							]
+						}
+					]
+				},
+				{
+					"company": "Компания ITGost",
+					"position": "Middle backend developer",
+					"location": "г.Краснодар",
+					"period": ["2022/04/04", "2024/02/04"],
+					"projects": [
+						{
+							"name": "Проект: CRM для конструктора сайтов",
+							"description": "",
+							"responsibilities": [
+								"Разрабатывал и интегрировал новые модули CRM.",
+								"Искал и устранял баги, повышал стабильность системы.",
+								"Писал юнит-тесты на Jest для повышения надёжности.",
+								"Проводил рефакторинг legacy-кода и оптимизацию производительности."
+							],
+							"technologies": [
+								"Node (Javascript)",
+								"Express",
+								"PostgreSQL",
+								"Jest",
+								"Docker/Compose",
+								"Kubernetes (k8s)",
+								"Redis"
+							]
+						},
+						{
+							"name": "Проект: Приложение для ручного и автоматизированного тестирования API (аналог Postman)",
+							"description": "",
+							"responsibilities": [
+								"Спроектировал модель данных и структуру БД.",
+								"Реализовал API для взаимодействия компонентов системы.",
+								"Работал с микросервисной архитектурой для гибкости и масштабируемости.",
+								"Настроил CI/CD для автоматизации сборки и деплоя.",
+								"Устранял дефекты и повышал качество продукта."
+							],
+							"technologies": [
+								"Node (Javascript)",
+								"Nest",
+								"PostgreSQL",
+								"TypeORM",
+								"Jest",
+								"Docker/Compose",
+								"Redis",
+								"Kafka",
+								"Gitlab CI/CD"
+							]
+						}
+					]
+				}
+			]
+		},
+		"more": {
+			"title": "Дополнительный опыт работы",
+			"subtitle": "",
+			"data": [
+				{
+					"company": "Авто-Мото магазин запчастей",
+					"position": "Fullstack разработчик",
+					"location": "г.Москва",
+					"period": ["2013/02/01", "2022/04/01"],
+					"projects": [
+						{
+							"name": "Проект: Интернет-магазин",
+							"description": "E-commerce сайт и внутренние сервисы для автоматизации операций (каталог, заказы, склад).",
+							"responsibilities": [
+								"Разрабатывал и сопровождал сайт компании.",
+								"Создавал внутренние инструменты для операционной деятельности."
+							],
+							"technologies": [
+								"HTML5/CSS3",
+								"PHP",
+								"Bootstrap",
+								"Nginx",
+								"Node.js",
+								"Express",
+								"PostgreSQL"
+							]
+						}
+					]
+				},
+				{
+					"company": "Тату студия «сТАТУс»",
+					"position": "Системный администратор",
+					"location": "г. Юрга",
+					"period": ["2020/09/01", "2022/04/01"],
+					"projects": [
+						{
+							"name": "Поддержка IT-инфраструктуры",
+							"description": "Техподдержка малого офиса: 5+ рабочих станций и периферия, базовая сеть, резервные копии.",
+							"responsibilities": [
+								"Обслуживание и диагностика рабочих станций и периферии.",
+								"Базовая настройка сети и ПО, обновления и антивирус.",
+								"Резервное копирование и инвентаризация оборудования."
+							],
+							"technologies": [
+								"ОС и офисное ПО",
+								"Периферия",
+								"Backup",
+								"LAN (базовая)"
+							]
+						}
+					]
+				},
+				{
+					"company": "Такси «Фунтик/Casper»",
+					"position": "Системный администратор",
+					"location": "г. Юрга",
+					"period": ["2020/11/01", "2022/04/01"],
+					"projects": [
+						{
+							"name": "Поддержка IT-рабочих мест",
+							"description": "Обслуживание 2 рабочих станций: сеть и ПО, периферия, базовая безопасность.",
+							"responsibilities": [
+								"Настройка и поддержка ПК и периферии.",
+								"Базовая сетевая конфигурация и обновления ПО."
+							],
+							"technologies": ["ОС и офисное ПО", "Периферия", "LAN (базовая)"]
+						}
+					]
+				},
+				{
+					"company": "Индивидуальный предприниматель",
+					"position": "Владелец бизнеса (магазин автозапчастей / франшиза Yandex.Taxi)",
+					"location": "г. Юрга",
+					"period": ["2016/08/26", "2019/05/15"],
+					"projects": [
+						{
+							"name": "Операционное управление",
+							"description": "Запуск и развитие бизнеса c последующей продажей.",
+							"responsibilities": [
+								"Организовал продажи и операционку, вел базовый учёт.",
+								"Работал с поставщиками и договорами, управлял запасами."
+							],
+							"technologies": [
+								"Операционное управление",
+								"Учёт и закупки",
+								"Работа с договорами"
+							]
+						}
+					]
+				},
+				{
+					"company": "Goodline (ООО «Е-Лайт-Телеком»)",
+					"position": "Менеджер отдела продаж",
+					"location": "г. Юрга",
+					"period": ["2015/05/01", "2015/08/01"],
+					"projects": [
+						{
+							"name": "Продажи телеком-услуг",
+							"description": "B2C-продажи услуг провайдера (интернет, ТВ), в процессе был обучен техникам холодных продаж.",
+							"responsibilities": [
+								"Консультировал клиентов и оформлял подключения.",
+								"Выполнял план продаж, проводил холодные звонки."
+							],
+							"technologies": ["CRM", "Скрипты продаж", "Холодные звонки"]
+						}
+					]
+				}
+			]
+		}
+	},
+
+	"personals": {
+		"title": "Личная Информация",
+		"description": "Профессиональные детали и предпочтения",
+		"personal": {
+			"title": "Личные данные",
+			"data": {
+				"nationality": {
+					"name": "Гражданство",
+					"value": "Российская Федерация"
+				},
+				"education": {
+					"name": "Образование",
+					"value": "Среднее"
+				},
+				"birthday": {
+					"name": "Дата рождения",
+					"value": "1997/02/25"
+				},
+				"gender": {
+					"name": "Пол",
+					"value": "Мужской"
+				},
+				"marital": {
+					"name": "Семейное положение",
+					"value": "Гражданский брак"
+				}
+			}
+		},
+		"details": {
+			"title": "Дополнительная информация",
+			"driver": {
+				"name": "Водительское удостоверение:",
+				"value": "Категория B — в процессе получения."
+			},
+			"hobbies": {
+				"name": "Хобби и интересы:",
+				"value": "Читаю профессиональную литературу, веду несколько pet-проектов с нуля (Nest, React, Kubernetes). Постоянно расширяю стек и прокачиваю навыки."
+			},
+			"qualities": {
+				"name": "Личные качества:",
+				"value": [
+					"Амбициозность",
+					"Коммуникабельность",
+					"Тактичность",
+					"Готовность к взаимопомощи",
+					"Открытость обратной связи",
+					"Командная работа",
+					"Стрессоустойчивость",
+					"Стремление к постоянному обучению"
+				]
+			}
+		},
+		"languages": {
+			"title": "Языки",
+			"language": [
+				{
+					"name": "Русский",
+					"level": "родной",
+					"percent": 99
+				},
+				{
+					"name": "English",
+					"level": "Basic - A1",
+					"percent": 15
+				}
+			]
+		},
+		"shedules": {
+			"title": "График работы",
+			"shedule": [
+				"Сменный график",
+				"Полный рабочий день",
+				"Неполный рабочий день",
+				"Гибкий график",
+				"Ненормированный рабочий день"
+			]
+		},
+		"employments": {
+			"title": "Варианты трудоустройства",
+			"employment": ["Трудовой договор", "ГПД", "Самозанятость"]
+		},
+		"recommendations": {
+			"title": "Рекомендации",
+			"information": "Есть рекомендации от \"ВТЭК\", при официальном трудоустройстве.",
+			"note": "Предоставлю, по требованию."
+		},
+		"configure": {
+			"title": "Кофигурация моего компьютера",
+			"elements": [
+				{ "component": "CPU:", "spec": "Intel XEON E5-2696" },
+				{ "component": "RAM:", "spec": "48GB" },
+				{
+					"component": "GPU:",
+					"spec": "NVIDIA GeForce GTX 750 / AMD Radeon RX 580"
+				},
+				{ "component": "OS:", "spec": "Windows 10 Enterprise LTSC" },
+				{ "component": "IDE:", "spec": "Visual Studio Code (VSC), Cursor" }
+			]
+		}
+	},
+	"cta": {
+		"title": "Давайте работать вместе",
+		"subtitle": "Меня всегда интересуют новые возможности и сложные проекты. Не стесняйтесь обращаться к мне, если вы хотите обсудить потенциальное сотрудничество."
+	}
+}
