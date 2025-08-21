@@ -10,7 +10,6 @@ import {
 } from '@/shared/config';
 
 import Hero from '@/components/Hero';
-import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ContactSectionSkeleton from '@/components/skeletons/ContactSectionSkeleton';
 import ExperienceSectionSkeleton from '@/components/skeletons/ExperienceSectionSkeleton';
 import PersonalInfoSkeleton from '@/components/skeletons/PersonalInfoSkeleton';

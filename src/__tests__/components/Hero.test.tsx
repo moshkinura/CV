@@ -1,4 +1,3 @@
-// src/__tests__/components/Hero.test.tsx
 import '@testing-library/jest-dom';
 // ---- только теперь импортируем тестовые утилиты и сам компонент ----
 import { render, screen, within } from '@testing-library/react';
