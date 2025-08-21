@@ -13,7 +13,7 @@
 		"geo": "КУЗБАСС, г.Юрга (возможны командировки)"
 	},
 	"pay": {
-		"title": "Желаемая зарплата",
+		"title": "Желаемая зарплата:",
 		"from": "от",
 		"rub": "300000₽",
 		"usd": "$3300",
@@ -21,7 +21,7 @@
 	},
 	"contacts": {
 		"title": "Связаться со мной",
-		"subtitle": "Готов обсудить возможности или просто пообщаться?",
+		"subtitle": "Открыт для новых возможностей и налаживания связей",
 		"copy": "Копировать",
 		"copied": "Скопировано",
 		"sendEmail": "Отправить письмо",
@@ -49,14 +49,14 @@
 	},
 	"skills": {
 		"title": "Технические навыки",
-		"description": "Мой опыт работы с различными технологиями* и фреймворками*",
+		"description": "Опыт работы со следующими технологиями* и фреймворками*",
 		"disclamer": "* - Оценка навыка, может отличаться от действительности, чисто объективно-оценочное суждение",
 		"categories": {
 			"language": {
-				"name": "Language",
+				"name": "Языки",
 				"data": [
 					{
-						"name": "Node.JS",
+						"name": "Node (Javascript)",
 						"percent": 85
 					},
 					{
@@ -69,11 +69,11 @@
 				"name": "Backend",
 				"data": [
 					{
-						"name": "Express.JS",
+						"name": "Express",
 						"percent": 90
 					},
 					{
-						"name": "Nest.JS",
+						"name": "Nest",
 						"percent": 95
 					}
 				]
@@ -82,7 +82,7 @@
 				"name": "Frontend",
 				"data": [
 					{
-						"name": "React.JS",
+						"name": "React 18+",
 						"percent": 80
 					},
 					{
@@ -90,15 +90,17 @@
 						"percent": 65
 					},
 					{
-						"name": "BOOTSTRAP >= 5.0",
+						"name": "BOOTSTRAP 5+",
 						"percent": 30
 					},
-					{ "name": "TailWind >= 4.0", "percent": 50 },
-					{ "name": "React Redux", "percent": 50 }
+					{ "name": "TailWind 4+", "percent": 50 },
+					{ "name": "React Redux", "percent": 50 },
+					{ "name": "React Router Dom", "percent": 70 },
+					{ "name": "Tanstack Query", "percent": 70 }
 				]
 			},
 			"database": {
-				"name": "Database",
+				"name": "Базы данных",
 				"data": [
 					{
 						"name": "TypeORM",
@@ -130,13 +132,13 @@
 						"percent": 50
 					},
 					{
-						"name": "K8S",
+						"name": "Kubernetes (k8s)",
 						"percent": 5
 					}
 				]
 			},
 			"tools": {
-				"name": "Tools",
+				"name": "Инструменты",
 				"data": [
 					{
 						"name": "GIT (Version Control Systems)",
@@ -158,7 +160,7 @@
 				]
 			},
 			"mobile": {
-				"name": "Mobile",
+				"name": "Мобильная платформа",
 				"data": [
 					{
 						"name": "React Native/Expo",
@@ -167,7 +169,7 @@
 				]
 			},
 			"testing": {
-				"name": "Testing",
+				"name": "Тестирование",
 				"data": [
 					{
 						"name": "Jest.js",
@@ -176,7 +178,7 @@
 				]
 			},
 			"general": {
-				"name": "General",
+				"name": "Компьютерная грамотность",
 				"data": [
 					{
 						"name": "Владение компьютером",
@@ -187,13 +189,13 @@
 		}
 	},
 	"learns": {
-		"title": "Хочу изучить",
+		"title": "Далее хочу изучить:",
 		"learn": [
-			{ "name": "k8s" },
+			{ "name": "Kubernetes (k8s)" },
 			{ "name": "RabbitMQ" },
 			{ "name": "Apache Kafka" },
 			{ "name": "gRPC" },
-			{ "name": "protobuf" },
+			{ "name": "Protocol Buffers" },
 			{ "name": "n8n" }
 		]
 	},
@@ -204,12 +206,12 @@
 		"technologies": "Используемые технологии",
 		"total": {
 			"main": {
-				"title": "Общий стаж работы",
-				"description": "в профессиональной разработке"
+				"title": "Профессиональный опыт работы:",
+				"description": ""
 			},
 			"more": {
-				"title": "Дополнительный стаж работы",
-				"description": "дополнительного опыта"
+				"title": "Дополнительный опыт работы:",
+				"description": ""
 			}
 		},
 		"main": {
@@ -230,11 +232,11 @@
 								"Настроил хранение и выдачу через S3.",
 								"Встроил лимиты/квоты и биллинг, разграничение ролей пользователей.",
 								"Настроил CI/CD (GitLab): сборка Docker-образов, миграции, деплой.",
-								"Долгосрочная поддержка: правки + мониторинг доступности."
+								"Долгосрочная поддержка: правки и мониторинг доступности."
 							],
 							"technologies": [
-								"NodeJS",
-								"NestJS",
+								"Node (Javascript)",
+								"Nest",
 								"PostgreSQL",
 								"TypeORM",
 								"Docker/Compose",
@@ -244,19 +246,19 @@
 							]
 						},
 						{
-							"name": "Проект: Портал для UNITY/WEBGL игр (NDA)",
+							"name": "Проект: Портал для Unity/WebGL игр (NDA)",
 							"description": "Платформа для Unity/WebGL-игр с управлением пользователями и платежами.",
 							"responsibilities": [
-								"Руководил командой из 3 разработчиков (2 FE, 1 BE): планирование, приоритизация, ревью.",
+								"Руководил командой из 3 (2 FE, 1 BE): планирование, приоритизация, ревью.",
 								"Спроектировал и оптимизировал backend для высокой производительности и масштабируемости.",
 								"Синхронизировал бизнес-логику FE/BE, поддерживал команду React в интеграции API.",
 								"Интегрировал платёжный шлюз и настроил безопасную обработку транзакций.",
 								"Внедрил CI/CD (GitLab) для автоматизированных релизов на production.",
-								"Долгосрочная поддержка: правки + мониторинг доступности."
+								"Долгосрочная поддержка: правки и мониторинг доступности."
 							],
 							"technologies": [
-								"NodeJS",
-								"NestJS",
+								"Node (Javascript)",
+								"Nest",
 								"PostgreSQL",
 								"TypeORM",
 								"Docker/Compose",
@@ -275,23 +277,23 @@
 					"period": ["2024/05/01", "2025/01/01"],
 					"projects": [
 						{
-							"name": "Проект: Telegram MiniApp игра/приложение c уникальной краш-механикой (NDA)",
+							"name": "Проект: Telegram Mini App игра/приложение c уникальной краш-механикой (NDA)",
 							"description": "",
 							"responsibilities": [
 								"Спроектировал высоконагруженный backend под игровые сценарии в Telegram MiniApp.",
-								"Оптимизировал PostgreSQL: индексы, сложные запросы.",
+								"Оптимизировал PostgreSQL: индексы и сложные запросы.",
 								"Внедрил кэширование на Redis для разгрузки БД и ускорения отклика.",
 								"Интегрировал Telegram API.",
 								"Настроил CI/CD (GitLab) для быстрых и предсказуемых релизов."
 							],
 							"technologies": [
-								"NodeJS",
-								"NestJS",
+								"Node (Javascript)",
+								"Nest",
 								"PostgreSQL",
 								"TypeORM",
 								"Docker/Compose",
 								"Redis",
-								"TelegramAPI",
+								"Telegram API",
 								"Gitlab CI/CD"
 							]
 						}
@@ -313,12 +315,12 @@
 								"Проводил рефакторинг legacy-кода и оптимизацию производительности."
 							],
 							"technologies": [
-								"NodeJS",
+								"Node (Javascript)",
 								"Express",
 								"PostgreSQL",
-								"Jest.JS",
+								"Jest",
 								"Docker/Compose",
-								"k8s",
+								"Kubernetes (k8s)",
 								"Redis"
 							]
 						},
@@ -333,11 +335,11 @@
 								"Устранял дефекты и повышал качество продукта."
 							],
 							"technologies": [
-								"NodeJS",
-								"NestJS",
+								"Node (Javascript)",
+								"Nest",
 								"PostgreSQL",
 								"TypeORM",
-								"Jest.JS",
+								"Jest",
 								"Docker/Compose",
 								"Redis",
 								"Kafka",
@@ -350,7 +352,7 @@
 		},
 		"more": {
 			"title": "Дополнительный опыт работы",
-			"subtitle": "Дополнительный опыт и достижения",
+			"subtitle": "",
 			"data": [
 				{
 					"company": "Авто-Мото магазин запчастей",
@@ -425,7 +427,7 @@
 					"projects": [
 						{
 							"name": "Операционное управление",
-							"description": "Запуск и развитие бизнеса до продажи: финансы, закупки, операционные процессы.",
+							"description": "Запуск и развитие бизнеса c последующей продажей.",
 							"responsibilities": [
 								"Организовал продажи и операционку, вел базовый учёт.",
 								"Работал с поставщиками и договорами, управлял запасами."
@@ -439,19 +441,19 @@
 					]
 				},
 				{
-					"company": "Goodline (ООО \"Е-Лайт-Телеком\")",
+					"company": "Goodline (ООО «Е-Лайт-Телеком»)",
 					"position": "Менеджер отдела продаж",
 					"location": "г. Юрга",
 					"period": ["2015/05/01", "2015/08/01"],
 					"projects": [
 						{
 							"name": "Продажи телеком-услуг",
-							"description": "B2C-продажи услуг провайдера (интернет, ТВ), обучение техникам холодных продаж.",
+							"description": "B2C-продажи услуг провайдера (интернет, ТВ), в процессе был обучен техникам холодных продаж.",
 							"responsibilities": [
 								"Консультировал клиентов и оформлял подключения.",
-								"Выполнял план продаж, проводил холодные контакты."
+								"Выполнял план продаж, проводил холодные звонки."
 							],
-							"technologies": ["CRM", "Скрипты продаж", "Холодные контакты"]
+							"technologies": ["CRM", "Скрипты продаж", "Холодные звонки"]
 						}
 					]
 				}
@@ -490,15 +492,15 @@
 		"details": {
 			"title": "Дополнительная информация",
 			"driver": {
-				"name": "Водительское удостоверение",
+				"name": "Водительское удостоверение:",
 				"value": "Категория B — в процессе получения."
 			},
 			"hobbies": {
-				"name": "Хобби и интересы",
-				"value": "Читаю профессиональную литературу, веду несколько pet-проектов с нуля (NestJS, React, Kubernetes). Постоянно расширяю стек и прокачиваю навыки."
+				"name": "Хобби и интересы:",
+				"value": "Читаю профессиональную литературу, веду несколько pet-проектов с нуля (Nest, React, Kubernetes). Постоянно расширяю стек и прокачиваю навыки."
 			},
 			"qualities": {
-				"name": "Личные качества",
+				"name": "Личные качества:",
 				"value": [
 					"Амбициозность",
 					"Коммуникабельность",
@@ -507,7 +509,7 @@
 					"Открытость обратной связи",
 					"Командная работа",
 					"Стрессоустойчивость",
-					"Постоянное саморазвитие"
+					"Стремление к постоянному обучению"
 				]
 			}
 		},
@@ -515,12 +517,12 @@
 			"title": "Языки",
 			"language": [
 				{
-					"name": "Русский (родной)",
+					"name": "Русский",
 					"level": "родной",
 					"percent": 99
 				},
 				{
-					"name": "English (Basic - A1)",
+					"name": "English",
 					"level": "Basic - A1",
 					"percent": 15
 				}
@@ -548,14 +550,14 @@
 		"configure": {
 			"title": "Кофигурация моего компьютера",
 			"elements": [
-				{ "component": "CPU", "spec": "Intel XEON E5-2696" },
-				{ "component": "RAM", "spec": "48GB" },
+				{ "component": "CPU:", "spec": "Intel XEON E5-2696" },
+				{ "component": "RAM:", "spec": "48GB" },
 				{
-					"component": "GPU",
-					"spec": "NVIDIA GeForce GTX750 / AMD Radeon RX580"
+					"component": "GPU:",
+					"spec": "NVIDIA GeForce GTX 750 / AMD Radeon RX 580"
 				},
-				{ "component": "OS", "spec": "Windows 10 Enterprise LTSC" },
-				{ "component": "IDE", "spec": "Visual Studio Code (VSC), Cursor" }
+				{ "component": "OS:", "spec": "Windows 10 Enterprise LTSC" },
+				{ "component": "IDE:", "spec": "Visual Studio Code (VSC), Cursor" }
 			]
 		}
 	},
