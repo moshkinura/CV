@@ -1,5 +1,4 @@
 export type TEmployments = {
-	name: string;
+	title: string;
 	employment: string[];
-	information: string;
 };

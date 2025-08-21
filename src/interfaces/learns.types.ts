@@ -1,5 +1,5 @@
 export type TLearns = {
-	name: string;
+	title: string;
 	learn: TLearn[];
 };
 

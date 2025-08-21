@@ -1,9 +1,15 @@
+import { TNameAndValue } from './NameAndValue.types';
+
 export type TContacts = {
-	name: string;
-	tel: string;
-	email: string;
-	vk: string;
-	tg: string;
-	github: string;
-	gitlab: string;
+	title: string;
+	subtitle: string;
+	copy: string;
+	copied: string;
+	sendEmail: string;
+	sendTelegram: string;
+	phone: TNameAndValue;
+	email: TNameAndValue;
+	telegram: TNameAndValue;
+	github: TNameAndValue;
+	gitlab: TNameAndValue;
 };

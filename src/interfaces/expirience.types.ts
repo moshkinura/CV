@@ -1,26 +1,41 @@
 export type TExpirience = {
+	now: string;
+	responsibility: string;
+	technologies: string;
+	total: {
+		main: {
+			title: string;
+			description: string;
+		};
+		more: {
+			title: string;
+			description: string;
+		};
+	};
 	main: TWorkExpirience;
 	more: TWorkExpirience;
 };
 
 export type TWorkExpirience = {
-	name: string;
+	title: string;
+	subtitle: string;
 	data: TWorkExpirienceData[];
 };
 
 export type TWorkExpirienceData = {
-	position: string;
 	company: string;
-	city: string;
+	position: string;
+	location: string;
 	period: [
 		`${string}/${string}/${string}`,
 		`${string}/${string}/${string}` | null,
 	];
-	details: TWorkExpirienceProject[] | string;
+	projects: TWorkExpirienceProject[];
 };
 
 export type TWorkExpirienceProject = {
-	project: string;
-	worked?: string[];
-	stacks?: string[];
+	name: string;
+	description: string;
+	responsibilities?: string[];
+	technologies?: string[];
 };

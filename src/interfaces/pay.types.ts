@@ -1,5 +1,5 @@
 export type TPay = {
-	name: string;
+	title: string;
 	from: string;
 	rub: string;
 	usd: string;

@@ -1,4 +1,4 @@
 export type TShedules = {
-	name: string;
+	title: string;
 	shedule: string[];
 };
