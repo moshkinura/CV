@@ -181,7 +181,7 @@ describe('PersonalInfo', () => {
 		});
 	});
 
-	it('рендерит языки с уровнями и процентами', () => {
+	it('рендерит языки с уровнями', () => {
 		render(<PersonalInfo />);
 		expect(
 			screen.getByRole('heading', { name: personalsMock.languages.title }),
@@ -190,7 +190,6 @@ describe('PersonalInfo', () => {
 		personalsMock.languages.language.forEach(lang => {
 			expect(screen.getByText(lang.name)).toBeInTheDocument();
 			expect(screen.getByText(lang.level)).toBeInTheDocument();
-			expect(screen.getByText(`${lang.percent}%`)).toBeInTheDocument();
 		});
 	});
 

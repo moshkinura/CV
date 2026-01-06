@@ -24,7 +24,7 @@ const SkillBar: FC<Props> = ({ skill, isVisible }) => {
 		if (percent >= 40) return 'bg-warning';
 		return 'bg-destructive';
 	};
-	console.log(skill.name, skill.percent, typeof skill.percent);
+
 	return (
 		<div className='space-y-2'>
 			<div className='flex justify-between items-center'>

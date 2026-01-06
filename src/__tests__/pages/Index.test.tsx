@@ -3,14 +3,24 @@ import { render, screen } from '@testing-library/react';
 
 import Index from '@/pages/Index';
 
-jest.mock('@/components/LanguageSwitcher', () => ({
+jest.mock('@/shared/config', () => ({
 	__esModule: true,
-	default: () => <div data-testid='LanguageSwitcher' />,
+	GIT_COMMIT_DATE: '',
+	GIT_COMMIT_HASH: '',
+	GIT_COMMIT_HASH_FULL: '',
+	GIT_TAG: '',
 }));
+
+jest.mock('@/widgets/Navbar/Navbar', () => ({
+	__esModule: true,
+	default: () => <div data-testid='Navbar' />,
+}));
+
 jest.mock('@/components/Hero', () => ({
 	__esModule: true,
 	default: () => <div data-testid='Hero' />,
 }));
+
 jest.mock('@/components/SkillsSection', () => ({
 	__esModule: true,
 	default: () => <div data-testid='SkillsSection' />,
@@ -29,13 +39,13 @@ jest.mock('@/components/ContactSection', () => ({
 }));
 
 describe('Index (lazy sections + Suspense)', () => {
-	it('рендерит LanguageSwitcher и Hero сразу, а секции появляются (lazy) позже', async () => {
+	it('рендерит Navbar и Hero сразу, а секции появляются (lazy) позже', async () => {
 		const { container } = render(<Index />);
 
 		const root = container.querySelector('div.min-h-screen');
 		expect(root).toBeInTheDocument();
 
-		expect(screen.getByTestId('LanguageSwitcher')).toBeInTheDocument();
+		expect(screen.getByTestId('Navbar')).toBeInTheDocument();
 		expect(screen.getByTestId('Hero')).toBeInTheDocument();
 
 		expect(await screen.findByTestId('SkillsSection')).toBeInTheDocument();
@@ -44,7 +54,7 @@ describe('Index (lazy sections + Suspense)', () => {
 		expect(await screen.findByTestId('ContactSection')).toBeInTheDocument();
 
 		const ids = [
-			'LanguageSwitcher',
+			'Navbar',
 			'Hero',
 			'SkillsSection',
 			'ExperienceSection',
