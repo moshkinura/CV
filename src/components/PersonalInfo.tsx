@@ -162,15 +162,6 @@ const PersonalInfo: FC = () => {
 										<span className='font-medium mr-2'>{lang.name}</span>
 										<Badge variant='outline'>{lang.level}</Badge>
 									</div>
-									{/* <div className='h-2 bg-secondary rounded-full overflow-hidden'>
-										<div
-											className='h-full bg-primary transition-all duration-1000 ease-out'
-											style={{ width: `${lang.percent}%` }}
-										/>
-									</div>
-									<div className='text-right text-sm text-muted-foreground'>
-										{lang.percent}%
-									</div> */}
 								</div>
 							))}
 						</div>

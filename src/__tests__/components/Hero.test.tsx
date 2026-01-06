@@ -1,11 +1,19 @@
 import '@testing-library/jest-dom';
-// ---- только теперь импортируем тестовые утилиты и сам компонент ----
 import { render, screen, within } from '@testing-library/react';
 import type { SVGProps } from 'react';
 
 import Hero from '@/components/Hero';
 
-// ---- моки зависимостей (до импорта компонента!) ----
+// ---- моки зависимостей ----
+jest.mock('@/shared/hooks/useFxRates', () => ({
+	__esModule: true,
+	useFxRates: () => ({
+		data: null,
+		isLoading: false,
+		isFetching: false,
+	}),
+}));
+
 jest.mock('@/widgets/Avatar/Avatar', () => ({
 	__esModule: true,
 	default: () => <div data-testid='Avatar' />,
@@ -38,6 +46,7 @@ const bioMock = {
 	position: 'Senior NODE.JS backend developer',
 	geo: 'КУЗБАСС, г.Юрга (возможны командировки)',
 };
+
 const payMock = {
 	title: 'Ожидания по зарплате',
 	from: 'от',
@@ -53,6 +62,7 @@ jest.mock('react-i18next', () => ({
 			if (key === 'pay' && opts?.returnObjects) return payMock;
 			return key;
 		},
+		i18n: { resolvedLanguage: 'ru-RU' },
 	}),
 }));
 
@@ -71,7 +81,7 @@ describe('Hero', () => {
 		expect(section).toBeInTheDocument();
 		expect(section).toHaveClass('min-h-[100svh]');
 
-		// аватар (мок)
+		// аватар
 		expect(screen.getByTestId('Avatar')).toBeInTheDocument();
 
 		// заголовок и должность
@@ -82,7 +92,7 @@ describe('Hero', () => {
 			bioMock.position,
 		);
 
-		// локация с иконкой
+		// локация + иконка
 		expect(screen.getByTestId('icon-MapPin')).toBeInTheDocument();
 		expect(screen.getByText(bioMock.geo)).toBeInTheDocument();
 
@@ -91,7 +101,7 @@ describe('Hero', () => {
 		const salaryCard = salaryTitle.closest('div')!;
 		expect(salaryCard).toBeInTheDocument();
 
-		// одна строка с тремя валютами — матчим по подстроке с нормализацией
+		// матчим по подстроке (с учётом nbsp и форматирования Intl)
 		const hasText = (needle: string) =>
 			within(salaryCard).getByText(content =>
 				normalize(content).includes(normalize(needle)),
@@ -105,7 +115,7 @@ describe('Hero', () => {
 		expect(screen.getByTestId('Contacts-short')).toBeInTheDocument();
 	});
 
-	it('уважает prefers-reduced-motion: содержит motion-reduce классы', () => {
+	it('содержит motion-reduce классы', () => {
 		const { container } = render(<Hero />);
 		const animatedBlocks = container.querySelectorAll(
 			'.motion-reduce\\:animate-none',

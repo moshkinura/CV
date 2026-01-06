@@ -20,9 +20,15 @@ import { TSkills } from '@/interfaces/skills.types';
 
 const SkillsSection: FC = () => {
 	const { t } = useTranslation();
-	const [isVisible, setIsVisible] = useState(false);
 	const sectionRef = useRef<HTMLElement>(null);
 	const titleId = useId();
+
+	const [isVisible, setIsVisible] = useState(() => {
+		if (typeof window === 'undefined') return false;
+		return (
+			window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+		);
+	});
 
 	const skills = useMemo(
 		() => t('skills', { returnObjects: true }) as TSkills,
@@ -39,28 +45,41 @@ const SkillsSection: FC = () => {
 	);
 
 	useEffect(() => {
-		const reduce =
-			typeof window !== 'undefined' &&
-			window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
-		if (reduce) {
-			setIsVisible(true);
+		if (isVisible) return;
+		if (typeof window === 'undefined') return;
+
+		const show = () => requestAnimationFrame(() => setIsVisible(true));
+
+		// prefers-reduced-motion — сразу показываем, но асинхронно
+		if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) {
+			show();
+			return;
+		}
+
+		// fallback, если нет IO
+		if (!('IntersectionObserver' in window)) {
+			show();
+			return;
+		}
+
+		const node = sectionRef.current;
+		if (!node) {
+			show();
 			return;
 		}
 
 		const observer = new IntersectionObserver(
 			([entry]) => {
-				if (entry.isIntersecting) setIsVisible(true);
+				if (!entry.isIntersecting) return;
+				setIsVisible(true);
+				observer.disconnect();
 			},
-			{ threshold: 0.3, rootMargin: '0px 0px -20% 0px' },
+			{ threshold: 0.15, rootMargin: '0px 0px -10% 0px' },
 		);
 
-		const node = sectionRef.current;
-		if (node) observer.observe(node);
-
-		return () => {
-			observer.disconnect();
-		};
-	}, []);
+		observer.observe(node);
+		return () => observer.disconnect();
+	}, [isVisible]);
 
 	const renderSkill = useCallback(
 		(category: string, index: number) => (

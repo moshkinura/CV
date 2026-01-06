@@ -12,14 +12,21 @@ const experienceMock = {
 	responsibility: 'Обязанности',
 	technologies: 'Технологии',
 	total: {
-		title: 'Итого опыт',
-		description: 'Суммарный опыт за всё время',
+		main: {
+			title: 'Итого (проф.)',
+			description: 'Суммарный опыт (проф.)',
+		},
+		more: {
+			title: 'Итого (доп.)',
+			description: 'Суммарный опыт (доп.)',
+		},
 	},
 	main: {
 		title: 'Опыт работы',
 		subtitle: 'Коротко о главном',
 		data: [{ id: 1 }, { id: 2 }],
 	},
+	more: undefined,
 };
 
 // ---- Мок i18next ----
@@ -70,6 +77,13 @@ jest.mock('@/shared/ui/card', () => ({
 	),
 }));
 
+jest.mock('@/shared/ui/separator', () => ({
+	__esModule: true,
+	Separator: (props: HTMLAttributes<HTMLDivElement>) => (
+		<div data-testid='separator' {...props} />
+	),
+}));
+
 describe('ExperienceSection', () => {
 	it('рендерит заголовок и подзаголовок', () => {
 		render(<ExperienceSection />);
@@ -79,12 +93,14 @@ describe('ExperienceSection', () => {
 		expect(screen.getByText(experienceMock.main.subtitle)).toBeInTheDocument();
 	});
 
-	it('показывает суммарный опыт и вызывает утилиты с корректными аргументами', () => {
+	it('показывает суммарный опыт (main.total) и вызывает утилиты с корректными аргументами', () => {
 		render(<ExperienceSection />);
 
-		expect(screen.getByText(experienceMock.total.title)).toBeInTheDocument();
 		expect(
-			screen.getByText(experienceMock.total.description),
+			screen.getByText(experienceMock.total.main.title),
+		).toBeInTheDocument();
+		expect(
+			screen.getByText(experienceMock.total.main.description),
 		).toBeInTheDocument();
 
 		expect(screen.getByText('5 лет 3 месяца')).toBeInTheDocument();
@@ -115,5 +131,10 @@ describe('ExperienceSection', () => {
 			expect(c).toHaveAttribute('data-resp', experienceMock.responsibility);
 			expect(c).toHaveAttribute('data-tech', experienceMock.technologies);
 		});
+	});
+
+	it('не рендерит блок more, если more отсутствует', () => {
+		render(<ExperienceSection />);
+		expect(screen.queryByTestId('separator')).not.toBeInTheDocument();
 	});
 });
