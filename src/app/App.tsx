@@ -5,11 +5,13 @@ import Index from '@/pages/Index';
 import NotFound from '@/pages/NotFound';
 
 export const App: FC = () => {
+	const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 	return (
 		<>
-			<BrowserRouter>
+			<BrowserRouter basename={basename || undefined}>
 				<Routes>
-					<Route path='/CV' element={<Index />} />
+					<Route path='/' element={<Index />} />
 					{/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
 					<Route path='*' element={<NotFound />} />
 				</Routes>
