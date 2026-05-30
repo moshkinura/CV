@@ -1,0 +1,1 @@
+import{d as e,f as t}from"./vendor-CZNdx62C.js";var n=n=>{let r=n.toLowerCase();return r.startsWith(`ru`)?e:r.startsWith(`en`)?t:e};export{n as t};
