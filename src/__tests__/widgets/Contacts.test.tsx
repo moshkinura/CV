@@ -10,15 +10,17 @@ import type {
 
 import Contacts from '@/widgets/Contacts/Contacts';
 
-// ---- Моки i18n ----
+const phoneValue = '+79991110011';
+const emailValue = 'dev@example.com';
+
 const contactsMock = {
 	title: 'Contacts',
 	subtitle: 'Ping me anytime',
 	copy: 'Copy',
 	sendEmail: 'Send Email',
 	sendTelegram: 'Send Telegram',
-	phone: { name: 'Phone', value: '+79001001010' },
-	email: { name: 'Email', value: 'dev@example.com' },
+	phone: { name: 'Phone', encoded: btoa(phoneValue) },
+	email: { name: 'Email', encoded: btoa(emailValue) },
 	telegram: { name: 'Telegram', value: 'yura_dev' },
 	github: { name: 'GitHub', value: 'yura-dev' },
 	gitlab: { name: 'GitLab', value: 'yura-dev' },
@@ -91,33 +93,22 @@ beforeEach(() => {
 });
 
 describe('Contacts (variant="short")', () => {
-	it('рендерит 5 ссылок с корректными href', () => {
+	it('рендерит protected контакты кнопками и social ссылками', () => {
 		render(<Contacts variant='short' />);
 
-		const phoneLink = screen.getByRole('link', {
-			name: `${contactsMock.phone.name}: ${contactsMock.phone.value}`,
-		});
-		const emailLink = screen.getByRole('link', {
-			name: `${contactsMock.email.name}: ${contactsMock.email.value}`,
-		});
-		const tgLink = screen.getByRole('link', {
-			name: `${contactsMock.telegram.name}: @${contactsMock.telegram.value}`,
-		});
-		const ghLink = screen.getByRole('link', {
-			name: `${contactsMock.github.name}: @${contactsMock.github.value}`,
-		});
-		const glLink = screen.getByRole('link', {
-			name: `${contactsMock.gitlab.name}: @${contactsMock.gitlab.value}`,
-		});
+		expect(
+			screen.getByRole('button', { name: contactsMock.phone.name }),
+		).toBeInTheDocument();
+		expect(
+			screen.getByRole('button', { name: contactsMock.email.name }),
+		).toBeInTheDocument();
 
-		expect(phoneLink).toHaveAttribute(
-			'href',
-			`tel:${contactsMock.phone.value}`,
-		);
-		expect(emailLink).toHaveAttribute(
-			'href',
-			`mailto:${contactsMock.email.value}`,
-		);
+		const tgLink = screen.getByRole('link', {
+			name: contactsMock.telegram.name,
+		});
+		const ghLink = screen.getByRole('link', { name: contactsMock.github.name });
+		const glLink = screen.getByRole('link', { name: contactsMock.gitlab.name });
+
 		expect(tgLink).toHaveAttribute(
 			'href',
 			`https://t.me/${contactsMock.telegram.value}`,
@@ -148,7 +139,7 @@ describe('Contacts (variant="card")', () => {
 		) as HTMLElement;
 
 		const copyBtn = within(phoneCard).getByRole('button', {
-			name: `Copy ${contactsMock.phone.name}: ${contactsMock.phone.value}`,
+			name: `Copy ${contactsMock.phone.name}`,
 		});
 		await user.click(copyBtn);
 
@@ -163,7 +154,7 @@ describe('Contacts (variant="card")', () => {
 		});
 		expect(
 			within(phoneCard).getByRole('button', {
-				name: `Copy ${contactsMock.phone.name}: ${contactsMock.phone.value}`,
+				name: `Copy ${contactsMock.phone.name}`,
 			}),
 		).toBeInTheDocument();
 
@@ -187,7 +178,7 @@ describe('Contacts (variant="card")', () => {
 		expect(socialLink).toHaveAttribute('rel', 'noopener noreferrer');
 	});
 
-	it('внешняя ссылка у phone/email НЕ открывается в новой вкладке', () => {
+	it('phone/email открываются кнопкой без mailto/tel в href', () => {
 		render(<Contacts variant='card' />);
 
 		const emailHeading = screen.getByRole('heading', {
@@ -197,24 +188,23 @@ describe('Contacts (variant="card")', () => {
 			'[data-testid="card"]',
 		) as HTMLElement;
 
-		const link = within(emailCard).getByRole('link');
-		expect(link).toHaveAttribute('href', `mailto:${contactsMock.email.value}`);
-		expect(link.getAttribute('target')).toBeNull();
-		expect(link.getAttribute('rel')).toBeNull();
+		const openBtn = within(emailCard).getByRole('button', {
+			name: `Open ${contactsMock.email.name}`,
+		});
+		expect(openBtn).not.toHaveAttribute('href');
 	});
 });
 
 describe('Contacts (variant="cta")', () => {
-	it('рендерит CTA-кнопки Email и Telegram с корректными ссылками', () => {
+	it('рендерит CTA Email кнопкой и Telegram ссылкой', () => {
 		render(<Contacts variant='cta' />);
 
-		const emailCta = screen.getByRole('link', { name: contactsMock.sendEmail });
+		const emailCta = screen.getByRole('button', {
+			name: contactsMock.sendEmail,
+		});
 		const tgCta = screen.getByRole('link', { name: contactsMock.sendTelegram });
 
-		expect(emailCta).toHaveAttribute(
-			'href',
-			`mailto:${contactsMock.email.value}`,
-		);
+		expect(emailCta).not.toHaveAttribute('href');
 		expect(tgCta).toHaveAttribute(
 			'href',
 			`https://t.me/${contactsMock.telegram.value}`,

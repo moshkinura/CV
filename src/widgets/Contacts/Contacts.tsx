@@ -13,16 +13,23 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
+import {
+	decodeContact,
+	openEmail,
+	openPhone,
+} from '@/shared/utils/decodeContact.utils';
 
+import ProtectedContactText from './ProtectedContactText';
 import { TContacts } from '@/interfaces/contacts.types';
 
 interface Contact {
 	icon: React.ElementType;
 	label: string;
 	value: string;
-	href: string;
 	type: 'phone' | 'email' | 'social';
 	copyable?: boolean;
+	protected?: boolean;
+	href?: string;
 }
 
 interface Props {
@@ -35,26 +42,35 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 
 	const [copied, setCopied] = useState(false);
 
+	const phoneValue = useMemo(
+		() => decodeContact(contacts?.phone?.encoded ?? ''),
+		[contacts?.phone?.encoded],
+	);
+	const emailValue = useMemo(
+		() => decodeContact(contacts?.email?.encoded ?? ''),
+		[contacts?.email?.encoded],
+	);
+
 	const contactItems: Contact[] = useMemo(() => {
 		const items: (Contact | null)[] = [
-			contacts?.phone?.value
+			phoneValue
 				? {
 						icon: Phone,
 						label: contacts?.phone?.name ?? 'Phone',
-						value: contacts?.phone?.value ?? '',
-						href: `tel:${contacts?.phone?.value}`,
+						value: phoneValue,
 						type: 'phone',
 						copyable: true,
+						protected: true,
 					}
 				: null,
-			contacts?.email?.value
+			emailValue
 				? {
 						icon: Mail,
 						label: contacts?.email?.name ?? 'Email',
-						value: contacts?.email?.value ?? '',
-						href: `mailto:${contacts?.email?.value}`,
+						value: emailValue,
 						type: 'email',
 						copyable: true,
+						protected: true,
 					}
 				: null,
 			contacts?.telegram?.value
@@ -86,15 +102,14 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 		];
 
-		return items.filter((x): x is Contact => Boolean(x?.href));
-	}, [contacts]);
+		return items.filter((x): x is Contact => Boolean(x));
+	}, [contacts, emailValue, phoneValue]);
 
 	const handleCopy = useCallback(async (text: string) => {
 		try {
 			if (navigator.clipboard?.writeText) {
 				await navigator.clipboard.writeText(text);
 			} else {
-				// Fallback для небезопасных контекстов / старых браузеров
 				const ta = document.createElement('textarea');
 				ta.value = text;
 				ta.setAttribute('readonly', '');
@@ -112,6 +127,17 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 		}
 	}, []);
 
+	const handleOpen = useCallback((contact: Contact) => {
+		if (contact.type === 'phone') {
+			openPhone(contact.value);
+			return;
+		}
+
+		if (contact.type === 'email') {
+			openEmail(contact.value);
+		}
+	}, []);
+
 	const getContactColor = useCallback((type: Contact['type']) => {
 		switch (type) {
 			case 'phone':
@@ -125,14 +151,37 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 		}
 	}, []);
 
+	const getContactKey = useCallback(
+		(contact: Contact) => contact.href ?? `${contact.type}-${contact.label}`,
+		[],
+	);
+
 	if (variant === 'short') {
 		return (
 			<div className='flex w-full flex-wrap justify-center gap-2'>
 				{contactItems.map(contact => {
 					const Icon = contact.icon;
+
+					if (contact.protected) {
+						return (
+							<Button
+								key={getContactKey(contact)}
+								variant='outline'
+								size='lg'
+								type='button'
+								onClick={() => handleOpen(contact)}
+								className='w-full sm:w-auto transition-bounce hover:shadow-glow'
+								aria-label={contact.label}
+							>
+								<Icon className='h-5 w-5 shrink-0' aria-hidden='true' />
+								<span className='truncate'>{contact.label}</span>
+							</Button>
+						);
+					}
+
 					return (
 						<Button
-							key={contact.href}
+							key={getContactKey(contact)}
 							variant='outline'
 							size='lg'
 							asChild
@@ -141,11 +190,9 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 							<a
 								href={contact.href}
 								className='flex min-w-0 items-center justify-center gap-2'
-								aria-label={`${contact.label}: ${contact.value}`}
-								target={contact.type === 'social' ? '_blank' : undefined}
-								rel={
-									contact.type === 'social' ? 'noopener noreferrer' : undefined
-								}
+								aria-label={contact.label}
+								target='_blank'
+								rel='noopener noreferrer'
 							>
 								<Icon className='h-5 w-5 shrink-0' aria-hidden='true' />
 								<span className='truncate'>{contact.label}</span>
@@ -166,9 +213,10 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				{contactItems.map((contact, i) => {
 					const Icon = contact.icon;
 					const color = getContactColor(contact.type);
+
 					return (
 						<Card
-							key={contact.href}
+							key={getContactKey(contact)}
 							className='glass-effect group p-5 transition-all duration-500 hover:shadow-glow animate-slide-up motion-reduce:transition-none motion-reduce:animate-none'
 							style={{ animationDelay: `${i * 0.08}s` }}
 							data-testid='card'
@@ -185,7 +233,11 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 											{contact.label}
 										</h3>
 										<p className='text-sm text-muted-foreground break-all'>
-											{contact.value}
+											{contact.protected ? (
+												<ProtectedContactText text={contact.value} />
+											) : (
+												contact.value
+											)}
 										</p>
 									</div>
 								</div>
@@ -197,7 +249,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 											size='sm'
 											onClick={() => handleCopy(contact.value)}
 											className='h-10 px-3 transition-bounce hover:shadow-accent'
-											aria-label={`Copy ${contact.label}: ${contact.value}`}
+											aria-label={`Copy ${contact.label}`}
 										>
 											{copied ? (
 												<CheckCircle
@@ -214,25 +266,34 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 											)}
 										</Button>
 									)}
-									<Button
-										variant='ghost'
-										size='sm'
-										asChild
-										className='h-10 px-3 transition-bounce hover:shadow-glow'
-									>
-										<a
-											href={contact.href}
-											target={contact.type === 'social' ? '_blank' : undefined}
-											rel={
-												contact.type === 'social'
-													? 'noopener noreferrer'
-													: undefined
-											}
+									{contact.protected ? (
+										<Button
+											variant='ghost'
+											size='sm'
+											type='button'
+											onClick={() => handleOpen(contact)}
+											className='h-10 px-3 transition-bounce hover:shadow-glow'
 											aria-label={`Open ${contact.label}`}
 										>
 											<ExternalLink className='h-4 w-4' aria-hidden='true' />
-										</a>
-									</Button>
+										</Button>
+									) : (
+										<Button
+											variant='ghost'
+											size='sm'
+											asChild
+											className='h-10 px-3 transition-bounce hover:shadow-glow'
+										>
+											<a
+												href={contact.href}
+												target='_blank'
+												rel='noopener noreferrer'
+												aria-label={`Open ${contact.label}`}
+											>
+												<ExternalLink className='h-4 w-4' aria-hidden='true' />
+											</a>
+										</Button>
+									)}
 								</div>
 							</div>
 						</Card>
@@ -260,21 +321,13 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 			<div className='flex flex-wrap justify-center gap-3 sm:gap-4'>
 				<Button
 					size='lg'
-					asChild
+					type='button'
+					onClick={() => handleOpen(findEmail)}
 					className='w-full sm:w-auto transition-bounce hover:shadow-glow'
+					aria-label={contacts?.sendEmail}
 				>
-					<a
-						href={findEmail.href}
-						target={findEmail.type === 'social' ? '_blank' : undefined}
-						rel={
-							findEmail.type === 'social' ? 'noopener noreferrer' : undefined
-						}
-						aria-label='Send Email'
-						className='flex items-center justify-center'
-					>
-						<EmailIcon className='mr-2 h-5 w-5' aria-hidden='true' />
-						{contacts?.sendEmail}
-					</a>
+					<EmailIcon className='mr-2 h-5 w-5' aria-hidden='true' />
+					{contacts?.sendEmail}
 				</Button>
 
 				<Button
@@ -285,11 +338,9 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				>
 					<a
 						href={findTelegram.href}
-						target={findTelegram.type === 'social' ? '_blank' : undefined}
-						rel={
-							findTelegram.type === 'social' ? 'noopener noreferrer' : undefined
-						}
-						aria-label='Send Telegram'
+						target='_blank'
+						rel='noopener noreferrer'
+						aria-label={contacts?.sendTelegram}
 						className='flex items-center justify-center'
 					>
 						<TelegramIcon className='mr-2 h-5 w-5' aria-hidden='true' />
