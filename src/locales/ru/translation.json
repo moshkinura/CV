@@ -28,11 +28,11 @@
     "sendTelegram": "Написать в Telegram",
     "phone": {
       "name": "Телефон",
-      "value": "+7(900)100-10-10"
+      "encoded": "KzcoOTAwKTEwMC0xMC0xMA=="
     },
     "email": {
       "name": "Email",
-      "value": "moshkin_ura@mail.ru"
+      "encoded": "bW9zaGtpbl91cmFAbWFpbC5ydQ=="
     },
     "telegram": {
       "name": "Telegram",
