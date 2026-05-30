@@ -40,6 +40,7 @@ jest.mock('react-router-dom', () => {
 
 describe('NotFound page', () => {
 	const path = '/deep/unknown';
+	const fullPath = `/CV${path}`;
 
 	let errorSpy: jest.SpyInstance;
 	let navigateMock: jest.Mock;
@@ -58,7 +59,7 @@ describe('NotFound page', () => {
 
 	it('рендерит 404, текст и ссылку домой', () => {
 		render(
-			<MemoryRouter initialEntries={[path]}>
+			<MemoryRouter basename='/CV' initialEntries={[fullPath]}>
 				<NotFound />
 			</MemoryRouter>,
 		);
@@ -75,7 +76,7 @@ describe('NotFound page', () => {
 
 	it('логирует путь 404 и выставляет title', async () => {
 		render(
-			<MemoryRouter initialEntries={[path]}>
+			<MemoryRouter basename='/CV' initialEntries={[fullPath]}>
 				<NotFound />
 			</MemoryRouter>,
 		);
@@ -94,7 +95,7 @@ describe('NotFound page', () => {
 		const user = userEvent.setup();
 
 		render(
-			<MemoryRouter initialEntries={[path]}>
+			<MemoryRouter basename='/CV' initialEntries={[fullPath]}>
 				<NotFound />
 			</MemoryRouter>,
 		);

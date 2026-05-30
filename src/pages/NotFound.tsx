@@ -19,7 +19,7 @@ const NotFound: FC = () => {
 	}, [location.pathname]);
 
 	return (
-		<main className='min-h-[100svh] grid place-items-center bg-linear-to-b from-background to-secondary/20 px-4'>
+		<main className='min-h-svh grid place-items-center bg-linear-to-b from-background to-secondary/20 px-4'>
 			<section className='text-center max-w-md'>
 				<div className='inline-flex items-center justify-center rounded-2xl bg-primary/10 p-4 mb-4 motion-safe:animate-pulse motion-reduce:animate-none'>
 					<SearchX className='w-8 h-8 text-primary' aria-hidden='true' />
@@ -50,7 +50,7 @@ const NotFound: FC = () => {
 					</Button>
 
 					<Button size='lg' asChild className='w-full sm:w-auto'>
-						<Link to='/CV' aria-label='Return to Home'>
+						<Link to='/' aria-label='Return to Home'>
 							<Home className='w-4 h-4 mr-2' aria-hidden='true' />
 							Return to Home
 						</Link>

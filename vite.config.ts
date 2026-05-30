@@ -11,7 +11,6 @@ import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
 import Inspect from 'vite-plugin-inspect';
-import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: { command: string; mode: string }) => {
@@ -41,12 +40,11 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 	const isProd = command === 'build' && mode === 'production';
 
 	return defineConfig({
-		base: '/CV',
+		base: '/CV/',
 		plugins: [
 			// terser(),
 			react(),
 			tailwindcss(),
-			tsconfigPaths(),
 			mode === 'development' && Inspect(),
 			isProd &&
 				viteImagemin({
@@ -91,7 +89,7 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 				: []),
 		].filter(Boolean),
 		build: {
-			minify: isProd ? 'esbuild' : false,
+			minify: isProd,
 			cssMinify: isProd ? 'lightningcss' : false,
 			chunkSizeWarningLimit: 1024,
 			assetsInlineLimit: 1024,
@@ -117,6 +115,9 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 		server: {
 			allowedHosts: ['.ngrok-free.app'],
 		},
-		resolve: { alias: { '@': path.resolve(__dirname, './src/') } },
+		resolve: {
+			tsconfigPaths: true,
+			alias: { '@': path.resolve(__dirname, './src/') },
+		},
 	});
 };
