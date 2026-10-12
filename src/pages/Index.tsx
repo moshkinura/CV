@@ -2,21 +2,19 @@ import { Suspense, lazy, memo } from 'react';
 
 import Navbar from '@/widgets/Navbar/Navbar';
 
-import {
-	GIT_COMMIT_DATE,
-	GIT_COMMIT_HASH,
-	GIT_COMMIT_HASH_FULL,
-	GIT_TAG,
-} from '@/shared/config';
-
+import BuildMetaFooter from '@/components/BuildMetaFooter';
 import Hero from '@/components/Hero';
 import ContactSectionSkeleton from '@/components/skeletons/ContactSectionSkeleton';
 import ExperienceSectionSkeleton from '@/components/skeletons/ExperienceSectionSkeleton';
 import PersonalInfoSkeleton from '@/components/skeletons/PersonalInfoSkeleton';
+import PersonalProjectsSectionSkeleton from '@/components/skeletons/PersonalProjectsSectionSkeleton';
 import SkillsSectionSkeleton from '@/components/skeletons/SkillsSectionSkeleton';
 
 const SkillsSection = lazy(() => import('@/components/SkillsSection'));
 const ExperienceSection = lazy(() => import('@/components/ExperienceSection'));
+const PersonalProjectsSection = lazy(
+	() => import('@/components/PersonalProjectsSection'),
+);
 const PersonalInfo = lazy(() => import('@/components/PersonalInfo'));
 const ContactSection = lazy(() => import('@/components/ContactSection'));
 
@@ -35,6 +33,10 @@ const Index = () => {
 				<ExperienceSection />
 			</Suspense>
 
+			<Suspense fallback={<PersonalProjectsSectionSkeleton />}>
+				<PersonalProjectsSection />
+			</Suspense>
+
 			<Suspense fallback={<PersonalInfoSkeleton />}>
 				<PersonalInfo />
 			</Suspense>
@@ -43,20 +45,7 @@ const Index = () => {
 				<ContactSection />
 			</Suspense>
 
-			{/* Build meta */}
-			<footer className='mt-8 border-t'>
-				<div className='container mx-auto px-4 py-4 text-xs text-muted-foreground'>
-					<div className='flex flex-wrap items-center justify-center gap-x-4 gap-y-2 font-mono'>
-						{GIT_TAG && <span>tag: {GIT_TAG}</span>}
-						{GIT_COMMIT_HASH && (
-							<span title={GIT_COMMIT_HASH_FULL || GIT_COMMIT_HASH}>
-								commit: {GIT_COMMIT_HASH}
-							</span>
-						)}
-						{GIT_COMMIT_DATE && <span>date: {GIT_COMMIT_DATE}</span>}
-					</div>
-				</div>
-			</footer>
+			<BuildMetaFooter />
 		</div>
 	);
 };
