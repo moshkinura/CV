@@ -1,6 +1,6 @@
 import tailwindcss from '@tailwindcss/vite';
 import viteImagemin from '@vheemstra/vite-plugin-imagemin';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import { execSync } from 'child_process';
 import imageminGifsicle from 'imagemin-gifsicle';
 import imageminMozjpeg from 'imagemin-mozjpeg';
