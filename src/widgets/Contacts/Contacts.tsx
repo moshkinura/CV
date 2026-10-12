@@ -46,7 +46,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 	const contacts = t('contacts', { returnObjects: true }) as TContacts;
 
 	const [copiedKey, setCopiedKey] = useState<string | null>(null);
-	const copiedTimer = useRef<ReturnType<typeof window.setTimeout> | null>(null);
+	const copiedTimer = useRef<number | null>(null);
 
 	const phoneValue = useMemo(
 		() => decodeContact(contacts?.phone?.encoded ?? ''),
