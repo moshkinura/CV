@@ -1,16 +1,13 @@
-import {
-	CheckCircle,
-	Copy,
-	ExternalLink,
-	Github,
-	Gitlab,
-	Mail,
-	Phone,
-	Send,
-} from 'lucide-react';
+import { CheckCircle, Copy, ExternalLink, Mail, Phone } from 'lucide-react';
 import { FC, memo, useCallback, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
+import {
+	GithubLogo,
+	GitlabLogo,
+	NpmLogo,
+	TelegramLogo,
+} from '@/shared/ui/brand-logo';
 import { Button } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
 import {
@@ -75,7 +72,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.telegram?.value
 				? {
-						icon: Send,
+						icon: TelegramLogo,
 						label: contacts?.telegram?.name ?? 'Telegram',
 						value: `@${contacts?.telegram?.value}`,
 						href: `https://t.me/${contacts?.telegram?.value}`,
@@ -84,7 +81,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.github?.value
 				? {
-						icon: Github,
+						icon: GithubLogo,
 						label: contacts?.github?.name ?? 'GitHub',
 						value: `@${contacts?.github?.value}`,
 						href: `https://github.com/${contacts?.github?.value}`,
@@ -93,10 +90,19 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.gitlab?.value
 				? {
-						icon: Gitlab,
+						icon: GitlabLogo,
 						label: contacts?.gitlab?.name ?? 'GitLab',
 						value: `@${contacts?.gitlab?.value}`,
 						href: `https://gitlab.com/${contacts?.gitlab?.value}`,
+						type: 'social',
+					}
+				: null,
+			contacts?.npm?.value
+				? {
+						icon: NpmLogo,
+						label: contacts?.npm?.name ?? 'npm',
+						value: `~${contacts?.npm?.value}`,
+						href: `https://www.npmjs.com/~${contacts?.npm?.value}`,
 						type: 'social',
 					}
 				: null,

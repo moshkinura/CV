@@ -24,6 +24,7 @@ const contactsMock = {
 	telegram: { name: 'Telegram', value: 'yura_dev' },
 	github: { name: 'GitHub', value: 'yura-dev' },
 	gitlab: { name: 'GitLab', value: 'yura-dev' },
+	npm: { name: 'npm', value: 'belko42' },
 };
 
 jest.mock('react-i18next', () => ({
@@ -73,6 +74,7 @@ jest.mock('lucide-react', () => {
 		Send: Icon('Send'),
 		Github: Icon('Github'),
 		Gitlab: Icon('Gitlab'),
+		Package: Icon('Package'),
 		Copy: Icon('Copy'),
 		CheckCircle: Icon('CheckCircle'),
 		ExternalLink: Icon('ExternalLink'),
@@ -88,7 +90,11 @@ beforeEach(() => {
 			value: { writeText },
 		});
 	} catch {
-		(window.navigator as any).clipboard = { writeText };
+		(
+			window.navigator as unknown as {
+				clipboard: { writeText: () => Promise<void> };
+			}
+		).clipboard = { writeText };
 	}
 });
 
@@ -120,6 +126,12 @@ describe('Contacts (variant="short")', () => {
 		expect(glLink).toHaveAttribute(
 			'href',
 			`https://gitlab.com/${contactsMock.gitlab.value}`,
+		);
+		expect(
+			screen.getByRole('link', { name: contactsMock.npm.name }),
+		).toHaveAttribute(
+			'href',
+			`https://www.npmjs.com/~${contactsMock.npm.value}`,
 		);
 	});
 });
