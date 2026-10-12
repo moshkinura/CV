@@ -51,7 +51,10 @@ const expDict: TExpirience = {
 	now: '08.2025',
 	responsibility: 'Responsibilities',
 	technologies: 'Technologies',
-	total: { title: 'Total', description: 'Desc' },
+	total: {
+		main: { title: 'Total', description: 'Desc' },
+		more: { title: 'More', description: 'More desc' },
+	},
 	main: { title: 'Title', subtitle: 'Sub', data: [] },
 	more: { title: 'Title2', subtitle: 'Sub2', data: [] },
 };
