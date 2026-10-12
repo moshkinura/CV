@@ -1,3 +1,6 @@
+.env
+tools/*
+
 # Logs
 logs
 *.log
@@ -16,13 +19,15 @@ lerna-debug.log*
 !.yarn/versions
 .pnp.*
 
+# Build
 node_modules
 dist
 analysis
 coverage
 dist-ssr
 *.local
-bloom-cv-canvas
+*.tsbuildinfo
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
