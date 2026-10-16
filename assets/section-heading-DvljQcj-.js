@@ -1,0 +1,2 @@
+/* cv@5.0.0 (5de04ed) */
+import{ft as e}from"./vendor-C7puTIHf.js";import{l as t,u as n}from"./index-DB7CfQ9R.js";var r=e(),i=({id:e,index:i,title:a,className:o})=>{let{t:s}=n();return(0,r.jsxs)(r.Fragment,{children:[(0,r.jsx)(`span`,{className:`cyber-kicker`,"data-index":i,"data-prefix":s(`hud.sector`),"aria-hidden":`true`}),(0,r.jsx)(`h2`,{id:e,"data-text":a,className:t(`cyber-heading mb-4 text-3xl font-bold text-gradient md:text-5xl`,o),children:a})]})};export{i as t};
