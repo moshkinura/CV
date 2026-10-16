@@ -32,6 +32,11 @@ module.exports = {
 	},
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1',
+		'^@itcamel/text-kit$':
+			'<rootDir>/node_modules/@itcamel/text-kit/dist/index.js',
 		'\\.(css|sass|scss)$': 'identity-obj-proxy',
 	},
+	transformIgnorePatterns: [
+		'node_modules[\\\\/](?!@itcamel[\\\\/]text-kit)',
+	],
 };

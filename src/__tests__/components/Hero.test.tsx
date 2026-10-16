@@ -14,6 +14,11 @@ jest.mock('@/shared/hooks/useFxRates', () => ({
 	}),
 }));
 
+jest.mock('@/components/CyberHero', () => ({
+	__esModule: true,
+	default: () => <div data-testid='CyberHero' />,
+}));
+
 jest.mock('@/widgets/Avatar/Avatar', () => ({
 	__esModule: true,
 	default: () => <div data-testid='Avatar' />,
@@ -55,7 +60,7 @@ const payMock = {
 	eur: '€3,000',
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'bio' && opts?.returnObjects) return bioMock;
@@ -79,7 +84,7 @@ describe('Hero', () => {
 
 		const section = container.querySelector('section[role="banner"]');
 		expect(section).toBeInTheDocument();
-		expect(section).toHaveClass('min-h-[100svh]');
+		expect(section).toHaveClass('min-h-svh');
 
 		// аватар
 		expect(screen.getByTestId('Avatar')).toBeInTheDocument();

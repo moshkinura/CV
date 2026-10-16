@@ -1,24 +1,28 @@
 # Current task
 
-- Task: Галочка копирования только у того контакта, который скопировали
-- Type: bugfix
+- Task: Подключить @itcamel/text-kit вместо i18next
+- Type: refactor
 - Constraints:
-  - Ветка v4.3.0
-  - Не менять вёрстку карточек и тексты
-  - Сброс индикатора через 1.6 с сохраняется
+  - Словари `src/locales/*/translation.json` не менять
+  - Язык по-прежнему ru/en, cookie `i18next`, fallback ru
+  - Вызовы `t(key)` и `t(key, { returnObjects: true })` в компонентах сохраняют смысл
 - Acceptance criteria:
-  - Копирование телефона показывает галочку только на кнопке телефона
-  - Кнопка email остаётся с иконкой Copy
-  - Через таймер кнопка телефона снова показывает Copy
+  - Пакет в dependencies, i18next/react-i18next удалены
+  - Смена языка обновляет тексты
+  - `yarn test` и `tsc -b` проходят
 - Affected files:
-  - src/widgets/Contacts/Contacts.tsx
-  - src/**tests**/widgets/Contacts.test.tsx
-  - docs/ai-workflow/current-task.md
+  - package.json
+  - yarn.lock
+  - jest.config.cjs
+  - src/app/modules/i18n.ts
+  - src/shared/i18n/useTranslation.ts
+  - компоненты и тесты, которые импортировали react-i18next
 - Plan:
-  1. Хранить ключ скопированного значения, а не общий boolean
-  2. Сбрасывать предыдущий таймер при новом копировании
-  3. Проверить тестом, что email не получает галочку
-- Implementation status: готово
-- Review findings: общий флаг copied рисовал CheckCircle на каждой copyable-кнопке
-- QA results: yarn test src/__tests__/widgets/Contacts.test.tsx — 5 passed
-- Final outcome: галочка копирования привязана к значению контакта, на v4.3.0
+  1. Поставить `@itcamel/text-kit` и инициализировать словари в `i18n.ts`
+  2. Хук `useTranslation` на `useLanguage` + `t`/`select`, с записью cookie
+  3. Перевести импорты и моки тестов
+  4. Удалить i18next, прогнать тесты и tsc
+- Implementation status: i18next заменён на @itcamel/text-kit
+- Review findings: `useLanguage` из beta.1 отдаёт новый snapshot и зацикливает React, поэтому подписка на язык своя, `t`/`select`/`setLanguage` из пакета
+- QA results: yarn test --watchman=false — 30 suites / 109 tests passed; tsc -b — 0 ошибок
+- Final outcome: пакет подключён, смена языка пишет cookie i18next; коммит реализации не делался

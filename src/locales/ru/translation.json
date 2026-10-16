@@ -6,7 +6,47 @@
 		"experience": "Опыт",
 		"projects": "Проекты",
 		"personal": "Личное",
-		"contacts": "Контакты"
+		"contacts": "Контакты",
+		"cyberOn": "Включить нейроинтерфейс",
+		"cyberOff": "Выключить нейроинтерфейс"
+	},
+	"cyberDisclaimer": {
+		"title": "Оформление резюме",
+		"body": "Сейчас открыта кибер-версия резюме. Она не соответствует строгому деловому стилю, однако выглядит выразительнее официального варианта.",
+		"stay": "Остаться в кибер-версии",
+		"business": "Перейти к деловому стилю"
+	},
+	"hud": {
+		"sector": "sector.",
+		"geo": "geo://",
+		"identity": "identity.profile",
+		"unit": "unit //",
+		"rec": "rec // lock",
+		"cam": "cam.01",
+		"terminal": "root@CurriculumVitae:~",
+		"contactsTerminal": "root@cv:~/contacts",
+		"uplink": "uplink.channels",
+		"uplinkRequest": "uplink.request",
+		"personal": "personal.data",
+		"queueLearning": "queue.learning",
+		"org": "org.",
+		"role": "role://",
+		"project": "proj://",
+		"channel": "ch.",
+		"skills": "skills.",
+		"taskResponsibilities": "task.responsibilities",
+		"stackTechnologies": "stack.technologies",
+		"profileAdditional": "profile.additional_info",
+		"profileLanguages": "profile.languages",
+		"profileSchedule": "profile.work_schedule",
+		"profileEmployment": "profile.employment_types",
+		"profileRecommendations": "profile.recommendations",
+		"profileHardware": "profile.hardware",
+		"sysBuild": "sys://build",
+		"warn": "// warn: ",
+		"copy": "copy",
+		"copied": "ok",
+		"open": "open"
 	},
 	"bio": {
 		"fio": "Мошкин Юрий Алексеевич",
@@ -263,7 +303,7 @@
 					"period": ["2024/03/01", null],
 					"projects": [
 						{
-							"name": "Проект: Внутренний платежный GATE (NDA)",
+							"name": "Внутренний платежный GATE (NDA)",
 							"description": "Внутренний платёжный шлюз для мерчантов: REST API, hosted checkout с 3DS 2.0, rebill/OCT/refund, webhooks с HMAC-подписью.",
 							"responsibilities": [
 								"Спроектировал backend платёжного шлюза на NestJS: мультитенантные проекты, merchant API и JWT-админка.",
@@ -288,7 +328,7 @@
 							]
 						},
 						{
-							"name": "Проект: Портал по продаже CS2 скинов (NDA)",
+							"name": "Портал по продаже CS2 скинов (NDA)",
 							"description": "Маркетплейс для покупки и продажи скинов Counter-Strike 2: Steam-авторизация, каталог, корзина, внутренний баланс, KYC и выплаты.",
 							"responsibilities": [
 								"Спроектировал backend на NestJS: auth, items, checkout, payments, balance, KYC, RBAC.",
@@ -314,7 +354,7 @@
 							]
 						},
 						{
-							"name": "Проект: Портал обработки изображений с ИИ (NDA)",
+							"name": "Портал обработки изображений с ИИ (NDA)",
 							"description": "Портал для генерации, удаления фона и апскейла изображений: очереди задач, прогресс выполнения, биллинг, хранение в S3.",
 							"responsibilities": [
 								"Спроектировал архитектуру и доменную модель (job-пайплайны, пресеты, версии).",
@@ -336,7 +376,7 @@
 							]
 						},
 						{
-							"name": "Проект: Портал для Unity/WebGL игр (NDA)",
+							"name": "Портал для Unity/WebGL игр (NDA)",
 							"description": "Платформа для Unity/WebGL-игр с управлением пользователями и платежами.",
 							"responsibilities": [
 								"Руководил командой из 3 (2 FE, 1 BE): планирование, приоритизация, ревью.",
@@ -367,7 +407,7 @@
 					"period": ["2024/05/01", "2025/01/01"],
 					"projects": [
 						{
-							"name": "Проект: Telegram Mini App игра/приложение c уникальной краш-механикой (NDA)",
+							"name": "Telegram Mini App игра/приложение c уникальной краш-механикой (NDA)",
 							"description": "",
 							"responsibilities": [
 								"Спроектировал высоконагруженный backend под игровые сценарии в Telegram MiniApp.",
@@ -396,7 +436,7 @@
 					"period": ["2022/04/04", "2024/02/04"],
 					"projects": [
 						{
-							"name": "Проект: CRM для конструктора сайтов",
+							"name": "CRM для конструктора сайтов",
 							"description": "",
 							"responsibilities": [
 								"Разрабатывал и интегрировал новые модули CRM.",
@@ -415,7 +455,7 @@
 							]
 						},
 						{
-							"name": "Проект: Приложение для ручного и автоматизированного тестирования API (аналог Postman)",
+							"name": "Приложение для ручного и автоматизированного тестирования API (аналог Postman)",
 							"description": "",
 							"responsibilities": [
 								"Спроектировал модель данных и структуру БД.",
@@ -451,7 +491,7 @@
 					"period": ["2013/02/01", "2022/04/01"],
 					"projects": [
 						{
-							"name": "Проект: Интернет-магазин",
+							"name": "Интернет-магазин",
 							"description": "E-commerce сайт и внутренние сервисы для автоматизации операций (каталог, заказы, склад).",
 							"responsibilities": [
 								"Разрабатывал и сопровождал сайт компании.",
@@ -701,7 +741,7 @@
 			"note": "Предоставлю, по требованию."
 		},
 		"configure": {
-			"title": "Кофигурация моего компьютера",
+			"title": "Конфигурация моего компьютера",
 			"elements": [
 				{
 					"component": "CPU:",

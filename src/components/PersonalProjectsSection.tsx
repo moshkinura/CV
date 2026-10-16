@@ -1,7 +1,9 @@
 import { FC, useId, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import PortfolioCard from '@/widgets/PortfolioCard/PortfolioCard';
+
+import { useTranslation } from '@/shared/i18n/useTranslation';
+import SectionHeading from '@/shared/ui/section-heading';
 
 import { TPortfolio } from '@/interfaces/portfolio.types';
 
@@ -21,12 +23,7 @@ const PersonalProjectsSection: FC = () => {
 		>
 			<div className='container mx-auto px-4'>
 				<div className='text-center mb-12 md:mb-16'>
-					<h2
-						id={titleId}
-						className='text-3xl md:text-5xl font-bold text-gradient mb-4'
-					>
-						{portfolio.title}
-					</h2>
+					<SectionHeading id={titleId} index='03' title={portfolio.title} />
 					<p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto'>
 						{portfolio.description}
 					</p>

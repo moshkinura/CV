@@ -29,7 +29,7 @@ jest.mock('lucide-react', () => {
 const changeLanguage = jest.fn();
 let mockLang = 'ru';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		i18n: {
 			language: mockLang,

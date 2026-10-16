@@ -1,51 +1,26 @@
 import '@testing-library/jest-dom';
-import { i18n } from 'i18next';
-
-jest.mock('i18next', () => {
-	const use = jest.fn().mockReturnThis();
-	const init = jest.fn().mockReturnThis();
-	const changeLanguage = jest.fn().mockResolvedValue(undefined);
-	return { __esModule: true, default: { use, init, changeLanguage } };
-});
-
-jest.mock('i18next-browser-languagedetector', () => ({
-	__esModule: true,
-	default: function LanguageDetector() {},
-}));
-jest.mock('react-i18next', () => ({
-	initReactI18next: {}, // объект-плагин
-}));
 
 beforeEach(() => {
 	jest.resetModules();
+	document.cookie = 'i18next=;path=/;max-age=0';
+	localStorage.clear();
+	document.documentElement.lang = '';
 });
 
-it('подключает LanguageDetector, initReactI18next и вызывает init с базовой конфигурацией', async () => {
-	const i18next = (await import('i18next')).default as i18n;
-	await import('@/app/modules/i18n'); // сам модуль инициализации
+it('поднимает словари ru/en и берёт язык из cookie', async () => {
+	document.cookie = 'i18next=en;path=/';
 
-	expect(i18next.use).toHaveBeenNthCalledWith(1, expect.any(Function)); // LanguageDetector
-	expect(i18next.use).toHaveBeenNthCalledWith(2, expect.any(Object)); // initReactI18next
+	const { getLanguage, select, setLanguage, t } =
+		await import('@itcamel/text-kit');
+	const { persistLanguage } = await import('@/app/modules/i18n');
 
-	expect(i18next.init).toHaveBeenCalledWith(
-		expect.objectContaining({
-			fallbackLng: 'ru',
-			supportedLngs: ['en', 'ru'],
-			interpolation: expect.objectContaining({ escapeValue: false }),
-			detection: expect.objectContaining({
-				order: expect.arrayContaining([
-					'cookie',
-					'localStorage',
-					'htmlTag',
-					'path',
-					'subdomain',
-				]),
-				caches: ['cookie'],
-			}),
-			resources: expect.objectContaining({
-				ru: expect.any(Object),
-				en: expect.any(Object),
-			}),
-		}),
-	);
+	expect(getLanguage()).toBe('en');
+	expect(t('nav.home')).toBe('Home');
+	expect(select<{ fio?: string }>('bio')?.fio).toEqual(expect.any(String));
+
+	setLanguage(persistLanguage('ru'));
+	expect(getLanguage()).toBe('ru');
+	expect(t('nav.home')).toBe('Главная');
+	expect(document.documentElement.lang).toBe('ru');
+	expect(document.cookie).toContain('i18next=ru');
 });

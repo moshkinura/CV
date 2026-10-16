@@ -20,7 +20,7 @@ const learnsMock = {
 	learn: [{ name: 'Kubernetes' }, { name: 'Rust' }, { name: 'Go' }],
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'skills' && opts?.returnObjects) return skillsMock;

@@ -4,7 +4,7 @@ import Box from './ui/Box';
 import SectionShell from './ui/SectionShell';
 
 const ExperienceSectionSkeleton: FC = () => (
-	<SectionShell className='bg-gradient-to-b from-secondary/20 to-background'>
+	<SectionShell className='bg-linear-to-b from-secondary/20 to-background'>
 		<div className='mx-auto mb-12 max-w-4xl'>
 			<div className='rounded-xl border-2 p-6'>
 				<Box className='mx-auto h-5 w-56' />

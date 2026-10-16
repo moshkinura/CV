@@ -4,6 +4,12 @@ import type { SVGProps } from 'react';
 
 import Responsibilities from '@/widgets/ExperienceCard/ui/Project/ui/Responsibilities';
 
+jest.mock('@/shared/i18n/useTranslation', () => ({
+	useTranslation: () => ({
+		t: (key: string) => key,
+	}),
+}));
+
 jest.mock('lucide-react', () => ({
 	Users: (props: SVGProps<SVGSVGElement>) => (
 		<svg data-testid='icon-Users' {...props} />

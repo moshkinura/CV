@@ -11,6 +11,11 @@ jest.mock('@/shared/config', () => ({
 	GIT_TAG: '',
 }));
 
+jest.mock('@/components/CyberDisclaimer', () => ({
+	__esModule: true,
+	default: () => null,
+}));
+
 jest.mock('@/widgets/Navbar/Navbar', () => ({
 	__esModule: true,
 	default: () => <div data-testid='Navbar' />,

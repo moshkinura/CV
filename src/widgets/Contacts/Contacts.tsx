@@ -8,8 +8,9 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
+import { useCyberThemeEnabled } from '@/shared/theme/CyberThemeProvider';
 import {
 	GithubLogo,
 	GitlabLogo,
@@ -44,6 +45,7 @@ interface Props {
 const Contacts: FC<Props> = ({ variant = 'short' }) => {
 	const { t } = useTranslation();
 	const contacts = t('contacts', { returnObjects: true }) as TContacts;
+	const cyberEnabled = useCyberThemeEnabled();
 
 	const [copiedKey, setCopiedKey] = useState<string | null>(null);
 	const copiedTimer = useRef<number | null>(null);
@@ -237,6 +239,99 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 		);
 	}
 
+	if (variant === 'card' && cyberEnabled) {
+		return (
+			<div
+				className='cyber-terminal-box cyber-contacts w-full'
+				role='group'
+				aria-label='contacts'
+			>
+				<div className='cyber-terminal-head'>
+					<span />
+					<span />
+					<span />
+					<span className='cyber-terminal-title'>
+						{t('hud.contactsTerminal')}
+					</span>
+				</div>
+				<ul className='cyber-contacts-list'>
+					{contactItems.map(contact => {
+						const Icon = contact.icon;
+						const copied = copiedKey === contact.value;
+
+						return (
+							<li key={getContactKey(contact)} className='cyber-contacts-row'>
+								<span className='cyber-contacts-prompt' aria-hidden='true'>
+									{'> '}
+								</span>
+								<Icon className='cyber-contacts-icon' aria-hidden='true' />
+								<span className='cyber-contacts-label'>{contact.label}</span>
+								<span className='cyber-contacts-value'>
+									{contact.protected ? (
+										<ProtectedContactText text={contact.value} />
+									) : (
+										contact.value
+									)}
+								</span>
+								<span className='cyber-contacts-actions'>
+									{contact.copyable && (
+										<button
+											type='button'
+											onClick={() => handleCopy(contact.value)}
+											aria-label={`Copy ${contact.label}`}
+											className='cyber-contacts-btn'
+										>
+											{copied ? (
+												<CheckCircle
+													className='h-3.5 w-3.5'
+													aria-hidden='true'
+												/>
+											) : (
+												<Copy className='h-3.5 w-3.5' aria-hidden='true' />
+											)}
+											<span>{copied ? t('hud.copied') : t('hud.copy')}</span>
+										</button>
+									)}
+									{contact.protected ? (
+										<button
+											type='button'
+											onClick={() => handleOpen(contact)}
+											aria-label={`Open ${contact.label}`}
+											className='cyber-contacts-btn'
+										>
+											<ExternalLink
+												className='h-3.5 w-3.5'
+												aria-hidden='true'
+											/>
+											<span>{t('hud.open')}</span>
+										</button>
+									) : (
+										<a
+											href={contact.href}
+											target='_blank'
+											rel='noopener noreferrer'
+											aria-label={`Open ${contact.label}`}
+											className='cyber-contacts-btn'
+										>
+											<ExternalLink
+												className='h-3.5 w-3.5'
+												aria-hidden='true'
+											/>
+											<span>{t('hud.open')}</span>
+										</a>
+									)}
+								</span>
+							</li>
+						);
+					})}
+				</ul>
+				<span className='sr-only' aria-live='polite'>
+					{copiedKey ? 'Copied' : ''}
+				</span>
+			</div>
+		);
+	}
+
 	if (variant === 'card') {
 		return (
 			<div className='grid w-full grid-cols-1 gap-3 sm:grid-cols-2'>
@@ -247,22 +342,25 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 					return (
 						<Card
 							key={getContactKey(contact)}
-							className='glass-effect group p-5 transition-all duration-500 hover:shadow-glow animate-slide-up motion-reduce:transition-none motion-reduce:animate-none'
+							className='glass-effect hud-panel contact-card group p-5 transition-all duration-500 hover:shadow-glow animate-slide-up motion-reduce:transition-none motion-reduce:animate-none'
 							style={{ animationDelay: `${i * 0.08}s` }}
 							data-testid='card'
 						>
 							<div className='flex items-center justify-between gap-3'>
 								<div className='flex min-w-0 items-center gap-4'>
 									<div
-										className={`rounded-full bg-secondary/50 p-3 ${color} group-hover:scale-110 transition-transform duration-300 motion-reduce:transition-none`}
+										className={`contact-icon rounded-full bg-secondary/50 p-3 ${color} group-hover:scale-110 transition-transform duration-300 motion-reduce:transition-none`}
 									>
 										<Icon className='h-6 w-6' aria-hidden='true' />
 									</div>
 									<div className='min-w-0'>
-										<h3 className='text-lg font-semibold leading-tight text-balance'>
+										<h3
+											className='contact-label text-lg font-semibold leading-tight text-balance'
+											data-prefix={t('hud.channel')}
+										>
 											{contact.label}
 										</h3>
-										<p className='text-sm text-muted-foreground break-all'>
+										<p className='contact-value text-sm text-muted-foreground break-all'>
 											{contact.protected ? (
 												<ProtectedContactText text={contact.value} />
 											) : (
@@ -272,7 +370,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 									</div>
 								</div>
 
-								<div className='flex items-center gap-1 sm:gap-2'>
+								<div className='contact-actions flex items-center gap-1 sm:gap-2'>
 									{contact.copyable && (
 										<Button
 											variant='ghost'

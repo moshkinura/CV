@@ -1,10 +1,12 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Button } from '@/shared/ui/button';
+import { scrollToSection } from '@/shared/utils/scrollToSection.utils';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher';
+import ThemeSwitcher from '@/components/ThemeSwitcher';
 
 const Navbar = () => {
 	const { t } = useTranslation();
@@ -48,15 +50,8 @@ const Navbar = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [navItems]);
 
-	const scrollToSection = (sectionId: string) => {
-		const element = document.getElementById(sectionId);
-		if (element) {
-			const offsetTop = element.offsetTop - 80; // Account for navbar height
-			window.scrollTo({
-				top: offsetTop,
-				behavior: 'smooth',
-			});
-		}
+	const handleNavClick = (sectionId: string) => {
+		scrollToSection(sectionId);
 		setIsOpen(false);
 	};
 
@@ -65,7 +60,7 @@ const Navbar = () => {
 			<div className='container mx-auto px-4'>
 				<div className='flex items-center justify-between h-16'>
 					{/* Logo/Brand */}
-					<div className='font-bold text-xl text-gradient'>
+					<div className='nav-brand min-w-0 truncate font-bold text-xl text-gradient'>
 						{t('nav.brand')}
 					</div>
 
@@ -74,8 +69,10 @@ const Navbar = () => {
 						{navItems.map(item => (
 							<button
 								key={item.id}
-								onClick={() => scrollToSection(item.id)}
-								className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+								type='button'
+								data-active={activeSection === item.id}
+								onClick={() => handleNavClick(item.id)}
+								className={`nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
 									activeSection === item.id
 										? 'bg-primary/10 text-primary border border-primary/20'
 										: 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
@@ -87,7 +84,8 @@ const Navbar = () => {
 					</div>
 
 					{/* Language Switcher & Mobile Menu Button */}
-					<div className='flex items-center gap-2'>
+					<div className='flex shrink-0 items-center gap-2'>
+						<ThemeSwitcher />
 						<LanguageSwitcher />
 
 						{/* Mobile Menu Button */}
@@ -113,8 +111,10 @@ const Navbar = () => {
 							{navItems.map(item => (
 								<button
 									key={item.id}
-									onClick={() => scrollToSection(item.id)}
-									className={`px-4 py-2 text-left rounded-lg text-sm font-medium transition-all duration-300 ${
+									type='button'
+									data-active={activeSection === item.id}
+									onClick={() => handleNavClick(item.id)}
+									className={`nav-link px-4 py-2 text-left rounded-lg text-sm font-medium transition-all duration-300 ${
 										activeSection === item.id
 											? 'bg-primary/10 text-primary border border-primary/20'
 											: 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'

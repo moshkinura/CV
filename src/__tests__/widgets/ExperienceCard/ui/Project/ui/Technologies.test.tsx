@@ -4,6 +4,12 @@ import type { HTMLAttributes, ReactNode } from 'react';
 
 import Technologies from '@/widgets/ExperienceCard/ui/Project/ui/Technologies';
 
+jest.mock('@/shared/i18n/useTranslation', () => ({
+	useTranslation: () => ({
+		t: (key: string) => key,
+	}),
+}));
+
 jest.mock('@/shared/ui/badge', () => ({
 	__esModule: true,
 	Badge: ({

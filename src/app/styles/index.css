@@ -397,3 +397,2175 @@
 		scroll-behavior: smooth;
 	}
 }
+
+/* CYBER HUMAN. Активен только с классом cyber на html. */
+.cyber {
+	--background: 222 42% 3%;
+	--foreground: 30 24% 93%;
+	--card: 222 32% 7%;
+	--card-foreground: 30 24% 93%;
+	--popover: 222 32% 7%;
+	--popover-foreground: 30 24% 93%;
+	--primary: 196 100% 62%;
+	--primary-foreground: 222 42% 5%;
+	--secondary: 220 22% 12%;
+	--secondary-foreground: 30 24% 93%;
+	--muted: 220 18% 14%;
+	--muted-foreground: 210 10% 70%;
+	--accent: 340 100% 60%;
+	--accent-foreground: 222 42% 6%;
+	--success: 152 42% 48%;
+	--success-foreground: 250 16% 6%;
+	--warning: 28 70% 58%;
+	--warning-foreground: 250 16% 6%;
+	--destructive: 352 74% 52%;
+	--destructive-foreground: 36 40% 96%;
+	--border: 210 16% 22%;
+	--input: 210 16% 22%;
+	--ring: 196 100% 62%;
+	--radius: 0.8rem;
+	--gradient-primary: linear-gradient(
+		100deg,
+		hsl(196 100% 70%),
+		hsl(340 100% 64%)
+	);
+	--gradient-secondary: linear-gradient(
+		160deg,
+		hsl(250 14% 10%),
+		hsl(350 18% 9%)
+	);
+	--gradient-hero: linear-gradient(
+		160deg,
+		hsl(340 100% 60% / 0.1),
+		hsl(196 100% 62% / 0.1)
+	);
+	--gradient-card: linear-gradient(
+		165deg,
+		hsl(250 16% 9% / 0.94),
+		hsl(350 20% 8% / 0.92)
+	);
+	--shadow-sm: 0 1px 2px 0 hsl(352 40% 20% / 0.18);
+	--shadow-md:
+		0 10px 28px -16px hsl(352 60% 30% / 0.45),
+		inset 0 0 0 1px hsl(36 20% 80% / 0.08);
+	--shadow-lg: 0 18px 40px -20px hsl(352 70% 40% / 0.35);
+	--shadow-glow: 0 0 22px hsl(196 100% 62% / 0.4);
+	--shadow-accent: 0 0 24px hsl(340 100% 60% / 0.35);
+	--grid-pattern:
+		linear-gradient(hsl(210 20% 60% / 0.05) 1px, transparent 1px),
+		linear-gradient(90deg, hsl(210 20% 60% / 0.05) 1px, transparent 1px);
+	--grid-size: 56px;
+	color-scheme: dark;
+	font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+}
+
+.cyber body {
+	background-color: hsl(var(--background));
+	background-image:
+		radial-gradient(
+			ellipse at center,
+			transparent 40%,
+			hsl(222 45% 2% / 0.8) 100%
+		),
+		linear-gradient(
+			180deg,
+			hsl(215 18% 9%),
+			hsl(222 30% 5%) 40%,
+			hsl(230 32% 4%)
+		),
+		var(--grid-pattern);
+	background-size:
+		auto,
+		auto,
+		var(--grid-size) var(--grid-size);
+	background-attachment: fixed;
+}
+
+.cyber .font-mono,
+.cyber .cyber-kicker,
+.cyber .cyber-sys,
+.cyber .nav-link {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+}
+
+/* Описание и сноска под заголовком секции */
+.cyber .cyber-heading + p {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.9rem;
+	letter-spacing: 0.06em;
+	color: hsl(165 70% 68%);
+	text-shadow: 0 0 8px hsl(165 80% 55% / 0.35);
+}
+
+.cyber .cyber-heading + p::before {
+	content: '$ ';
+	color: hsl(196 100% 68%);
+}
+
+.cyber .cyber-section-note {
+	display: inline-block;
+	margin-top: 1rem;
+	padding: 0.35rem 0.7rem;
+	border: 1px dashed hsl(340 100% 60% / 0.4);
+	border-radius: 2px;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.68rem;
+	letter-spacing: 0.1em;
+	color: hsl(340 100% 74%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.45);
+}
+
+.cyber .cyber-section-note::before {
+	content: attr(data-prefix);
+	color: hsl(340 100% 66%);
+}
+
+.cyber h3.text-gradient {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: hsl(196 100% 72%);
+	-webkit-text-fill-color: hsl(196 100% 72%);
+	text-shadow: 0 0 12px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .nav-brand {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+}
+
+.cyber-kicker,
+.cyber-sys,
+.glitch-layer,
+.cyber-backdrop {
+	display: none;
+}
+
+.cyber .cyber-kicker {
+	display: block;
+	margin: 0 auto 0.85rem;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.7rem;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-kicker::before {
+	content: attr(data-prefix) attr(data-index);
+}
+
+.cyber .cyber-heading {
+	position: relative;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	text-shadow:
+		0 0 18px hsl(196 100% 62% / 0.35),
+		2px 0 0 hsl(340 100% 60% / 0.35),
+		-2px 0 0 hsl(196 100% 62% / 0.35);
+}
+
+.cyber .cyber-heading::before,
+.cyber .cyber-heading::after,
+.cyber .cyber-hero-name::before,
+.cyber .cyber-hero-name::after {
+	content: attr(data-text);
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	opacity: 0;
+}
+
+.cyber .cyber-heading::before,
+.cyber .cyber-hero-name::before {
+	color: hsl(196 100% 72%);
+	-webkit-text-fill-color: hsl(196 100% 72%);
+	text-shadow: none;
+	animation: cyber-noise-a 4.8s infinite steps(1, end);
+}
+
+.cyber .cyber-heading::after,
+.cyber .cyber-hero-name::after {
+	color: hsl(340 100% 66%);
+	-webkit-text-fill-color: hsl(340 100% 66%);
+	text-shadow: none;
+	animation: cyber-noise-b 5.4s infinite steps(1, end);
+}
+
+.cyber .cyber-hide {
+	display: none;
+}
+
+.cyber .cyber-only {
+	display: block;
+}
+
+.cyber .text-gradient {
+	background: none;
+	color: hsl(32 16% 93%);
+	-webkit-text-fill-color: hsl(32 16% 93%);
+}
+
+.cyber .cyber-sys {
+	display: inline;
+	margin-right: 0.75rem;
+	color: hsl(var(--accent));
+	letter-spacing: 0.16em;
+}
+
+.cyber .nav-brand {
+	text-transform: uppercase;
+	letter-spacing: 0.14em;
+}
+
+.cyber .nav-link {
+	border-radius: 0;
+	font-size: 0.68rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+}
+
+.cyber .nav-link[data-active='true'] {
+	background-color: transparent;
+	border-color: transparent;
+	color: hsl(196 100% 66%);
+	border-bottom: 0;
+	box-shadow: none;
+	text-shadow: 0 0 10px hsl(196 100% 62% / 0.8);
+}
+
+.cyber .rounded-md,
+.cyber .rounded-lg,
+.cyber .rounded-xl,
+.cyber .rounded-2xl,
+.cyber .rounded-full.border {
+	border-radius: 2px;
+	letter-spacing: 0.04em;
+	text-transform: none;
+}
+
+.cyber section {
+	background-color: transparent;
+	background-image: none;
+}
+
+.cyber .cyber-board {
+	position: absolute;
+	inset: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.cyber .cyber-backdrop {
+	display: block;
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	pointer-events: none;
+	background:
+		linear-gradient(90deg, hsl(340 100% 60% / 0.12), transparent 18%),
+		linear-gradient(270deg, hsl(196 100% 62% / 0.12), transparent 18%);
+}
+
+.cyber nav {
+	background: hsl(222 40% 4% / 0.92);
+	border-bottom-color: hsl(196 60% 30% / 0.5);
+}
+
+.cyber .hud-panel {
+	position: relative;
+	border-radius: 2px;
+	border: 1px solid hsl(196 100% 62% / 0.3);
+	background: hsl(222 32% 6% / 0.85);
+	box-shadow: inset 0 0 36px hsl(196 100% 62% / 0.06);
+	clip-path: none;
+	filter: none;
+	backdrop-filter: none;
+}
+
+.cyber .hud-panel:hover {
+	border-color: hsl(196 100% 62% / 0.6);
+	box-shadow:
+		inset 0 0 36px hsl(196 100% 62% / 0.08),
+		0 0 24px hsl(196 100% 62% / 0.18);
+}
+
+.cyber .hud-panel::before,
+.cyber .hud-panel::after {
+	content: '';
+	position: absolute;
+	width: 0.7rem;
+	height: 0.7rem;
+	pointer-events: none;
+	border: 1px solid hsl(196 100% 62% / 0.9);
+	box-shadow: 0 0 8px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .hud-panel::before {
+	top: -1px;
+	left: -1px;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+.cyber .hud-panel::after {
+	right: -1px;
+	bottom: -1px;
+	border-left: 0;
+	border-top: 0;
+}
+
+/* Бейджи и кнопки — голографические */
+.cyber .inline-flex.rounded-full.border {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 0.7rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	border-color: hsl(196 100% 62% / 0.45);
+	background: hsl(196 100% 62% / 0.06);
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.5);
+}
+
+.cyber .inline-flex.rounded-full.border.text-accent {
+	border-color: hsl(340 100% 60% / 0.5);
+	background: hsl(340 100% 60% / 0.07);
+	color: hsl(340 100% 76%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.5);
+}
+
+.cyber button,
+.cyber a.inline-flex {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	letter-spacing: 0.08em;
+}
+
+.cyber .border.glass-effect.rounded-md {
+	border-color: hsl(340 100% 62% / 0.6);
+	background: hsl(340 100% 60% / 0.08);
+	color: hsl(340 100% 78%);
+	box-shadow:
+		inset 0 0 14px hsl(340 100% 60% / 0.15),
+		0 0 14px hsl(340 100% 60% / 0.3);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .border.glass-effect.rounded-md:hover {
+	border-color: hsl(340 100% 70%);
+	background: hsl(340 100% 60% / 0.18);
+	color: hsl(0 0% 100%);
+	box-shadow:
+		inset 0 0 18px hsl(340 100% 60% / 0.25),
+		0 0 26px hsl(340 100% 60% / 0.55);
+}
+
+.cyber .text-primary {
+	color: hsl(196 100% 70%);
+	text-shadow: 0 0 10px hsl(196 100% 62% / 0.45);
+}
+
+.cyber footer {
+	border-top: 1px solid hsl(196 100% 62% / 0.25);
+	background: hsl(222 40% 3% / 0.9);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	letter-spacing: 0.06em;
+}
+
+/* Hero в режиме cyber */
+.cyber section[role='banner'] {
+	align-items: flex-start;
+}
+
+.cyber .cyber-hero {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	grid-template-areas:
+		'portrait'
+		'info'
+		'actions'
+		'personal';
+	gap: 2rem;
+	align-items: stretch;
+	max-width: 72rem;
+	margin: 0 auto;
+	padding-top: 3.5rem;
+}
+
+@media (min-width: 1024px) {
+	.cyber .cyber-hero {
+		grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+		grid-template-areas:
+			'portrait info'
+			'actions personal';
+		column-gap: 3rem;
+	}
+}
+
+.cyber .cyber-hero-portrait {
+	/* Обрезка кадра сверху и снизу. Внешняя рамка короче на эти величины. */
+	--portrait-crop-top: 2rem;
+	--portrait-crop-bottom: 7rem;
+	box-sizing: content-box;
+	grid-area: portrait;
+	align-self: start;
+	position: relative;
+	width: 100%;
+	height: 0;
+	padding-bottom: calc(
+		177.778% - var(--portrait-crop-top) - var(--portrait-crop-bottom)
+	);
+	border-radius: 2px;
+	overflow: hidden;
+	box-shadow:
+		0 0 0 1px hsl(196 100% 62% / 0.5),
+		0 0 32px hsl(196 100% 62% / 0.18),
+		0 30px 60px hsl(222 60% 2% / 0.7);
+}
+
+.cyber .cyber-hero-portrait::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+	pointer-events: none;
+	background:
+		linear-gradient(180deg, transparent 60%, hsl(222 42% 3% / 0.92)),
+		repeating-linear-gradient(
+			to bottom,
+			transparent 0 3px,
+			hsl(196 100% 62% / 0.04) 3px 4px
+		);
+}
+
+.cyber .cyber-portrait-shot {
+	position: absolute;
+	inset: 0.7rem;
+	z-index: 0;
+	width: calc(100% - 1.4rem);
+	height: calc(100% - 1.4rem);
+	object-fit: cover;
+	object-position: center center;
+}
+
+.cyber section.cyber-reveal .cyber-portrait-shot {
+	animation: cyber-signal-burst 0.9s linear backwards;
+}
+
+.cyber .cyber-hud-frame {
+	position: absolute;
+	inset: 0.7rem;
+	z-index: 2;
+	pointer-events: none;
+	border: 1px solid hsl(196 100% 62% / 0.45);
+	box-shadow:
+		inset 0 0 0 1px hsl(340 100% 60% / 0.2),
+		inset 0 0 24px hsl(196 100% 62% / 0.08);
+}
+
+.cyber .cyber-hud-frame::before,
+.cyber .cyber-hud-frame::after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+}
+
+.cyber .cyber-hud-frame::before {
+	top: 14%;
+	bottom: 22%;
+	left: -0.55rem;
+	width: 0.4rem;
+	background: repeating-linear-gradient(
+		to bottom,
+		hsl(196 100% 72%) 0 2px,
+		transparent 2px 8px
+	);
+	filter: drop-shadow(0 0 4px hsl(196 100% 62% / 0.8));
+}
+
+.cyber .cyber-hud-frame::after {
+	left: 16%;
+	right: 22%;
+	top: -0.55rem;
+	height: 0.4rem;
+	background: repeating-linear-gradient(
+		to right,
+		hsl(340 100% 68%) 0 2px,
+		transparent 2px 10px
+	);
+	filter: drop-shadow(0 0 4px hsl(340 100% 60% / 0.8));
+}
+
+.cyber .cyber-hud-corner {
+	position: absolute;
+	width: 1.7rem;
+	height: 1.7rem;
+	border: 2px solid hsl(196 100% 72%);
+	box-shadow: 0 0 10px hsl(196 100% 62% / 0.85);
+}
+
+.cyber .cyber-hud-tl {
+	top: -2px;
+	left: -2px;
+	border-right: 0;
+	border-bottom: 0;
+}
+
+.cyber .cyber-hud-tr {
+	top: -2px;
+	right: -2px;
+	border-left: 0;
+	border-bottom: 0;
+	border-color: hsl(340 100% 68%);
+	box-shadow: 0 0 10px hsl(340 100% 60% / 0.85);
+}
+
+.cyber .cyber-hud-bl {
+	bottom: -2px;
+	left: -2px;
+	border-right: 0;
+	border-top: 0;
+}
+
+.cyber .cyber-hud-br {
+	right: -2px;
+	bottom: -2px;
+	border-left: 0;
+	border-top: 0;
+	border-color: hsl(340 100% 68%);
+	box-shadow: 0 0 10px hsl(340 100% 60% / 0.85);
+}
+
+.cyber .cyber-hud-scan {
+	position: absolute;
+	left: 0;
+	right: 0;
+	height: 22%;
+	background: linear-gradient(
+		180deg,
+		transparent,
+		hsl(196 100% 70% / 0.16),
+		transparent
+	);
+	animation: cyber-portrait-scan 4.8s linear infinite;
+}
+
+.cyber .cyber-hud-status,
+.cyber .cyber-hud-meta {
+	position: absolute;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.62rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+}
+
+.cyber .cyber-hud-status {
+	top: 0.55rem;
+	left: 0.7rem;
+	display: inline-flex;
+	align-items: center;
+	gap: 0.4rem;
+	color: hsl(340 100% 74%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.7);
+}
+
+.cyber .cyber-hud-rec {
+	width: 0.45rem;
+	height: 0.45rem;
+	border-radius: 50%;
+	background: hsl(340 100% 62%);
+	box-shadow: 0 0 8px hsl(340 100% 60%);
+	animation: cyber-rec-blink 1.4s steps(2, end) infinite;
+}
+
+.cyber .cyber-hud-meta {
+	top: 0.55rem;
+	right: 0.7rem;
+	color: hsl(196 100% 76%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.7);
+}
+
+@keyframes cyber-portrait-scan {
+	from {
+		top: -22%;
+	}
+	to {
+		top: 100%;
+	}
+}
+
+@keyframes cyber-rec-blink {
+	50% {
+		opacity: 0.2;
+	}
+}
+
+.cyber .cyber-hero-portrait-tag {
+	position: absolute;
+	left: 1.35rem;
+	bottom: 1.35rem;
+	z-index: 2;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.72rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: hsl(196 100% 72%);
+	text-shadow: 0 0 10px hsl(196 100% 62% / 0.8);
+}
+
+.cyber .cyber-hero-info {
+	grid-area: info;
+	display: flex;
+	flex-direction: column;
+	gap: 1.1rem;
+	justify-content: center;
+	text-align: left;
+}
+
+.cyber .cyber-hero-label {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.7rem;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-hero-name {
+	position: relative;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: clamp(2.1rem, 4.6vw, 4rem);
+	line-height: 1.02;
+	letter-spacing: 0.03em;
+	text-transform: uppercase;
+	color: hsl(30 24% 95%);
+	text-shadow:
+		0 0 18px hsl(196 100% 62% / 0.35),
+		2px 0 0 hsl(340 100% 60% / 0.35),
+		-2px 0 0 hsl(196 100% 62% / 0.35);
+}
+
+.cyber .cyber-hero-role {
+	font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+	font-size: clamp(1.15rem, 2vw, 1.5rem);
+	font-weight: 600;
+	color: hsl(38 100% 60%);
+	text-shadow: 0 0 12px hsl(38 100% 55% / 0.5);
+}
+
+.cyber .cyber-hero-geo {
+	display: inline-flex;
+	align-items: center;
+	align-self: flex-start;
+	gap: 0.5rem;
+	padding: 0.3rem 0.7rem;
+	border: 1px solid hsl(196 100% 62% / 0.35);
+	border-radius: 2px;
+	background: hsl(196 100% 62% / 0.05);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.74rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.5);
+}
+
+.cyber .cyber-hero-geo::before {
+	content: attr(data-prefix);
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-hero-geo svg {
+	color: hsl(196 100% 70%);
+	filter: drop-shadow(0 0 6px hsl(196 100% 62% / 0.7));
+}
+
+.cyber .cyber-terminal-box {
+	position: relative;
+	overflow: hidden;
+	border: 1px solid hsl(160 60% 45% / 0.45);
+	border-radius: 2px;
+	background:
+		radial-gradient(
+			ellipse at 50% 40%,
+			hsl(155 45% 10% / 0.55),
+			transparent 68%
+		),
+		hsl(200 40% 3% / 0.94);
+	box-shadow:
+		inset 0 0 70px hsl(160 80% 12% / 0.55),
+		inset 0 0 14px hsl(150 100% 50% / 0.12),
+		0 0 24px hsl(160 70% 40% / 0.12);
+}
+
+.cyber .cyber-terminal-box::before,
+.cyber .cyber-terminal-box::after {
+	content: '';
+	position: absolute;
+	pointer-events: none;
+}
+
+.cyber .cyber-terminal-box::before {
+	inset: 0;
+	z-index: 3;
+	background: repeating-linear-gradient(
+		to bottom,
+		transparent 0 2px,
+		hsl(160 50% 2% / 0.35) 2px 3px
+	);
+	mix-blend-mode: multiply;
+}
+
+.cyber .cyber-terminal-box::after {
+	left: 0;
+	right: 0;
+	z-index: 2;
+	height: 26%;
+	background: linear-gradient(
+		180deg,
+		transparent,
+		hsl(145 90% 60% / 0.09),
+		transparent
+	);
+	animation: cyber-crt-sweep 6s linear infinite;
+}
+
+.cyber .cyber-terminal-head {
+	position: relative;
+	z-index: 4;
+	display: flex;
+	align-items: center;
+	gap: 0.4rem;
+	padding: 0.5rem 0.8rem;
+	border-bottom: 1px solid hsl(160 60% 45% / 0.25);
+	background: hsl(160 30% 4% / 0.65);
+}
+
+.cyber .cyber-terminal-head > span:not(.cyber-terminal-title) {
+	width: 0.55rem;
+	height: 0.55rem;
+	border-radius: 50%;
+	background: hsl(340 100% 60%);
+	box-shadow: 0 0 8px hsl(340 100% 60% / 0.8);
+}
+
+.cyber .cyber-terminal-head > span:nth-child(2) {
+	background: hsl(38 100% 58%);
+	box-shadow: 0 0 8px hsl(38 100% 58% / 0.8);
+}
+
+.cyber .cyber-terminal-head > span:nth-child(3) {
+	background: hsl(160 80% 50%);
+	box-shadow: 0 0 8px hsl(160 80% 50% / 0.8);
+}
+
+.cyber .cyber-terminal-title {
+	margin-left: auto;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.7rem;
+	letter-spacing: 0.2em;
+	color: hsl(160 50% 60%);
+}
+
+.cyber .cyber-terminal-body {
+	position: relative;
+	z-index: 1;
+	margin: 0;
+	padding: 0.9rem 1rem 1rem;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.86rem;
+	line-height: 1.6;
+	white-space: pre-wrap;
+	word-break: break-word;
+	color: hsl(145 90% 68%);
+	text-shadow:
+		0 0 4px hsl(140 100% 60% / 0.9),
+		0 0 14px hsl(150 90% 45% / 0.55);
+	animation: cyber-phosphor 4.2s linear infinite;
+}
+
+.cyber .cyber-terminal-prompt {
+	color: hsl(196 100% 68%);
+}
+
+.cyber .cyber-terminal-out {
+	color: hsl(150 70% 62%);
+}
+
+.cyber .cyber-terminal-caret {
+	display: inline-block;
+	width: 0.55em;
+	height: 1em;
+	margin-left: 0.15em;
+	vertical-align: -0.15em;
+	background: hsl(140 100% 70%);
+	box-shadow: 0 0 8px hsl(140 100% 60%);
+	animation: blink-caret-solid 1.05s steps(2, end) infinite;
+}
+
+.cyber .hud-panel::before,
+.cyber .hud-panel::after {
+	animation: cyber-bracket-pulse 3.8s ease-in-out infinite;
+}
+
+.cyber .hud-panel::after {
+	animation-delay: 1.9s;
+}
+
+.cyber .cyber-hero-personal,
+.cyber .cyber-hero-actions {
+	position: relative;
+	overflow: hidden;
+}
+
+.cyber .cyber-hero-personal::before,
+.cyber .cyber-hero-actions::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	height: 22%;
+	pointer-events: none;
+	background: linear-gradient(
+		180deg,
+		transparent,
+		hsl(196 100% 70% / 0.08),
+		transparent
+	);
+	animation: cyber-crt-sweep 7.5s linear infinite;
+}
+
+.cyber .cyber-hero-actions::before {
+	animation-duration: 8.5s;
+	background: linear-gradient(
+		180deg,
+		transparent,
+		hsl(340 100% 70% / 0.1),
+		transparent
+	);
+}
+
+.cyber .skill-fill {
+	position: relative;
+	overflow: hidden;
+}
+
+.cyber .skill-fill::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 22%;
+	background: linear-gradient(
+		90deg,
+		transparent,
+		hsl(0 0% 100% / 0.55),
+		transparent
+	);
+	animation: cyber-bar-sheen 2.6s ease-in-out infinite;
+}
+
+.cyber .cyber-hero-personal {
+	grid-area: personal;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	padding: 1.1rem 1.2rem;
+	border: 1px solid hsl(196 100% 62% / 0.3);
+	border-radius: 2px;
+	background: hsl(222 32% 6% / 0.85);
+	box-shadow: inset 0 0 36px hsl(196 100% 62% / 0.06);
+	text-align: left;
+}
+
+.cyber .cyber-hero-personal .cyber-hero-label {
+	color: hsl(196 100% 66%);
+	text-shadow: 0 0 10px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .cyber-data-list {
+	display: grid;
+	gap: 0.55rem;
+	margin: 0;
+}
+
+.cyber .cyber-data-row {
+	display: grid;
+	grid-template-columns: minmax(7rem, 11rem) 1fr;
+	align-items: baseline;
+	gap: 0.75rem;
+	padding-bottom: 0.45rem;
+	border-bottom: 1px dashed hsl(196 100% 62% / 0.18);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.78rem;
+	letter-spacing: 0.06em;
+}
+
+.cyber .cyber-data-row:last-child {
+	border-bottom: 0;
+	padding-bottom: 0;
+}
+
+.cyber .cyber-data-name {
+	color: hsl(var(--muted-foreground));
+	text-transform: uppercase;
+	font-size: 0.68rem;
+	letter-spacing: 0.14em;
+}
+
+.cyber .cyber-data-name::before {
+	content: '> ';
+	color: hsl(340 100% 66%);
+}
+
+.cyber .cyber-data-value {
+	margin: 0;
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.45);
+}
+
+.cyber .cyber-hero-actions {
+	grid-area: actions;
+	align-self: stretch;
+	display: flex;
+	flex-direction: column;
+	gap: 0.9rem;
+	padding: 1.1rem 1.2rem;
+	border: 1px solid hsl(340 100% 60% / 0.35);
+	border-radius: 2px;
+	background: linear-gradient(
+		160deg,
+		hsl(340 100% 60% / 0.08),
+		hsl(222 32% 6% / 0.9) 45%
+	);
+	box-shadow:
+		inset 0 0 36px hsl(340 100% 60% / 0.08),
+		0 0 24px hsl(340 100% 60% / 0.12);
+	text-align: left;
+}
+
+.cyber .cyber-hero-actions > .flex {
+	display: grid;
+	flex: 1;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-auto-rows: 1fr;
+	gap: 0.6rem;
+}
+
+.cyber .cyber-hero-actions > .flex > * {
+	width: 100%;
+	height: 100%;
+	min-height: 2.75rem;
+}
+
+.cyber .cyber-hero-actions > .flex > .sr-only {
+	position: absolute;
+}
+
+.cyber .cyber-hero-actions button,
+.cyber .cyber-hero-actions a {
+	border-color: hsl(340 100% 62% / 0.6);
+	background: hsl(340 100% 60% / 0.08);
+	color: hsl(340 100% 78%);
+	box-shadow:
+		inset 0 0 14px hsl(340 100% 60% / 0.15),
+		0 0 14px hsl(340 100% 60% / 0.3);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+	backdrop-filter: blur(6px);
+}
+
+.cyber .cyber-hero-actions button:hover,
+.cyber .cyber-hero-actions a:hover {
+	border-color: hsl(340 100% 70%);
+	background: hsl(340 100% 60% / 0.18);
+	color: hsl(0 0% 100%);
+	box-shadow:
+		inset 0 0 18px hsl(340 100% 60% / 0.25),
+		0 0 26px hsl(340 100% 60% / 0.55);
+}
+
+@keyframes blink-caret-solid {
+	50% {
+		opacity: 0;
+	}
+}
+
+/* Карточки навыков — как панели на главной */
+.cyber .skill-card-head {
+	margin-bottom: 1.1rem;
+}
+
+.cyber .skill-card-head .inline-flex.rounded-full.border {
+	display: none;
+}
+
+.cyber .cyber-module-key {
+	display: inline-block;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.7rem;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .skill-row {
+	padding-bottom: 0.65rem;
+	border-bottom: 1px dashed hsl(196 100% 62% / 0.18);
+}
+
+.cyber .skill-row:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.cyber .skill-name,
+.cyber .skill-value {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.78rem;
+	letter-spacing: 0.06em;
+}
+
+.cyber .skill-name {
+	color: hsl(var(--foreground));
+	text-transform: uppercase;
+	font-size: 0.68rem;
+	letter-spacing: 0.14em;
+}
+
+.cyber .skill-name::before {
+	content: '> ';
+	color: hsl(340 100% 66%);
+}
+
+.cyber .skill-value {
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.45);
+}
+
+.cyber .skill-track {
+	height: 0.55rem;
+	border: 1px solid hsl(196 100% 62% / 0.4);
+	border-radius: 0;
+	background-color: transparent;
+	background-image: repeating-linear-gradient(
+		90deg,
+		hsl(222 20% 12%) 0 6px,
+		hsl(222 20% 8%) 6px 8px
+	);
+}
+
+.cyber .skill-fill {
+	border-radius: 0;
+	background-color: transparent;
+	background-image: linear-gradient(
+		90deg,
+		hsl(196 100% 52%),
+		hsl(170 100% 62%)
+	);
+	box-shadow:
+		0 0 10px hsl(196 100% 62% / 0.85),
+		0 0 22px hsl(196 100% 62% / 0.45);
+}
+
+.cyber .skill-fill.bg-warning {
+	background-image: linear-gradient(90deg, hsl(38 100% 52%), hsl(22 100% 60%));
+	box-shadow:
+		0 0 10px hsl(38 100% 58% / 0.85),
+		0 0 22px hsl(38 100% 58% / 0.45);
+}
+
+.cyber .skill-fill.bg-destructive {
+	background-image: linear-gradient(
+		90deg,
+		hsl(340 100% 55%),
+		hsl(352 100% 62%)
+	);
+	box-shadow:
+		0 0 10px hsl(340 100% 60% / 0.85),
+		0 0 22px hsl(340 100% 60% / 0.45);
+}
+
+.cyber .glitch-title {
+	position: relative;
+}
+
+.cyber .glitch-layer {
+	display: block;
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+}
+
+.cyber .glitch-layer-a {
+	color: hsl(196 100% 62%);
+	opacity: 0.8;
+	transform: translate(-2px, 0);
+	-webkit-text-fill-color: hsl(196 100% 62%);
+}
+
+.cyber .glitch-layer-b {
+	color: hsl(340 100% 60%);
+	opacity: 0.8;
+	transform: translate(2px, 1px);
+	-webkit-text-fill-color: hsl(340 100% 60%);
+}
+
+.cyber .animate-pulse-glow {
+	animation-name: pulse-glow-cyber;
+}
+
+@keyframes pulse-glow-cyber {
+	0%,
+	100% {
+		box-shadow: 0 0 10px hsl(196 100% 62% / 0.5);
+	}
+	50% {
+		box-shadow: 0 0 18px hsl(340 100% 60% / 0.75);
+	}
+}
+
+/* ---------- Секции 01–05 и футер в режиме cyber ---------- */
+
+/* Общие метки панелей и подзаголовки (pink mono) */
+.cyber .exp-sub,
+.cyber .info-head h3,
+.cyber .contact-label,
+.cyber .exp-total-item h3,
+.cyber .exp-more-label {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+/* Строки данных (key / value) */
+.cyber .info-key,
+.cyber .exp-total-item h3 {
+	margin: 0;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 0.68rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: hsl(var(--muted-foreground));
+	text-shadow: none;
+}
+
+.cyber .info-key::before,
+.cyber .exp-total-item h3::before,
+.cyber .exp-list li::before {
+	content: '> ';
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .info-val,
+.cyber .contact-value {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 0.82rem;
+	letter-spacing: 0.04em;
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.45);
+}
+
+/* Терминальный текст (описания, сноски) */
+.cyber .exp-total-item p:last-child,
+.cyber .exp-more-sub,
+.cyber .info-text,
+.cyber .info-note {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.82rem;
+	line-height: 1.6;
+	letter-spacing: 0.04em;
+	color: hsl(165 70% 68%);
+	text-shadow: 0 0 8px hsl(165 80% 55% / 0.35);
+}
+
+.cyber .exp-total-item p:last-child::before,
+.cyber .exp-more-sub::before,
+.cyber .info-text::before {
+	content: '$ ';
+	color: hsl(196 100% 68%);
+}
+
+.cyber .exp-total-item p:last-child:empty {
+	display: none;
+}
+
+.cyber .info-note {
+	color: hsl(var(--muted-foreground));
+	text-shadow: none;
+}
+
+.cyber .info-note::before {
+	content: '// ';
+	color: hsl(340 100% 66%);
+}
+
+/* Зелёные бейджи (варианты трудоустройства, статусы) */
+.cyber .inline-flex.rounded-full.border.text-success {
+	border-color: hsl(152 60% 50% / 0.5);
+	background: hsl(152 60% 50% / 0.07);
+	color: hsl(152 70% 68%);
+	text-shadow: 0 0 8px hsl(152 70% 50% / 0.5);
+}
+
+/* 01 · Карточка "Далее хочу изучить" */
+.cyber .cyber-learn-card {
+	text-align: left;
+}
+
+.cyber .cyber-learn-card h3.text-gradient {
+	display: flex;
+	flex-direction: column;
+	gap: 0.45rem;
+	margin-bottom: 1.25rem;
+	font-size: 1.1rem;
+}
+
+.cyber .cyber-learn-card h3.text-gradient::before {
+	content: attr(data-prefix);
+	font-size: 0.7rem;
+	letter-spacing: 0.26em;
+	color: hsl(340 100% 66%);
+	-webkit-text-fill-color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-learn-card > .flex {
+	justify-content: flex-start;
+}
+
+/* 02 · Итоги опыта */
+.cyber .exp-total {
+	border-width: 1px;
+	background: hsl(222 32% 6% / 0.85);
+}
+
+.cyber .exp-total-item {
+	padding: 0.9rem 1rem;
+	border: 1px dashed hsl(196 100% 62% / 0.22);
+	border-radius: 2px;
+	text-align: left;
+}
+
+.cyber .exp-total-item h3 {
+	margin-bottom: 0.5rem;
+}
+
+.cyber .exp-total-item p.text-gradient {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 1.9rem;
+	letter-spacing: 0.04em;
+	color: hsl(196 100% 74%);
+	-webkit-text-fill-color: hsl(196 100% 74%);
+	text-shadow: 0 0 14px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .exp-more-label {
+	padding: 0.45rem 0.8rem;
+	border: 1px solid hsl(340 100% 60% / 0.45);
+	border-radius: 2px;
+	background: hsl(222 42% 3%);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.72rem;
+	line-height: 1.45;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: hsl(340 100% 74%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+	box-shadow:
+		inset 0 0 14px hsl(340 100% 60% / 0.12),
+		0 0 18px hsl(340 100% 60% / 0.25);
+}
+
+@media (min-width: 768px) {
+	.cyber .exp-more-label {
+		padding: 0.45rem 1.1rem;
+		font-size: 0.9rem;
+		letter-spacing: 0.18em;
+	}
+}
+
+.cyber .exp-more-label::before {
+	content: '// ';
+	color: hsl(196 100% 68%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .exp-more-label + *,
+.cyber .exp-more-label ~ .exp-more-sub {
+	margin-top: 1.5rem;
+}
+
+/* 02 · Шапка карточки опыта */
+.cyber .exp-head {
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid hsl(196 100% 62% / 0.18);
+}
+
+.cyber .exp-head h3.text-gradient {
+	font-size: 1.35rem;
+}
+
+.cyber .exp-head h3.text-gradient::before {
+	content: attr(data-prefix);
+	color: hsl(340 100% 66%);
+	-webkit-text-fill-color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .exp-position {
+	font-family: 'Rajdhani', 'Segoe UI', sans-serif;
+	font-weight: 600;
+	color: hsl(38 100% 60%);
+	text-shadow: 0 0 12px hsl(38 100% 55% / 0.5);
+}
+
+.cyber .exp-position::before {
+	content: attr(data-prefix);
+	margin-right: 0.35rem;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 0.78em;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .exp-duration svg {
+	color: hsl(340 100% 66%);
+	filter: drop-shadow(0 0 6px hsl(340 100% 60% / 0.7));
+}
+
+.cyber .exp-meta {
+	margin-bottom: 1.5rem;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.74rem;
+	letter-spacing: 0.1em;
+	text-transform: uppercase;
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.5);
+}
+
+.cyber .exp-meta > div {
+	padding: 0.3rem 0.7rem;
+	border: 1px solid hsl(196 100% 62% / 0.35);
+	border-radius: 2px;
+	background: hsl(196 100% 62% / 0.05);
+}
+
+.cyber .exp-meta svg {
+	color: hsl(340 100% 66%);
+	filter: drop-shadow(0 0 6px hsl(340 100% 60% / 0.7));
+}
+
+/* 02 · Проект внутри карточки */
+.cyber .exp-project {
+	position: relative;
+	padding-left: 1.25rem;
+	border-left-width: 1px;
+	border-left-color: hsl(196 100% 62% / 0.45);
+}
+
+.cyber .exp-project::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -1px;
+	width: 1px;
+	height: 2rem;
+	background: hsl(340 100% 60%);
+	box-shadow: 0 0 8px hsl(340 100% 60% / 0.9);
+}
+
+.cyber .exp-project-head > svg,
+.cyber .exp-sub-head > svg {
+	display: none;
+}
+
+.cyber .exp-project-title {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 1rem;
+	letter-spacing: 0.06em;
+	text-transform: uppercase;
+	color: hsl(30 24% 93%);
+}
+
+.cyber .exp-project-title::before,
+.cyber .portfolio-title::before {
+	content: attr(data-prefix);
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+/* Подмена заголовка на англ. snake_case-метку (текст остаётся для SR) */
+.cyber .cyber-relabel {
+	font-size: 0;
+	line-height: 1;
+}
+
+.cyber .cyber-relabel::before {
+	content: attr(data-cyber);
+	display: inline-block;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	font-size: 0.7rem;
+	line-height: 1.4;
+	letter-spacing: 0.26em;
+	text-transform: uppercase;
+	color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .exp-list li {
+	padding-bottom: 0.4rem;
+	border-bottom: 1px dashed hsl(196 100% 62% / 0.14);
+}
+
+.cyber .exp-list li:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.cyber .exp-list li::before {
+	flex-shrink: 0;
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.875rem;
+	line-height: 1.625;
+}
+
+.cyber .exp-list li > .bg-accent {
+	display: none;
+}
+
+.cyber .exp-list li span {
+	color: hsl(30 18% 84%);
+}
+
+/* 03 · Личные проекты */
+.cyber .portfolio-title {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-weight: 400;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: hsl(196 100% 72%);
+	text-shadow: 0 0 12px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .portfolio-shot {
+	border-color: hsl(196 100% 62% / 0.4);
+	box-shadow:
+		0 0 18px hsl(196 100% 62% / 0.15),
+		inset 0 0 0 1px hsl(196 100% 62% / 0.2);
+	filter: saturate(0.85) contrast(1.05);
+}
+
+/* 04 · Личная информация */
+.cyber .info-head {
+	gap: 0.6rem;
+	margin-bottom: 1.1rem;
+	padding-bottom: 0.6rem;
+	border-bottom: 1px solid hsl(196 100% 62% / 0.18);
+}
+
+.cyber .info-head svg {
+	width: 1rem;
+	height: 1rem;
+	color: hsl(196 100% 70%);
+	filter: drop-shadow(0 0 6px hsl(196 100% 62% / 0.7));
+}
+
+.cyber .info-spec .info-key {
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 1rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: hsl(196 100% 72%);
+	text-shadow: 0 0 10px hsl(196 100% 62% / 0.6);
+}
+
+.cyber .info-spec .info-val {
+	font-size: 0.9rem;
+}
+
+.cyber .info-row {
+	display: grid;
+	gap: 0.4rem;
+	padding-bottom: 0.6rem;
+	border-bottom: 1px dashed hsl(196 100% 62% / 0.18);
+}
+
+.cyber .info-row:last-child {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.cyber .info-lang:not(:last-child) {
+	padding-bottom: 0.45rem;
+	border-bottom: 1px dashed hsl(196 100% 62% / 0.18);
+}
+
+.cyber .info-lang .info-key {
+	min-width: 7rem;
+}
+
+.cyber .info-spec {
+	border: 1px solid hsl(196 100% 62% / 0.22);
+	background: hsl(196 100% 62% / 0.04);
+	box-shadow: inset 0 0 18px hsl(196 100% 62% / 0.05);
+}
+
+/* Masonry (как в Instagram): колонки подстраиваются по высоте */
+@media (min-width: 1024px) {
+	.cyber .cyber-masonry {
+		display: block;
+		columns: 2;
+		column-gap: 2rem;
+	}
+
+	.cyber .cyber-masonry > * {
+		display: inline-block;
+		width: 100%;
+		margin-bottom: 2rem;
+		break-inside: avoid;
+		vertical-align: top;
+	}
+
+	.cyber .cyber-masonry > *:last-child {
+		margin-bottom: 0;
+	}
+
+	.cyber .cyber-masonry .info-spec-grid {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+@media (min-width: 1280px) {
+	.cyber .cyber-masonry {
+		columns: 3;
+	}
+}
+
+/* 05 · Каналы связи — терминал */
+.cyber .cyber-contacts-list {
+	margin: 0;
+	padding: 0.6rem 0.4rem;
+	list-style: none;
+}
+
+.cyber .cyber-contacts-row {
+	display: grid;
+	grid-template-columns: auto auto minmax(6rem, 9rem) minmax(0, 1fr) auto;
+	align-items: center;
+	gap: 0.75rem;
+	padding: 0.65rem 0.8rem;
+	border-bottom: 1px dashed hsl(165 60% 45% / 0.18);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: 0.86rem;
+	letter-spacing: 0.04em;
+}
+
+.cyber .cyber-contacts-row:last-child {
+	border-bottom: 0;
+}
+
+.cyber .cyber-contacts-row:hover {
+	background: hsl(165 70% 40% / 0.06);
+}
+
+.cyber .cyber-contacts-prompt {
+	color: hsl(196 100% 68%);
+}
+
+.cyber .cyber-contacts-icon {
+	width: 1rem;
+	height: 1rem;
+	color: hsl(165 80% 68%);
+	filter: drop-shadow(0 0 6px hsl(165 80% 55% / 0.6));
+}
+
+.cyber .cyber-contacts-label {
+	font-size: 0.7rem;
+	letter-spacing: 0.18em;
+	text-transform: uppercase;
+	color: hsl(340 100% 70%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.5);
+}
+
+.cyber .cyber-contacts-value {
+	min-width: 0;
+	overflow-wrap: anywhere;
+	color: hsl(165 80% 72%);
+	text-shadow: 0 0 8px hsl(165 80% 55% / 0.4);
+}
+
+.cyber .cyber-contacts-actions {
+	display: flex;
+	gap: 0.4rem;
+}
+
+.cyber .cyber-contacts-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.35rem;
+	padding: 0.25rem 0.6rem;
+	border: 1px solid hsl(340 100% 62% / 0.45);
+	border-radius: 2px;
+	background: hsl(340 100% 60% / 0.06);
+	font-size: 0.66rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: hsl(340 100% 78%);
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+	box-shadow: inset 0 0 10px hsl(340 100% 60% / 0.1);
+	transition:
+		background-color 0.2s,
+		border-color 0.2s,
+		box-shadow 0.2s;
+}
+
+.cyber .cyber-contacts-btn::before {
+	content: '[';
+	color: hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-contacts-btn::after {
+	content: ']';
+	color: hsl(340 100% 60% / 0.6);
+}
+
+.cyber .cyber-contacts-btn:hover,
+.cyber .cyber-contacts-btn:focus-visible {
+	outline: none;
+	border-color: hsl(340 100% 70%);
+	background: hsl(340 100% 60% / 0.18);
+	color: hsl(0 0% 100%);
+	box-shadow:
+		inset 0 0 14px hsl(340 100% 60% / 0.25),
+		0 0 18px hsl(340 100% 60% / 0.5);
+}
+
+@media (max-width: 640px) {
+	.cyber .cyber-contacts-row {
+		grid-template-columns: auto auto minmax(0, 1fr);
+	}
+
+	.cyber .cyber-contacts-value,
+	.cyber .cyber-contacts-actions {
+		grid-column: 3;
+	}
+}
+
+.cyber .contact-icon {
+	padding: 0.6rem;
+	border: 1px solid hsl(196 100% 62% / 0.4);
+	border-radius: 2px;
+	background: hsl(196 100% 62% / 0.06);
+	box-shadow:
+		inset 0 0 10px hsl(196 100% 62% / 0.1),
+		0 0 12px hsl(196 100% 62% / 0.25);
+}
+
+.cyber .contact-icon.text-accent {
+	border-color: hsl(340 100% 60% / 0.5);
+	background: hsl(340 100% 60% / 0.07);
+	box-shadow:
+		inset 0 0 10px hsl(340 100% 60% / 0.12),
+		0 0 12px hsl(340 100% 60% / 0.3);
+}
+
+.cyber .contact-icon.text-success {
+	border-color: hsl(152 60% 50% / 0.5);
+	background: hsl(152 60% 50% / 0.07);
+	color: hsl(152 70% 66%);
+	box-shadow:
+		inset 0 0 10px hsl(152 60% 50% / 0.12),
+		0 0 12px hsl(152 60% 50% / 0.3);
+}
+
+.cyber .contact-label {
+	font-size: 0.7rem;
+	letter-spacing: 0.22em;
+}
+
+.cyber .contact-label::before {
+	content: attr(data-prefix);
+	color: hsl(196 100% 68%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.5);
+}
+
+.cyber .contact-value {
+	margin-top: 0.3rem;
+}
+
+.cyber .contact-actions button,
+.cyber .contact-actions a {
+	border: 1px solid hsl(340 100% 62% / 0.45);
+	border-radius: 2px;
+	background: hsl(340 100% 60% / 0.06);
+	color: hsl(340 100% 78%);
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+	box-shadow: inset 0 0 10px hsl(340 100% 60% / 0.1);
+}
+
+.cyber .contact-actions button:hover,
+.cyber .contact-actions a:hover {
+	border-color: hsl(340 100% 70%);
+	background: hsl(340 100% 60% / 0.18);
+	color: hsl(0 0% 100%);
+	box-shadow:
+		inset 0 0 14px hsl(340 100% 60% / 0.25),
+		0 0 18px hsl(340 100% 60% / 0.5);
+}
+
+.cyber .contact-actions svg.text-success {
+	color: hsl(152 70% 66%);
+}
+
+/* 05 · CTA и кнопки default-варианта */
+.cyber .cyber-cta-card h3.text-gradient::before {
+	content: attr(data-prefix);
+	display: block;
+	margin-bottom: 0.6rem;
+	font-size: 0.7rem;
+	letter-spacing: 0.26em;
+	color: hsl(340 100% 66%);
+	-webkit-text-fill-color: hsl(340 100% 66%);
+	text-shadow: 0 0 10px hsl(340 100% 60% / 0.6);
+}
+
+.cyber .gradient-primary.text-primary-foreground {
+	border: 1px solid hsl(196 100% 62% / 0.7);
+	border-radius: 2px;
+	background: linear-gradient(
+		100deg,
+		hsl(196 100% 62% / 0.24),
+		hsl(196 100% 62% / 0.08)
+	);
+	color: hsl(196 100% 82%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.7);
+	box-shadow:
+		inset 0 0 16px hsl(196 100% 62% / 0.18),
+		0 0 18px hsl(196 100% 62% / 0.35);
+}
+
+.cyber .gradient-primary.text-primary-foreground:hover {
+	opacity: 1;
+	border-color: hsl(196 100% 76%);
+	background: linear-gradient(
+		100deg,
+		hsl(196 100% 62% / 0.36),
+		hsl(196 100% 62% / 0.14)
+	);
+	color: hsl(0 0% 100%);
+	box-shadow:
+		inset 0 0 20px hsl(196 100% 62% / 0.3),
+		0 0 28px hsl(196 100% 62% / 0.6);
+}
+
+/* Футер sys://build */
+.cyber footer {
+	box-shadow: 0 -10px 30px -12px hsl(196 100% 62% / 0.35);
+}
+
+.cyber footer .build-kv {
+	font-size: 0.7rem;
+	letter-spacing: 0.12em;
+	color: hsl(196 100% 74%);
+	text-shadow: 0 0 8px hsl(196 100% 62% / 0.45);
+}
+
+.cyber footer .build-key {
+	color: hsl(340 100% 66%);
+	text-transform: uppercase;
+	text-shadow: 0 0 8px hsl(340 100% 60% / 0.6);
+}
+
+/* Переход между секциями */
+.cyber .cyber-warp {
+	position: fixed;
+	inset: 0;
+	z-index: 60;
+	pointer-events: none;
+	overflow: hidden;
+	background: linear-gradient(
+		180deg,
+		hsl(196 100% 62% / 0.05),
+		transparent 30%,
+		transparent 70%,
+		hsl(340 100% 60% / 0.08)
+	);
+	animation: cyber-warp-fade 0.9s ease forwards;
+}
+
+.cyber .cyber-warp::before,
+.cyber .cyber-warp::after {
+	content: '';
+	position: absolute;
+	left: -10%;
+	width: 120%;
+	pointer-events: none;
+}
+
+.cyber .cyber-warp::before {
+	top: 0;
+	height: 3px;
+	background: hsl(196 100% 72%);
+	box-shadow:
+		0 0 16px hsl(196 100% 62%),
+		0 0 42px hsl(196 100% 62% / 0.7);
+	animation: cyber-scan-pass 0.72s cubic-bezier(0.2, 0.6, 0.2, 1) forwards;
+}
+
+.cyber .cyber-warp::after {
+	top: 0;
+	height: 100%;
+	background: linear-gradient(
+		90deg,
+		transparent 0%,
+		hsl(340 100% 60% / 0.14) 46%,
+		hsl(196 100% 70% / 0.2) 50%,
+		hsl(340 100% 60% / 0.14) 54%,
+		transparent 100%
+	);
+	animation: cyber-warp-sweep 0.7s ease-out forwards;
+}
+
+.cyber .cyber-warp-label {
+	position: absolute;
+	left: 50%;
+	top: 46%;
+	transform: translate(-50%, -50%);
+	font-family: 'Share Tech Mono', ui-monospace, monospace;
+	font-size: clamp(1.1rem, 3vw, 2rem);
+	letter-spacing: 0.32em;
+	text-transform: uppercase;
+	color: hsl(196 100% 82%);
+	text-shadow:
+		2px 0 0 hsl(340 100% 60% / 0.85),
+		-2px 0 0 hsl(196 100% 62% / 0.85),
+		0 0 18px hsl(196 100% 62% / 0.7);
+	animation: cyber-label-glitch 0.7s steps(2, end) forwards;
+}
+
+.cyber section.cyber-reveal .cyber-kicker {
+	animation: cyber-glitch-in 0.55s steps(2, end) both;
+}
+
+.cyber section.cyber-reveal .cyber-heading,
+.cyber section.cyber-reveal .cyber-hero-name {
+	animation: cyber-signal-burst 0.9s steps(1, end) backwards;
+}
+
+.cyber section.cyber-reveal .cyber-heading + p {
+	animation: cyber-block-in 0.6s ease 0.12s both;
+}
+
+.cyber section.cyber-reveal .cyber-hero > *,
+.cyber section.cyber-reveal .hud-panel,
+.cyber section.cyber-reveal .exp-total,
+.cyber section.cyber-reveal .cyber-terminal-box {
+	animation: cyber-block-in 0.7s cubic-bezier(0.16, 0.84, 0.32, 1) both;
+}
+
+.cyber section.cyber-reveal .cyber-hero > *:nth-child(2),
+.cyber section.cyber-reveal .cyber-masonry > *:nth-child(2),
+.cyber section.cyber-reveal .space-y-8 > *:nth-child(2) {
+	animation-delay: 0.08s;
+}
+
+.cyber section.cyber-reveal .cyber-hero > *:nth-child(3),
+.cyber section.cyber-reveal .cyber-masonry > *:nth-child(3),
+.cyber section.cyber-reveal .space-y-8 > *:nth-child(3) {
+	animation-delay: 0.16s;
+}
+
+.cyber section.cyber-reveal .cyber-hero > *:nth-child(4),
+.cyber section.cyber-reveal .cyber-masonry > *:nth-child(4),
+.cyber section.cyber-reveal .space-y-8 > *:nth-child(4) {
+	animation-delay: 0.24s;
+}
+
+.cyber section.cyber-reveal .cyber-masonry > *:nth-child(n + 5),
+.cyber section.cyber-reveal .space-y-8 > *:nth-child(n + 5) {
+	animation-delay: 0.32s;
+}
+
+@keyframes cyber-warp-fade {
+	0% {
+		opacity: 1;
+	}
+	70% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes cyber-scan-pass {
+	from {
+		transform: translateY(-8px);
+	}
+	to {
+		transform: translateY(100vh);
+	}
+}
+
+@keyframes cyber-warp-sweep {
+	from {
+		transform: translateX(-70%);
+		opacity: 0.2;
+	}
+	40% {
+		opacity: 1;
+	}
+	to {
+		transform: translateX(70%);
+		opacity: 0;
+	}
+}
+
+@keyframes cyber-label-glitch {
+	0% {
+		opacity: 0;
+		letter-spacing: 0.6em;
+		transform: translate(-48%, -50%);
+	}
+	20% {
+		opacity: 1;
+		transform: translate(-52%, -48%);
+	}
+	45% {
+		transform: translate(-49%, -52%);
+	}
+	100% {
+		opacity: 0;
+		letter-spacing: 0.32em;
+		transform: translate(-50%, -50%);
+	}
+}
+
+@keyframes cyber-noise-a {
+	0%,
+	76%,
+	100% {
+		opacity: 0;
+		transform: none;
+		clip-path: inset(0 0 0 0);
+	}
+	79% {
+		opacity: 0.9;
+		transform: translate(-7px, 0);
+		clip-path: inset(12% 0 58% 0);
+	}
+	82% {
+		opacity: 0.75;
+		transform: translate(6px, 1px);
+		clip-path: inset(48% 0 16% 0);
+	}
+	85% {
+		opacity: 0;
+	}
+	91% {
+		opacity: 0.6;
+		transform: translate(-4px, -1px);
+		clip-path: inset(72% 0 6% 0);
+	}
+	93% {
+		opacity: 0;
+	}
+}
+
+@keyframes cyber-noise-b {
+	0%,
+	80%,
+	100% {
+		opacity: 0;
+		transform: none;
+		clip-path: inset(0 0 0 0);
+	}
+	83% {
+		opacity: 0.85;
+		transform: translate(8px, 0);
+		clip-path: inset(24% 0 42% 0);
+	}
+	86% {
+		opacity: 0.7;
+		transform: translate(-5px, 0);
+		clip-path: inset(60% 0 10% 0);
+	}
+	89% {
+		opacity: 0;
+	}
+}
+
+@keyframes cyber-signal-burst {
+	0% {
+		opacity: 0;
+		transform: translateX(-12px) skewX(-10deg);
+		clip-path: inset(42% 0 38% 0);
+		text-shadow:
+			8px 0 0 hsl(340 100% 60%),
+			-8px 0 0 hsl(196 100% 62%);
+	}
+	16% {
+		opacity: 1;
+		transform: translateX(9px) skewX(7deg);
+		clip-path: inset(8% 0 62% 0);
+	}
+	33% {
+		transform: translateX(-6px);
+		clip-path: inset(64% 0 6% 0);
+		text-shadow:
+			-7px 0 0 hsl(340 100% 60%),
+			7px 0 0 hsl(196 100% 62%);
+	}
+	50% {
+		transform: translateX(4px) skewX(-3deg);
+		clip-path: inset(0 0 72% 0);
+	}
+	66% {
+		transform: translateX(-2px);
+		clip-path: inset(30% 0 30% 0);
+		text-shadow:
+			4px 0 0 hsl(340 100% 60% / 0.7),
+			-4px 0 0 hsl(196 100% 62% / 0.7);
+	}
+	100% {
+		opacity: 1;
+		transform: none;
+		clip-path: none;
+	}
+}
+
+@keyframes cyber-glitch-in {
+	0% {
+		opacity: 0;
+		transform: translateX(-14px);
+		filter: hue-rotate(80deg);
+	}
+	40% {
+		opacity: 1;
+		transform: translateX(6px);
+		filter: none;
+	}
+	70% {
+		transform: translateX(-3px);
+	}
+	100% {
+		transform: none;
+	}
+}
+
+@keyframes cyber-crt-sweep {
+	from {
+		top: -30%;
+	}
+	to {
+		top: 110%;
+	}
+}
+
+@keyframes cyber-phosphor {
+	0%,
+	88%,
+	100% {
+		opacity: 1;
+	}
+	90% {
+		opacity: 0.72;
+	}
+	92% {
+		opacity: 1;
+	}
+	94% {
+		opacity: 0.86;
+	}
+}
+
+@keyframes cyber-bracket-pulse {
+	0%,
+	100% {
+		opacity: 0.45;
+	}
+	50% {
+		opacity: 1;
+		box-shadow: 0 0 12px hsl(196 100% 62% / 0.95);
+	}
+}
+
+@keyframes cyber-bar-sheen {
+	0% {
+		left: -30%;
+	}
+	100% {
+		left: 120%;
+	}
+}
+
+@keyframes cyber-block-in {
+	from {
+		opacity: 0;
+		transform: translateY(36px);
+		filter: saturate(1.6) hue-rotate(30deg);
+	}
+	55% {
+		filter: none;
+	}
+	to {
+		opacity: 1;
+		transform: none;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.cyber .animate-pulse-glow,
+	.cyber .cyber-terminal-caret,
+	.cyber .cyber-terminal-box::after,
+	.cyber .cyber-terminal-body,
+	.cyber .hud-panel::before,
+	.cyber .hud-panel::after,
+	.cyber .cyber-hero-personal::before,
+	.cyber .cyber-hero-actions::before,
+	.cyber .skill-fill::after,
+	.cyber .cyber-hud-scan,
+	.cyber .cyber-hud-rec,
+	.cyber section.cyber-reveal .cyber-portrait-shot,
+	.cyber .cyber-warp,
+	.cyber .cyber-warp::before,
+	.cyber .cyber-warp::after,
+	.cyber .cyber-warp-label,
+	.cyber .cyber-heading::before,
+	.cyber .cyber-heading::after,
+	.cyber .cyber-hero-name::before,
+	.cyber .cyber-hero-name::after,
+	.cyber section.cyber-reveal .cyber-kicker,
+	.cyber section.cyber-reveal .cyber-heading,
+	.cyber section.cyber-reveal .cyber-hero-name,
+	.cyber section.cyber-reveal .cyber-heading + p,
+	.cyber section.cyber-reveal .cyber-hero > *,
+	.cyber section.cyber-reveal .hud-panel,
+	.cyber section.cyber-reveal .exp-total,
+	.cyber section.cyber-reveal .cyber-terminal-box {
+		animation: none;
+	}
+}

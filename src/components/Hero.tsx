@@ -1,13 +1,15 @@
 import { MapPin } from 'lucide-react';
 import { memo, useId, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Avatar from '@/widgets/Avatar/Avatar';
 import Contacts from '@/widgets/Contacts/Contacts';
 import TypingText from '@/widgets/TypingText/TypingText';
 
 import { useFxRates } from '@/shared/hooks/useFxRates';
+import { useTranslation } from '@/shared/i18n/useTranslation';
+import { useCyberThemeEnabled } from '@/shared/theme/CyberThemeProvider';
 
+import CyberHero from '@/components/CyberHero';
 import { TBio } from '@/interfaces/bio.types';
 import { TPay } from '@/interfaces/pay.types';
 
@@ -30,6 +32,7 @@ const fmt = (currency: 'USD' | 'EUR' | 'RUB', value: number, locale?: string) =>
 const Hero = () => {
 	const { t, i18n } = useTranslation();
 	const titleId = useId();
+	const cyberEnabled = useCyberThemeEnabled();
 
 	const bio = useMemo(() => t('bio', { returnObjects: true }) as TBio, [t]);
 	const pay = useMemo(() => t('pay', { returnObjects: true }) as TPay, [t]);
@@ -66,12 +69,19 @@ const Hero = () => {
 			id='home'
 			role='banner'
 			aria-labelledby={titleId}
-			className='relative min-h-[100svh] flex items-center justify-center py-16 md:py-20 overflow-hidden'
+			className='relative min-h-svh flex items-center justify-center py-16 md:py-20 overflow-hidden'
 		>
 			<div className='absolute inset-0 gradient-hero opacity-30 pointer-events-none' />
 
 			<div className='container mx-auto px-4 relative z-10'>
-				<div className='max-w-4xl mx-auto text-center space-y-8'>
+				{cyberEnabled && (
+					<CyberHero
+						salaryTitle={pay.title}
+						salaryText={`${pay.from} ${rubText} / ${usdText} / ${eurText}`}
+					/>
+				)}
+
+				<div className='cyber-hide max-w-4xl mx-auto text-center space-y-8'>
 					{/* Profile Photo */}
 					<Avatar />
 
