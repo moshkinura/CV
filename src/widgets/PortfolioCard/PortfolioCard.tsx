@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { Badge } from '@/shared/ui/badge';
 import { BrandLogo, resolveBrand } from '@/shared/ui/brand-logo';
@@ -13,13 +14,19 @@ interface Props {
 }
 
 const PortfolioCard: FC<Props> = ({ project, technologiesLabel }) => {
+	const { t } = useTranslation();
 	const screenshots = project.screenshots ?? [];
 	const links = project.links ?? [];
 
 	return (
-		<Card className='glass-effect p-6 md:p-8'>
-			<h3 className='text-xl md:text-2xl font-bold mb-3'>{project.name}</h3>
-			<p className='text-muted-foreground leading-relaxed mb-6'>
+		<Card className='glass-effect hud-panel portfolio-card p-6 md:p-8'>
+			<h3
+				className='portfolio-title text-xl md:text-2xl font-bold mb-3'
+				data-prefix={t('hud.project')}
+			>
+				{project.name}
+			</h3>
+			<p className='portfolio-desc text-muted-foreground leading-relaxed mb-6'>
 				{project.description}
 			</p>
 
@@ -33,7 +40,7 @@ const PortfolioCard: FC<Props> = ({ project, technologiesLabel }) => {
 							src={shot.src}
 							alt={shot.alt}
 							loading='lazy'
-							className='w-full max-h-80 rounded-xl border border-border object-cover object-top'
+							className='portfolio-shot w-full max-h-80 rounded-xl border border-border object-cover object-top'
 						/>
 					))}
 				</div>
@@ -41,7 +48,12 @@ const PortfolioCard: FC<Props> = ({ project, technologiesLabel }) => {
 
 			{project.technologies.length > 0 && (
 				<div className='mb-6'>
-					<h4 className='font-medium text-sm mb-2'>{technologiesLabel}</h4>
+					<h4
+						className='exp-sub cyber-relabel font-medium text-sm mb-2'
+						data-cyber={t('hud.stackTechnologies')}
+					>
+						{technologiesLabel}
+					</h4>
 					<div className='flex flex-wrap gap-2'>
 						{project.technologies.map(tech => (
 							<Badge
@@ -57,7 +69,7 @@ const PortfolioCard: FC<Props> = ({ project, technologiesLabel }) => {
 			)}
 
 			{links.length > 0 && (
-				<div className='flex flex-wrap gap-2'>
+				<div className='portfolio-links flex flex-wrap gap-2'>
 					{links.map(link => {
 						const brand = resolveBrand(link.name, link.url);
 

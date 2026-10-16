@@ -2,6 +2,9 @@ import { Suspense, lazy, memo } from 'react';
 
 import Navbar from '@/widgets/Navbar/Navbar';
 
+import CyberBackdrop from '@/shared/ui/cyber-backdrop';
+import CyberSectionFx from '@/shared/ui/cyber-section-fx';
+
 import BuildMetaFooter from '@/components/BuildMetaFooter';
 import Hero from '@/components/Hero';
 import ContactSectionSkeleton from '@/components/skeletons/ContactSectionSkeleton';
@@ -21,31 +24,35 @@ const ContactSection = lazy(() => import('@/components/ContactSection'));
 const Index = () => {
 	return (
 		<div className='min-h-screen'>
-			<Navbar />
+			<CyberBackdrop />
+			<CyberSectionFx />
+			<div className='relative z-10'>
+				<Navbar />
 
-			<Hero />
+				<Hero />
 
-			<Suspense fallback={<SkillsSectionSkeleton />}>
-				<SkillsSection />
-			</Suspense>
+				<Suspense fallback={<SkillsSectionSkeleton />}>
+					<SkillsSection />
+				</Suspense>
 
-			<Suspense fallback={<ExperienceSectionSkeleton />}>
-				<ExperienceSection />
-			</Suspense>
+				<Suspense fallback={<ExperienceSectionSkeleton />}>
+					<ExperienceSection />
+				</Suspense>
 
-			<Suspense fallback={<PersonalProjectsSectionSkeleton />}>
-				<PersonalProjectsSection />
-			</Suspense>
+				<Suspense fallback={<PersonalProjectsSectionSkeleton />}>
+					<PersonalProjectsSection />
+				</Suspense>
 
-			<Suspense fallback={<PersonalInfoSkeleton />}>
-				<PersonalInfo />
-			</Suspense>
+				<Suspense fallback={<PersonalInfoSkeleton />}>
+					<PersonalInfo />
+				</Suspense>
 
-			<Suspense fallback={<ContactSectionSkeleton />}>
-				<ContactSection />
-			</Suspense>
+				<Suspense fallback={<ContactSectionSkeleton />}>
+					<ContactSection />
+				</Suspense>
 
-			<BuildMetaFooter />
+				<BuildMetaFooter />
+			</div>
 		</div>
 	);
 };

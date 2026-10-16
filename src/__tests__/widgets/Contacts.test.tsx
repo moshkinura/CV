@@ -161,6 +161,21 @@ describe('Contacts (variant="card")', () => {
 			).toBeInTheDocument();
 		});
 
+		const emailHeading = screen.getByRole('heading', {
+			name: contactsMock.email.name,
+		});
+		const emailCard = emailHeading.closest(
+			'[data-testid="card"]',
+		) as HTMLElement;
+		expect(
+			within(emailCard).queryByTestId('icon-CheckCircle'),
+		).not.toBeInTheDocument();
+		expect(
+			within(emailCard).getByRole('button', {
+				name: `Copy ${contactsMock.email.name}`,
+			}),
+		).toBeInTheDocument();
+
 		await act(async () => {
 			jest.advanceTimersByTime(2000);
 		});

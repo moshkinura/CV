@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import ExperienceCard from '@/widgets/ExperienceCard/ExperienceCard';
 
 import { Card } from '@/shared/ui/card';
+import SectionHeading from '@/shared/ui/section-heading';
 import { Separator } from '@/shared/ui/separator';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 import { getTotalExperienceText } from '@/shared/utils/getTotalExperience.utils';
@@ -34,9 +35,11 @@ const ExperienceSection: FC = () => {
 			<div className='container mx-auto px-4'>
 				{/* Header */}
 				<div className='text-center mb-16'>
-					<h2 className='text-4xl md:text-5xl font-bold text-gradient mb-4 pb-4'>
-						{main.title}
-					</h2>
+					<SectionHeading
+						index='02'
+						title={main.title}
+						className='pb-4 text-4xl'
+					/>
 					<p className='text-xl text-muted-foreground max-w-2xl mx-auto'>
 						{main.subtitle}
 					</p>
@@ -44,9 +47,9 @@ const ExperienceSection: FC = () => {
 
 				{/* Totals */}
 				<div className='max-w-4xl mx-auto mb-12'>
-					<Card className='glass-effect p-6 border-2 bg-primary/5'>
+					<Card className='glass-effect hud-panel exp-total p-6 border-2 bg-primary/5'>
 						<div className='grid grid-cols-1 sm:grid-cols-2 gap-6'>
-							<div className='text-center'>
+							<div className='exp-total-item text-center'>
 								<h3 className='text-base font-semibold text-primary mb-1'>
 									{mainTotal.title}
 								</h3>
@@ -59,7 +62,7 @@ const ExperienceSection: FC = () => {
 							</div>
 
 							{totalMoreExperience && (
-								<div className='text-center'>
+								<div className='exp-total-item text-center'>
 									<h3 className='text-base font-semibold text-primary mb-1'>
 										{moreTotal.title}
 									</h3>
@@ -93,14 +96,14 @@ const ExperienceSection: FC = () => {
 					<div className='max-w-4xl mx-auto mt-12'>
 						<div className='relative my-10'>
 							<Separator />
-							<span className='absolute left-1/2 -translate-x-1/2 -top-3 bg-background px-3 text-xs md:text-sm text-muted-foreground whitespace-nowrap'>
+							<span className='exp-more-label absolute left-1/2 top-1/2 max-w-[calc(100%-1.5rem)] -translate-x-1/2 -translate-y-1/2 bg-background px-3 text-center text-xs text-balance text-muted-foreground md:text-sm'>
 								{more.title}
 								{totalMoreExperience ? ` · ${totalMoreExperience}` : ''}
 							</span>
 						</div>
 
 						{more.subtitle && (
-							<p className='text-center text-muted-foreground mb-8 text-balance'>
+							<p className='exp-more-sub text-center text-muted-foreground mb-8 text-balance'>
 								{more.subtitle}
 							</p>
 						)}

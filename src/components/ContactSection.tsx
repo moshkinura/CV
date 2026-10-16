@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Contacts from '@/widgets/Contacts/Contacts';
 
 import { Card } from '@/shared/ui/card';
+import SectionHeading from '@/shared/ui/section-heading';
 
 import { TContacts } from '@/interfaces/contacts.types';
 import { TCta } from '@/interfaces/cta.types';
@@ -26,12 +27,7 @@ const ContactSection = () => {
 		>
 			<div className='container mx-auto px-4'>
 				<div className='text-center mb-12 md:mb-16'>
-					<h2
-						id={titleId}
-						className='text-3xl md:text-5xl font-bold text-gradient mb-4'
-					>
-						{contacts.title}
-					</h2>
+					<SectionHeading id={titleId} index='05' title={contacts.title} />
 					<p className='text-base md:text-xl text-muted-foreground max-w-2xl mx-auto'>
 						{contacts.subtitle}
 					</p>
@@ -43,8 +39,11 @@ const ContactSection = () => {
 
 				{/* Quick Contact CTA */}
 				<div className='mt-12 md:mt-16 text-center'>
-					<Card className='glass-effect p-6 md:p-8 max-w-2xl mx-auto motion-safe:animate-fade-in motion-reduce:animate-none'>
-						<h3 className='text-xl md:text-2xl font-bold mb-4 text-gradient'>
+					<Card className='glass-effect hud-panel cyber-cta-card p-6 md:p-8 max-w-2xl mx-auto motion-safe:animate-fade-in motion-reduce:animate-none'>
+						<h3
+							className='text-xl md:text-2xl font-bold mb-4 text-gradient'
+							data-prefix={t('hud.uplinkRequest')}
+						>
 							{cta.title}
 						</h3>
 						<p className='text-muted-foreground mb-6'>{cta.subtitle}</p>

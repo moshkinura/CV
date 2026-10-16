@@ -14,6 +14,11 @@ jest.mock('@/shared/hooks/useFxRates', () => ({
 	}),
 }));
 
+jest.mock('@/components/CyberHero', () => ({
+	__esModule: true,
+	default: () => <div data-testid='CyberHero' />,
+}));
+
 jest.mock('@/widgets/Avatar/Avatar', () => ({
 	__esModule: true,
 	default: () => <div data-testid='Avatar' />,

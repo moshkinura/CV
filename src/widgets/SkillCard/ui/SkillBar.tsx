@@ -26,14 +26,16 @@ const SkillBar: FC<Props> = ({ skill, isVisible }) => {
 	};
 
 	return (
-		<div className='space-y-2'>
+		<div className='skill-row space-y-2'>
 			<div className='flex justify-between items-center'>
-				<span className='text-sm font-medium'>{skill.name}</span>
-				<span className='text-sm text-muted-foreground'>{skill.percent}%</span>
+				<span className='skill-name text-sm font-medium'>{skill.name}</span>
+				<span className='skill-value text-sm text-muted-foreground'>
+					{skill.percent}%
+				</span>
 			</div>
-			<div className='h-2 bg-secondary rounded-full overflow-hidden'>
+			<div className='skill-track h-2 bg-secondary rounded-full overflow-hidden'>
 				<div
-					className={`h-full ${getColorClass(skill.percent)} transition-all duration-1000 ease-out`}
+					className={`skill-fill h-full ${getColorClass(skill.percent)} transition-all duration-1000 ease-out`}
 					style={{ width: `${animatedLevel}%` }}
 				/>
 			</div>

@@ -3,6 +3,7 @@ import { FC, memo, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import { Button } from '@/shared/ui/button';
+import CyberBackdrop from '@/shared/ui/cyber-backdrop';
 
 const NotFound: FC = () => {
 	const location = useLocation();
@@ -20,13 +21,20 @@ const NotFound: FC = () => {
 
 	return (
 		<main className='min-h-svh grid place-items-center bg-linear-to-b from-background to-secondary/20 px-4'>
-			<section className='text-center max-w-md'>
+			<CyberBackdrop />
+			<section className='relative z-10 text-center max-w-md'>
 				<div className='inline-flex items-center justify-center rounded-2xl bg-primary/10 p-4 mb-4 motion-safe:animate-pulse motion-reduce:animate-none'>
 					<SearchX className='w-8 h-8 text-primary' aria-hidden='true' />
 				</div>
 
-				<h1 className='text-6xl md:text-7xl font-black tracking-tight text-gradient'>
-					404
+				<h1 className='glitch-title text-6xl md:text-7xl font-black tracking-tight text-gradient'>
+					<span className='glitch-layer glitch-layer-a' aria-hidden='true'>
+						404
+					</span>
+					<span className='glitch-layer glitch-layer-b' aria-hidden='true'>
+						404
+					</span>
+					<span className='relative'>404</span>
 				</h1>
 				<p className='mt-3 text-base md:text-lg text-muted-foreground'>
 					Oops! Page not found.

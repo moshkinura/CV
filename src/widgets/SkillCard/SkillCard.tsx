@@ -1,4 +1,5 @@
 import { FC, useMemo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import SkillBar from '@/widgets/SkillCard/ui/SkillBar';
 
@@ -11,9 +12,11 @@ interface Props {
 	index: number;
 	isVisible: boolean;
 	category: TSkillsCategory;
+	categoryKey?: string;
 }
 
-const SkillCard: FC<Props> = ({ index, isVisible, category }) => {
+const SkillCard: FC<Props> = ({ index, isVisible, category, categoryKey }) => {
+	const { t } = useTranslation();
 	const skills = useMemo(
 		() => [...category.data].sort((a, b) => b.percent - a.percent),
 		[category.data],
@@ -22,13 +25,22 @@ const SkillCard: FC<Props> = ({ index, isVisible, category }) => {
 	return (
 		<Card
 			key={index}
-			className='glass-effect p-6 transition-all duration-500 hover:shadow-glow animate-slide-up'
+			className='glass-effect hud-panel skill-card p-6 transition-all duration-500 hover:shadow-glow animate-slide-up'
 			style={{ animationDelay: `${index * 0.1}s` }}
 		>
-			<div className='flex items-center gap-3 mb-6'>
+			<div className='skill-card-head flex items-center gap-3 mb-6'>
 				<Badge variant='secondary' className='text-primary font-semibold'>
 					{category.name}
 				</Badge>
+				{categoryKey && (
+					<span
+						className='cyber-only cyber-module-key hidden'
+						aria-hidden='true'
+					>
+						{t('hud.skills')}
+						{categoryKey}
+					</span>
+				)}
 			</div>
 
 			<div className='space-y-4'>

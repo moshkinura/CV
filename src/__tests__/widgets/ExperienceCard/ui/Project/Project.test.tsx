@@ -6,6 +6,12 @@ import Project from '@/widgets/ExperienceCard/ui/Project/Project';
 
 import type { TWorkExpirienceProject } from '@/interfaces/expirience.types';
 
+jest.mock('react-i18next', () => ({
+	useTranslation: () => ({
+		t: (key: string) => key,
+	}),
+}));
+
 jest.mock('lucide-react', () => ({
 	Zap: (props: SVGProps<SVGSVGElement>) => (
 		<svg data-testid='icon-Zap' {...props} />

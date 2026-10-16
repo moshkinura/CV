@@ -23,7 +23,7 @@ const ExperienceCard: FC<Props> = ({
 
 	return (
 		<Card
-			className='glass-effect p-8 transition-all duration-500 hover:shadow-glow animate-slide-up border-2'
+			className='glass-effect hud-panel p-8 transition-all duration-500 hover:shadow-glow animate-slide-up border-2'
 			style={{ animationDelay: `${index * 0.2}s` }}
 		>
 			<HeaderCard experience={experience} />

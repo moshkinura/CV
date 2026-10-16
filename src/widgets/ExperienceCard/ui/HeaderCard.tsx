@@ -27,18 +27,24 @@ const HeaderCard: FC<Props> = ({ experience }) => {
 	return (
 		<>
 			{/* Company and Position */}
-			<div className='flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6'>
+			<div className='exp-head flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-6'>
 				<div className='space-y-2'>
-					<h3 className='text-2xl font-bold text-gradient'>
+					<h3
+						className='text-2xl font-bold text-gradient'
+						data-prefix={t('hud.org')}
+					>
 						{experience.company}
 					</h3>
-					<h4 className='text-xl font-semibold text-primary'>
+					<h4
+						className='exp-position text-xl font-semibold text-primary'
+						data-prefix={t('hud.role')}
+					>
 						{experience.position}
 					</h4>
 				</div>
 				<Badge
 					variant='secondary'
-					className='self-start bg-primary/10 text-primary border-primary/20'
+					className='exp-duration self-start bg-primary/10 text-primary border-primary/20'
 				>
 					<CalendarDays className='w-4 h-4 mr-2' />
 					{textExperience}
@@ -46,7 +52,7 @@ const HeaderCard: FC<Props> = ({ experience }) => {
 			</div>
 
 			{/* Location and Period */}
-			<div className='flex flex-wrap gap-4 text-muted-foreground mb-8'>
+			<div className='exp-meta flex flex-wrap gap-4 text-muted-foreground mb-8'>
 				<div className='flex items-center gap-2'>
 					<MapPin className='w-4 h-4' />
 					<span>{experience.location}</span>

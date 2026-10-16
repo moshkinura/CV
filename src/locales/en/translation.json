@@ -6,7 +6,41 @@
 		"experience": "Experience",
 		"projects": "Projects",
 		"personal": "Personal",
-		"contacts": "Contact"
+		"contacts": "Contact",
+		"cyberOn": "Enable neural interface",
+		"cyberOff": "Disable neural interface"
+	},
+	"hud": {
+		"sector": "sector.",
+		"geo": "geo://",
+		"identity": "identity.profile",
+		"unit": "unit //",
+		"rec": "rec // lock",
+		"cam": "cam.01",
+		"terminal": "root@CurriculumVitae:~",
+		"contactsTerminal": "root@cv:~/contacts",
+		"uplink": "uplink.channels",
+		"uplinkRequest": "uplink.request",
+		"personal": "personal.data",
+		"queueLearning": "queue.learning",
+		"org": "org.",
+		"role": "role://",
+		"project": "proj://",
+		"channel": "ch.",
+		"skills": "skills.",
+		"taskResponsibilities": "task.responsibilities",
+		"stackTechnologies": "stack.technologies",
+		"profileAdditional": "profile.additional_info",
+		"profileLanguages": "profile.languages",
+		"profileSchedule": "profile.work_schedule",
+		"profileEmployment": "profile.employment_types",
+		"profileRecommendations": "profile.recommendations",
+		"profileHardware": "profile.hardware",
+		"sysBuild": "sys://build",
+		"warn": "// warn: ",
+		"copy": "copy",
+		"copied": "ok",
+		"open": "open"
 	},
 	"bio": {
 		"fio": "Yury Moshkin",
@@ -254,7 +288,7 @@
 		},
 		"main": {
 			"title": "Professional experience",
-			"subtitle": "",
+			"subtitle": "Professional path and achievements",
 			"data": [
 				{
 					"company": "Freelance",
@@ -263,7 +297,7 @@
 					"period": ["2024/03/01", null],
 					"projects": [
 						{
-							"name": "Project: Internal Payment GATE (NDA)",
+							"name": "Internal Payment GATE (NDA)",
 							"description": "Internal payment gateway for merchants: REST API, hosted checkout with 3DS 2.0, rebill/OCT/refund, HMAC-signed webhooks.",
 							"responsibilities": [
 								"Designed the NestJS payment gateway backend: multi-tenant projects, merchant API, and JWT admin panel.",
@@ -288,7 +322,7 @@
 							]
 						},
 						{
-							"name": "Project: CS2 Skins Marketplace Portal (NDA)",
+							"name": "CS2 Skins Marketplace Portal (NDA)",
 							"description": "Marketplace for buying and selling Counter-Strike 2 skins: Steam auth, catalog, cart, internal balance, KYC, and payouts.",
 							"responsibilities": [
 								"Designed the NestJS backend: auth, items, checkout, payments, balance, KYC, RBAC.",
@@ -314,7 +348,7 @@
 							]
 						},
 						{
-							"name": "Project: AI Image Processing Portal (NDA)",
+							"name": "AI Image Processing Portal (NDA)",
 							"description": "Portal for image generation, background removal, and upscaling: job queues, progress tracking, billing, S3 storage.",
 							"responsibilities": [
 								"Designed the architecture and domain model (job pipelines, presets, versions).",
@@ -336,7 +370,7 @@
 							]
 						},
 						{
-							"name": "Project: Unity/WebGL Games Portal (NDA)",
+							"name": "Unity/WebGL Games Portal (NDA)",
 							"description": "Platform for Unity/WebGL games with user management and payments.",
 							"responsibilities": [
 								"Led a team of three (2 FE, 1 BE): planning, prioritization, reviews.",
@@ -367,7 +401,7 @@
 					"period": ["2024/05/01", "2025/01/01"],
 					"projects": [
 						{
-							"name": "Project: Telegram Mini App game/app with a unique crash mechanic (NDA)",
+							"name": "Telegram Mini App game/app with a unique crash mechanic (NDA)",
 							"description": "",
 							"responsibilities": [
 								"Designed a high-load backend for complex gameplay in Telegram Mini App.",
@@ -396,7 +430,7 @@
 					"period": ["2022/04/04", "2024/02/04"],
 					"projects": [
 						{
-							"name": "Project: CRM for a website builder platform",
+							"name": "CRM for a website builder platform",
 							"description": "",
 							"responsibilities": [
 								"Developed and integrated new CRM modules.",
@@ -415,7 +449,7 @@
 							]
 						},
 						{
-							"name": "Project: Tool for manual and automated API testing (Postman-like)",
+							"name": "Tool for manual and automated API testing (Postman-like)",
 							"description": "",
 							"responsibilities": [
 								"Designed the data model and database structure.",
@@ -451,7 +485,7 @@
 					"period": ["2013/02/01", "2022/04/01"],
 					"projects": [
 						{
-							"name": "Project: Online store",
+							"name": "Online store",
 							"description": "E-commerce site and internal tools for catalog, orders and inventory.",
 							"responsibilities": [
 								"Developed and maintained the company website.",
