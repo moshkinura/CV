@@ -24,6 +24,7 @@ const contactsMock = {
 	telegram: { name: 'Telegram', value: 'yura_dev' },
 	github: { name: 'GitHub', value: 'yura-dev' },
 	gitlab: { name: 'GitLab', value: 'yura-dev' },
+	npm: { name: 'npm', value: 'belko42' },
 };
 
 jest.mock('react-i18next', () => ({
@@ -73,6 +74,7 @@ jest.mock('lucide-react', () => {
 		Send: Icon('Send'),
 		Github: Icon('Github'),
 		Gitlab: Icon('Gitlab'),
+		Package: Icon('Package'),
 		Copy: Icon('Copy'),
 		CheckCircle: Icon('CheckCircle'),
 		ExternalLink: Icon('ExternalLink'),
@@ -88,7 +90,11 @@ beforeEach(() => {
 			value: { writeText },
 		});
 	} catch {
-		(window.navigator as any).clipboard = { writeText };
+		(
+			window.navigator as unknown as {
+				clipboard: { writeText: () => Promise<void> };
+			}
+		).clipboard = { writeText };
 	}
 });
 
@@ -121,6 +127,12 @@ describe('Contacts (variant="short")', () => {
 			'href',
 			`https://gitlab.com/${contactsMock.gitlab.value}`,
 		);
+		expect(
+			screen.getByRole('link', { name: contactsMock.npm.name }),
+		).toHaveAttribute(
+			'href',
+			`https://www.npmjs.com/~${contactsMock.npm.value}`,
+		);
 	});
 });
 
@@ -148,6 +160,21 @@ describe('Contacts (variant="card")', () => {
 				within(phoneCard).getByTestId('icon-CheckCircle'),
 			).toBeInTheDocument();
 		});
+
+		const emailHeading = screen.getByRole('heading', {
+			name: contactsMock.email.name,
+		});
+		const emailCard = emailHeading.closest(
+			'[data-testid="card"]',
+		) as HTMLElement;
+		expect(
+			within(emailCard).queryByTestId('icon-CheckCircle'),
+		).not.toBeInTheDocument();
+		expect(
+			within(emailCard).getByRole('button', {
+				name: `Copy ${contactsMock.email.name}`,
+			}),
+		).toBeInTheDocument();
 
 		await act(async () => {
 			jest.advanceTimersByTime(2000);

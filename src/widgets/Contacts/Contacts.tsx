@@ -1,16 +1,21 @@
+import { CheckCircle, Copy, ExternalLink, Mail, Phone } from 'lucide-react';
 import {
-	CheckCircle,
-	Copy,
-	ExternalLink,
-	Github,
-	Gitlab,
-	Mail,
-	Phone,
-	Send,
-} from 'lucide-react';
-import { FC, memo, useCallback, useMemo, useState } from 'react';
+	FC,
+	memo,
+	useCallback,
+	useEffect,
+	useMemo,
+	useRef,
+	useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 
+import {
+	GithubLogo,
+	GitlabLogo,
+	NpmLogo,
+	TelegramLogo,
+} from '@/shared/ui/brand-logo';
 import { Button } from '@/shared/ui/button';
 import { Card } from '@/shared/ui/card';
 import {
@@ -40,7 +45,8 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 	const { t } = useTranslation();
 	const contacts = t('contacts', { returnObjects: true }) as TContacts;
 
-	const [copied, setCopied] = useState(false);
+	const [copiedKey, setCopiedKey] = useState<string | null>(null);
+	const copiedTimer = useRef<number | null>(null);
 
 	const phoneValue = useMemo(
 		() => decodeContact(contacts?.phone?.encoded ?? ''),
@@ -75,7 +81,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.telegram?.value
 				? {
-						icon: Send,
+						icon: TelegramLogo,
 						label: contacts?.telegram?.name ?? 'Telegram',
 						value: `@${contacts?.telegram?.value}`,
 						href: `https://t.me/${contacts?.telegram?.value}`,
@@ -84,7 +90,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.github?.value
 				? {
-						icon: Github,
+						icon: GithubLogo,
 						label: contacts?.github?.name ?? 'GitHub',
 						value: `@${contacts?.github?.value}`,
 						href: `https://github.com/${contacts?.github?.value}`,
@@ -93,10 +99,19 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				: null,
 			contacts?.gitlab?.value
 				? {
-						icon: Gitlab,
+						icon: GitlabLogo,
 						label: contacts?.gitlab?.name ?? 'GitLab',
 						value: `@${contacts?.gitlab?.value}`,
 						href: `https://gitlab.com/${contacts?.gitlab?.value}`,
+						type: 'social',
+					}
+				: null,
+			contacts?.npm?.value
+				? {
+						icon: NpmLogo,
+						label: contacts?.npm?.name ?? 'npm',
+						value: `~${contacts?.npm?.value}`,
+						href: `https://www.npmjs.com/~${contacts?.npm?.value}`,
 						type: 'social',
 					}
 				: null,
@@ -104,6 +119,15 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 
 		return items.filter((x): x is Contact => Boolean(x));
 	}, [contacts, emailValue, phoneValue]);
+
+	useEffect(
+		() => () => {
+			if (copiedTimer.current !== null) {
+				window.clearTimeout(copiedTimer.current);
+			}
+		},
+		[],
+	);
 
 	const handleCopy = useCallback(async (text: string) => {
 		try {
@@ -120,8 +144,14 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				document.execCommand('copy');
 				document.body.removeChild(ta);
 			}
-			setCopied(true);
-			window.setTimeout(() => setCopied(false), 1600);
+			setCopiedKey(text);
+			if (copiedTimer.current !== null) {
+				window.clearTimeout(copiedTimer.current);
+			}
+			copiedTimer.current = window.setTimeout(() => {
+				setCopiedKey(null);
+				copiedTimer.current = null;
+			}, 1600);
 		} catch {
 			// no-op
 		}
@@ -201,7 +231,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 					);
 				})}
 				<span className='sr-only' aria-live='polite'>
-					{copied ? 'Copied' : ''}
+					{copiedKey ? 'Copied' : ''}
 				</span>
 			</div>
 		);
@@ -251,7 +281,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 											className='h-10 px-3 transition-bounce hover:shadow-accent'
 											aria-label={`Copy ${contact.label}`}
 										>
-											{copied ? (
+											{copiedKey === contact.value ? (
 												<CheckCircle
 													className='h-4 w-4 text-success'
 													aria-hidden='true'
@@ -300,7 +330,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 					);
 				})}
 				<span className='sr-only' aria-live='polite'>
-					{copied ? 'Copied' : ''}
+					{copiedKey ? 'Copied' : ''}
 				</span>
 			</div>
 		);
@@ -349,7 +379,7 @@ const Contacts: FC<Props> = ({ variant = 'short' }) => {
 				</Button>
 
 				<span className='sr-only' aria-live='polite'>
-					{copied ? 'Copied' : ''}
+					{copiedKey ? 'Copied' : ''}
 				</span>
 			</div>
 		);

@@ -7,10 +7,16 @@ import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngQuant from 'imagemin-pngquant';
 import imageminSvgo from 'imagemin-svgo';
 import imageminWebp from 'imagemin-webp';
+import dns from 'node:dns';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
 import { defineConfig, loadEnv } from 'vite';
 import Inspect from 'vite-plugin-inspect';
+
+import pkg from './package.json' with { type: 'json' };
+
+// VPN часто глушит ::1, а localhost при verbatim резолвится в него первым.
+dns.setDefaultResultOrder('ipv4first');
 
 // https://vitejs.dev/config/
 export default ({ command, mode }: { command: string; mode: string }) => {
@@ -41,13 +47,15 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 
 	return defineConfig({
 		base: '/CV/',
+
 		plugins: [
-			// terser(),
 			react(),
 			tailwindcss(),
 			mode === 'development' && Inspect(),
 			isProd &&
 				viteImagemin({
+					cache: false,
+					clearCache: true,
 					plugins: {
 						gif: imageminGifsicle({ optimizationLevel: 3, interlaced: true }),
 						png: imageminPngQuant({
@@ -61,20 +69,6 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 						svg: imageminSvgo({ multipass: true, plugins: [] }),
 						webp: imageminWebp({ quality: 65 }),
 					},
-
-					// svgo: {
-					// 	multipass: true,
-					// 	plugins: [
-					// 		{
-					// 			name: 'removeViewBox',
-					// 			active: false,
-					// 		},
-					// 		{
-					// 			name: 'removeEmptyAttrs',
-					// 			active: false,
-					// 		},
-					// 	],
-					// },
 				}),
 			...(mode === 'development'
 				? [
@@ -88,13 +82,16 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 					]
 				: []),
 		].filter(Boolean),
+
 		build: {
 			minify: isProd,
 			cssMinify: isProd ? 'lightningcss' : false,
 			chunkSizeWarningLimit: 1024,
 			assetsInlineLimit: 1024,
-			rollupOptions: {
+			rolldownOptions: {
 				output: {
+					minify: true,
+					postBanner: `/* ${pkg.name}@${pkg.version} (${process.env.VITE_GIT_COMMIT_HASH}) */`,
 					assetFileNames: assetInfo => {
 						if (assetInfo.names && assetInfo.names.includes('index.css')) {
 							return 'assets/[name]-[hash].css';
@@ -112,12 +109,15 @@ export default ({ command, mode }: { command: string; mode: string }) => {
 				},
 			},
 		},
+
 		server: {
+			host: '127.0.0.1',
 			allowedHosts: ['.ngrok-free.app'],
 		},
+
 		resolve: {
 			tsconfigPaths: true,
-			alias: { '@': path.resolve(__dirname, './src/') },
+			alias: { '@': path.resolve(import.meta.dirname, './src/') },
 		},
 	});
 };

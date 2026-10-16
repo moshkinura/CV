@@ -16,6 +16,7 @@ const Navbar = () => {
 			{ id: 'home', label: t('nav.home') },
 			{ id: 'skills', label: t('nav.skills') },
 			{ id: 'experience', label: t('nav.experience') },
+			{ id: 'projects', label: t('nav.projects') },
 			{ id: 'personal', label: t('nav.personal') },
 			{ id: 'contacts', label: t('nav.contacts') },
 		];

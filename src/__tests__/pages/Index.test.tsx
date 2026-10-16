@@ -29,6 +29,10 @@ jest.mock('@/components/ExperienceSection', () => ({
 	__esModule: true,
 	default: () => <div data-testid='ExperienceSection' />,
 }));
+jest.mock('@/components/PersonalProjectsSection', () => ({
+	__esModule: true,
+	default: () => <div data-testid='PersonalProjectsSection' />,
+}));
 jest.mock('@/components/PersonalInfo', () => ({
 	__esModule: true,
 	default: () => <div data-testid='PersonalInfo' />,
@@ -50,6 +54,9 @@ describe('Index (lazy sections + Suspense)', () => {
 
 		expect(await screen.findByTestId('SkillsSection')).toBeInTheDocument();
 		expect(await screen.findByTestId('ExperienceSection')).toBeInTheDocument();
+		expect(
+			await screen.findByTestId('PersonalProjectsSection'),
+		).toBeInTheDocument();
 		expect(await screen.findByTestId('PersonalInfo')).toBeInTheDocument();
 		expect(await screen.findByTestId('ContactSection')).toBeInTheDocument();
 
@@ -58,6 +65,7 @@ describe('Index (lazy sections + Suspense)', () => {
 			'Hero',
 			'SkillsSection',
 			'ExperienceSection',
+			'PersonalProjectsSection',
 			'PersonalInfo',
 			'ContactSection',
 		] as const;

@@ -32,8 +32,16 @@ jest.mock('@/shared/ui/badge', () => ({
 
 jest.mock('@/widgets/SkillCard/ui/SkillBar', () => ({
 	__esModule: true,
-	default: ({ isVisible }: { skill: unknown; isVisible: boolean }) => (
-		<div data-testid='skill-bar' data-visible={String(isVisible)} />
+	default: ({
+		skill,
+		isVisible,
+	}: {
+		skill: { name: string; percent: number };
+		isVisible: boolean;
+	}) => (
+		<div data-testid='skill-bar' data-visible={String(isVisible)}>
+			{skill.name}:{skill.percent}
+		</div>
 	),
 }));
 
@@ -63,6 +71,24 @@ describe('SkillCard', () => {
 		render(<SkillCard index={1} isVisible={false} category={category} />);
 		const bars = screen.getAllByTestId('skill-bar');
 		bars.forEach(b => expect(b).toHaveAttribute('data-visible', 'false'));
+	});
+
+	it('сортирует навыки по убыванию процента и сохраняет порядок при равенстве', () => {
+		const unsorted = {
+			name: 'Frontend',
+			data: [
+				{ name: 'Tailwind', percent: 50 },
+				{ name: 'React', percent: 80 },
+				{ name: 'Redux', percent: 50 },
+				{ name: 'Router', percent: 70 },
+			],
+		} as unknown as TSkillsCategory;
+
+		render(<SkillCard index={0} isVisible={true} category={unsorted} />);
+
+		expect(
+			screen.getAllByTestId('skill-bar').map(bar => bar.textContent),
+		).toEqual(['React:80', 'Router:70', 'Tailwind:50', 'Redux:50']);
 	});
 
 	it('проставляет корректную задержку анимации и классы на Card', () => {

@@ -5,10 +5,15 @@ interface Props {
 }
 
 const TypingText: FC<Props> = ({ text }) => {
-	const [displayText, setDisplayText] = useState<string>('');
+	const [sourceText, setSourceText] = useState(text);
+	const [displayText, setDisplayText] = useState('');
+
+	if (sourceText !== text) {
+		setSourceText(text);
+		setDisplayText('');
+	}
 
 	useEffect(() => {
-		setDisplayText(''); // Reset text when language changes
 		let currentIndex = 0;
 		const interval = setInterval(() => {
 			if (currentIndex <= text.length) {

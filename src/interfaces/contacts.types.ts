@@ -17,4 +17,5 @@ export type TContacts = {
 	telegram: TNameAndValue;
 	github: TNameAndValue;
 	gitlab: TNameAndValue;
+	npm: TNameAndValue;
 };
