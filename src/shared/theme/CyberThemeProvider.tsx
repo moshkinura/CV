@@ -9,6 +9,7 @@ import {
 } from 'react';
 
 export const VISUAL_THEME_STORAGE_KEY = 'cv-visual-theme';
+export const CYBER_DISCLAIMER_STORAGE_KEY = 'cv-cyber-disclaimer';
 
 type VisualTheme = 'default' | 'cyber';
 
@@ -16,6 +17,7 @@ type CyberThemeContextValue = {
 	theme: VisualTheme;
 	enabled: boolean;
 	toggle: () => void;
+	chooseTheme: (theme: VisualTheme) => void;
 };
 
 const CyberThemeContext = createContext<CyberThemeContextValue | null>(null);
@@ -33,13 +35,29 @@ const themeColor = (theme: VisualTheme) => {
 	}
 };
 
+export const isCyberDisclaimerSeen = () => {
+	try {
+		return localStorage.getItem(CYBER_DISCLAIMER_STORAGE_KEY) === '1';
+	} catch {
+		return true;
+	}
+};
+
+const acknowledgeDisclaimer = () => {
+	try {
+		localStorage.setItem(CYBER_DISCLAIMER_STORAGE_KEY, '1');
+	} catch {
+		/* приватный режим может запретить storage */
+	}
+};
+
 const readTheme = (): VisualTheme => {
 	try {
-		return localStorage.getItem(VISUAL_THEME_STORAGE_KEY) === 'cyber'
-			? 'cyber'
-			: 'default';
+		const stored = localStorage.getItem(VISUAL_THEME_STORAGE_KEY);
+		if (!isCyberDisclaimerSeen()) return 'cyber';
+		return stored === 'default' ? 'default' : 'cyber';
 	} catch {
-		return 'default';
+		return 'cyber';
 	}
 };
 
@@ -62,7 +80,13 @@ const CyberThemeProvider = ({ children }: { children: ReactNode }) => {
 		applyTheme(theme);
 	}, [theme]);
 
+	const chooseTheme = useCallback((next: VisualTheme) => {
+		acknowledgeDisclaimer();
+		setTheme(next);
+	}, []);
+
 	const toggle = useCallback(() => {
+		acknowledgeDisclaimer();
 		setTheme(current => (current === 'cyber' ? 'default' : 'cyber'));
 	}, []);
 
@@ -71,8 +95,9 @@ const CyberThemeProvider = ({ children }: { children: ReactNode }) => {
 			theme,
 			enabled: theme === 'cyber',
 			toggle,
+			chooseTheme,
 		}),
-		[theme, toggle],
+		[theme, toggle, chooseTheme],
 	);
 
 	return (

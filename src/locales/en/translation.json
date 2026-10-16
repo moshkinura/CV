@@ -10,6 +10,12 @@
 		"cyberOn": "Enable neural interface",
 		"cyberOff": "Disable neural interface"
 	},
+	"cyberDisclaimer": {
+		"title": "Resume presentation",
+		"body": "The cyber version of the resume is currently open. It does not follow a formal business style, but it is visually stronger than the standard version.",
+		"stay": "Continue with the cyber version",
+		"business": "Switch to the business style"
+	},
 	"hud": {
 		"sector": "sector.",
 		"geo": "geo://",

@@ -6,6 +6,7 @@ import CyberBackdrop from '@/shared/ui/cyber-backdrop';
 import CyberSectionFx from '@/shared/ui/cyber-section-fx';
 
 import BuildMetaFooter from '@/components/BuildMetaFooter';
+import CyberDisclaimer from '@/components/CyberDisclaimer';
 import Hero from '@/components/Hero';
 import ContactSectionSkeleton from '@/components/skeletons/ContactSectionSkeleton';
 import ExperienceSectionSkeleton from '@/components/skeletons/ExperienceSectionSkeleton';
@@ -28,6 +29,7 @@ const Index = () => {
 			<CyberSectionFx />
 			<div className='relative z-10'>
 				<Navbar />
+				<CyberDisclaimer />
 
 				<Hero />
 

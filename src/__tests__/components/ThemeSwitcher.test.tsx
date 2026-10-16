@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event';
 import type { SVGProps } from 'react';
 
 import CyberThemeProvider, {
+	CYBER_DISCLAIMER_STORAGE_KEY,
 	VISUAL_THEME_STORAGE_KEY,
 } from '@/shared/theme/CyberThemeProvider';
 
@@ -47,7 +48,18 @@ describe('ThemeSwitcher', () => {
 		document.documentElement.classList.remove('cyber');
 	});
 
+	it('без сохранённого выбора включает кибер-тему', () => {
+		renderSwitcher();
+
+		expect(document.documentElement).toHaveClass('cyber');
+		expect(
+			screen.getByRole('button', { name: 'nav.cyberOff' }),
+		).toHaveAttribute('aria-pressed', 'true');
+	});
+
 	it('включает и выключает класс cyber и пишет выбор в localStorage', async () => {
+		localStorage.setItem(CYBER_DISCLAIMER_STORAGE_KEY, '1');
+		localStorage.setItem(VISUAL_THEME_STORAGE_KEY, 'default');
 		const user = userEvent.setup();
 		renderSwitcher();
 

@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from 'react';
 
 import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Button } from '@/shared/ui/button';
+import { scrollToSection } from '@/shared/utils/scrollToSection.utils';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 import ThemeSwitcher from '@/components/ThemeSwitcher';
@@ -49,15 +50,8 @@ const Navbar = () => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, [navItems]);
 
-	const scrollToSection = (sectionId: string) => {
-		const element = document.getElementById(sectionId);
-		if (element) {
-			const offsetTop = element.offsetTop - 80; // Account for navbar height
-			window.scrollTo({
-				top: offsetTop,
-				behavior: 'smooth',
-			});
-		}
+	const handleNavClick = (sectionId: string) => {
+		scrollToSection(sectionId);
 		setIsOpen(false);
 	};
 
@@ -77,7 +71,7 @@ const Navbar = () => {
 								key={item.id}
 								type='button'
 								data-active={activeSection === item.id}
-								onClick={() => scrollToSection(item.id)}
+								onClick={() => handleNavClick(item.id)}
 								className={`nav-link px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
 									activeSection === item.id
 										? 'bg-primary/10 text-primary border border-primary/20'
@@ -119,7 +113,7 @@ const Navbar = () => {
 									key={item.id}
 									type='button'
 									data-active={activeSection === item.id}
-									onClick={() => scrollToSection(item.id)}
+									onClick={() => handleNavClick(item.id)}
 									className={`nav-link px-4 py-2 text-left rounded-lg text-sm font-medium transition-all duration-300 ${
 										activeSection === item.id
 											? 'bg-primary/10 text-primary border border-primary/20'
