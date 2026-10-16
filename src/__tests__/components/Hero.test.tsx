@@ -84,7 +84,7 @@ describe('Hero', () => {
 
 		const section = container.querySelector('section[role="banner"]');
 		expect(section).toBeInTheDocument();
-		expect(section).toHaveClass('min-h-[100svh]');
+		expect(section).toHaveClass('min-h-svh');
 
 		// аватар
 		expect(screen.getByTestId('Avatar')).toBeInTheDocument();

@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react';
 
 import CyberHero from '@/components/CyberHero';
 
-jest.mock('@/shared/assets/merged.webm', () => ({
+jest.mock('@/shared/assets/cyber.webm', () => ({
 	__esModule: true,
 	default: 'mock-animation.webm',
 }));
