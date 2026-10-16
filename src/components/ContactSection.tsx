@@ -1,8 +1,8 @@
 import { memo, useId, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Contacts from '@/widgets/Contacts/Contacts';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Card } from '@/shared/ui/card';
 import SectionHeading from '@/shared/ui/section-heading';
 

@@ -27,7 +27,7 @@ const contactsMock = {
 	npm: { name: 'npm', value: 'belko42' },
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'contacts' && opts?.returnObjects) return contactsMock;

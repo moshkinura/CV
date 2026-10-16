@@ -6,7 +6,7 @@ import Project from '@/widgets/ExperienceCard/ui/Project/Project';
 
 import type { TWorkExpirienceProject } from '@/interfaces/expirience.types';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
 	}),

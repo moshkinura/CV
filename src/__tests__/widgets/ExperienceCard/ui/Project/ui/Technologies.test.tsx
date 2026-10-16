@@ -4,7 +4,7 @@ import type { HTMLAttributes, ReactNode } from 'react';
 
 import Technologies from '@/widgets/ExperienceCard/ui/Project/ui/Technologies';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
 	}),

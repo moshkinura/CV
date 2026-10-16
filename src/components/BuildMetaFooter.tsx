@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import {
 	GIT_COMMIT_DATE,
@@ -7,6 +6,7 @@ import {
 	GIT_COMMIT_HASH_FULL,
 	GIT_TAG,
 } from '@/shared/config';
+import { useTranslation } from '@/shared/i18n/useTranslation';
 
 const BuildMetaFooter: FC = () => {
 	const { t } = useTranslation();

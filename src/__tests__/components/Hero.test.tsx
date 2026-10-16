@@ -60,7 +60,7 @@ const payMock = {
 	eur: '€3,000',
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'bio' && opts?.returnObjects) return bioMock;

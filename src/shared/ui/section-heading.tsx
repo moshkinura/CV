@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { cn } from '@/shared/utils/cn.utils';
 
 interface Props {

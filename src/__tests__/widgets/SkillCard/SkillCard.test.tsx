@@ -6,7 +6,7 @@ import SkillCard from '@/widgets/SkillCard/SkillCard';
 
 import type { TSkillsCategory } from '@/interfaces/skills.types';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string) => (key === 'hud.skills' ? 'skills.' : key),
 	}),

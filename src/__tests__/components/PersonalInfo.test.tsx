@@ -54,7 +54,7 @@ const personalsMock = {
 	},
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'personals' && opts?.returnObjects) return personalsMock;

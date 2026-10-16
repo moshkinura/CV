@@ -9,7 +9,7 @@ import CyberThemeProvider, {
 
 import ThemeSwitcher from '@/components/ThemeSwitcher';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
 	}),

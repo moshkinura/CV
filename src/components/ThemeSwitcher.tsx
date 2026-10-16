@@ -1,7 +1,7 @@
 import { Cpu } from 'lucide-react';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { useCyberTheme } from '@/shared/theme/CyberThemeProvider';
 import { Button } from '@/shared/ui/button';
 import { cn } from '@/shared/utils/cn.utils';

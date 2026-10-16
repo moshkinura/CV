@@ -59,7 +59,7 @@ const expDict: TExpirience = {
 	more: { title: 'Title2', subtitle: 'Sub2', data: [] },
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		i18n: i18nMock,
 		t: (key: string, opts?: { returnObjects?: boolean }) => {

@@ -8,10 +8,10 @@ import {
 	useRef,
 	useState,
 } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import SkillCard from '@/widgets/SkillCard/SkillCard';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Badge } from '@/shared/ui/badge';
 import { Card } from '@/shared/ui/card';
 import SectionHeading from '@/shared/ui/section-heading';

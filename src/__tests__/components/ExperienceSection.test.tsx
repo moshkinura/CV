@@ -30,7 +30,7 @@ const experienceMock = {
 };
 
 // ---- Мок i18next ----
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'experience' && opts?.returnObjects) return experienceMock;

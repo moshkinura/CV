@@ -1,6 +1,7 @@
 import { Zap } from 'lucide-react';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+
+import { useTranslation } from '@/shared/i18n/useTranslation';
 
 import Responsibilities from './ui/Responsibilities';
 import Technologies from './ui/Technologies';

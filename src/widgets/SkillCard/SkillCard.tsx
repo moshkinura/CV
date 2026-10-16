@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import SkillBar from '@/widgets/SkillCard/ui/SkillBar';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Badge } from '@/shared/ui/badge';
 import { Card } from '@/shared/ui/card';
 

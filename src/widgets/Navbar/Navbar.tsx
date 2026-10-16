@@ -1,7 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Button } from '@/shared/ui/button';
 
 import LanguageSwitcher from '@/components/LanguageSwitcher';

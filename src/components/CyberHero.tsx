@@ -1,9 +1,9 @@
 import { MapPin } from 'lucide-react';
 import { FC, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Contacts from '@/widgets/Contacts/Contacts';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { formatBirthday } from '@/shared/utils/formatBirthday.utils';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 

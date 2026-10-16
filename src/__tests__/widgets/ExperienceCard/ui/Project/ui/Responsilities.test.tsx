@@ -4,7 +4,7 @@ import type { SVGProps } from 'react';
 
 import Responsibilities from '@/widgets/ExperienceCard/ui/Project/ui/Responsibilities';
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string) => key,
 	}),

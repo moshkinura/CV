@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import ExperienceCard from '@/widgets/ExperienceCard/ExperienceCard';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Card } from '@/shared/ui/card';
 import SectionHeading from '@/shared/ui/section-heading';
 import { Separator } from '@/shared/ui/separator';
@@ -30,7 +30,7 @@ const ExperienceSection: FC = () => {
 	return (
 		<section
 			id='experience'
-			className='py-20 bg-gradient-to-b from-secondary/20 to-background'
+			className='py-20 bg-linear-to-b from-secondary/20 to-background'
 		>
 			<div className='container mx-auto px-4'>
 				{/* Header */}

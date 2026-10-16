@@ -1,8 +1,8 @@
 import { FC, useId, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import PortfolioCard from '@/widgets/PortfolioCard/PortfolioCard';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import SectionHeading from '@/shared/ui/section-heading';
 
 import { TPortfolio } from '@/interfaces/portfolio.types';

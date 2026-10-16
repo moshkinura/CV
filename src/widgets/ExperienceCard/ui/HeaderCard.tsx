@@ -1,7 +1,7 @@
 import { CalendarDays, MapPin } from 'lucide-react';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Badge } from '@/shared/ui/badge';
 import { getDateFnsLocale } from '@/shared/utils/getDateFnsLocale.utils';
 

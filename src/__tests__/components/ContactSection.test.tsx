@@ -15,7 +15,7 @@ const ctaMock = {
 	subtitle: 'Отвечу в ближайшее время',
 };
 
-jest.mock('react-i18next', () => ({
+jest.mock('@/shared/i18n/useTranslation', () => ({
 	useTranslation: () => ({
 		t: (key: string, opts?: { returnObjects?: boolean }) => {
 			if (key === 'contacts' && opts?.returnObjects) return contactsMock;

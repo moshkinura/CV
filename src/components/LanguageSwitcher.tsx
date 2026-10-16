@@ -1,7 +1,7 @@
 import { Languages } from 'lucide-react';
 import { FC, useCallback, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Button } from '@/shared/ui/button';
 
 import { ELanguage } from '@/interfaces/languagesI18N.interface';

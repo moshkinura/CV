@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { Badge } from '@/shared/ui/badge';
 import { BrandLogo, resolveBrand } from '@/shared/ui/brand-logo';
 import { Button } from '@/shared/ui/button';

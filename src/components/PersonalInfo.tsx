@@ -12,8 +12,8 @@ import {
 	User,
 } from 'lucide-react';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
 
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { useCyberThemeEnabled } from '@/shared/theme/CyberThemeProvider';
 import { Badge } from '@/shared/ui/badge';
 import { Card } from '@/shared/ui/card';

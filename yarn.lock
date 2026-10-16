@@ -358,7 +358,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.12.5, @babel/runtime@npm:^7.23.2, @babel/runtime@npm:^7.29.7":
+"@babel/runtime@npm:^7.12.5":
   version: 7.29.7
   resolution: "@babel/runtime@npm:7.29.7"
   checksum: 10c0/ca11572f7146b21e0bde6a9ed4bb6a89eafbee5f0944c7eb54d0d8a2dac962c33638a1d611e14faa71dfbb92b4b5f9236232208568a6b7d5c6f3f39ddb91771e
@@ -797,6 +797,15 @@ __metadata:
   version: 0.1.6
   resolution: "@istanbuljs/schema@npm:0.1.6"
   checksum: 10c0/bb0d370bf3dd454d2f37f1bccb8921e2da99adacef2da56ef47850e25d7a4de69cf639ead8c189755aef38921369024b4afea3535a5c2ac9082b3e1171bcbc3a
+  languageName: node
+  linkType: hard
+
+"@itcamel/text-kit@npm:^1.0.0-beta.1":
+  version: 1.0.0-beta.1
+  resolution: "@itcamel/text-kit@npm:1.0.0-beta.1"
+  peerDependencies:
+    react: ">=18"
+  checksum: 10c0/a5a49d6e0a67eb3a8198aac4747bc9ae681796a90aa9b314e07ac030adf0fd74767bae936a630944f17ca35dfbf668231d7b7331fed7a5868122c7da806b538b
   languageName: node
   linkType: hard
 
@@ -5243,6 +5252,7 @@ __metadata:
   dependencies:
     "@eslint/js": "npm:^9.39.2"
     "@ianvs/prettier-plugin-sort-imports": "npm:^4.7.1"
+    "@itcamel/text-kit": "npm:^1.0.0-beta.1"
     "@swc/core": "npm:^1.16.18"
     "@swc/jest": "npm:^0.2.39"
     "@tailwindcss/typography": "npm:^0.5.20"
@@ -5271,8 +5281,6 @@ __metadata:
     eslint-plugin-react-refresh: "npm:^0.5.7"
     gh-pages: "npm:^6.3.0"
     globals: "npm:^17.13.0"
-    i18next: "npm:^26.4.7"
-    i18next-browser-languagedetector: "npm:^8.2.1"
     identity-obj-proxy: "npm:^3.0.0"
     imagemin-gifsicle: "npm:^7.0.0"
     imagemin-mozjpeg: "npm:^10.0.0"
@@ -5287,7 +5295,6 @@ __metadata:
     radix-ui: "npm:^1.8.1"
     react: "npm:^19.3.1"
     react-dom: "npm:^19.3.1"
-    react-i18next: "npm:^17.0.20"
     react-router-dom: "npm:^7.18.4"
     rollup-plugin-visualizer: "npm:^7.1.1"
     tailwind-merge: "npm:^3.7.0"
@@ -6974,13 +6981,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"html-parse-stringify@npm:^4.0.1":
-  version: 4.0.1
-  resolution: "html-parse-stringify@npm:4.0.1"
-  checksum: 10c0/8d7267acbc8b70a50096176e28ba491af89fb31613b6a062bce4b8201b2703fd652bedfbe0db6efe90145379c89524a3319b1b58b8c96a72779b0f49e4c2c180
-  languageName: node
-  linkType: hard
-
 "http-cache-semantics@npm:3.8.1":
   version: 3.8.1
   resolution: "http-cache-semantics@npm:3.8.1"
@@ -7026,27 +7026,6 @@ __metadata:
   version: 5.0.0
   resolution: "human-signals@npm:5.0.0"
   checksum: 10c0/5a9359073fe17a8b58e5a085e9a39a950366d9f00217c4ff5878bd312e09d80f460536ea6a3f260b5943a01fe55c158d1cea3fc7bee3d0520aeef04f6d915c82
-  languageName: node
-  linkType: hard
-
-"i18next-browser-languagedetector@npm:^8.2.1":
-  version: 8.2.1
-  resolution: "i18next-browser-languagedetector@npm:8.2.1"
-  dependencies:
-    "@babel/runtime": "npm:^7.23.2"
-  checksum: 10c0/d200847a79b4cb2764ef59b33e5399085d4d56b2b038e884bb54fffe17953b467899142a6ef6e985592234f10049d14d06b80f2c56441ae80648c5a6717704f3
-  languageName: node
-  linkType: hard
-
-"i18next@npm:^26.4.7":
-  version: 26.4.7
-  resolution: "i18next@npm:26.4.7"
-  peerDependencies:
-    typescript: ^5 || ^6 || ^7
-  peerDependenciesMeta:
-    typescript:
-      optional: true
-  checksum: 10c0/cf282613ad426fd1c4607487ed3d54eadc01a08f7e1e3ecca7aa4235cab72451ec322d30aee4028146cbfa88652456b727089cecfdd5b4667316d64001316692
   languageName: node
   linkType: hard
 
@@ -9907,28 +9886,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-i18next@npm:^17.0.20":
-  version: 17.0.20
-  resolution: "react-i18next@npm:17.0.20"
-  dependencies:
-    "@babel/runtime": "npm:^7.29.7"
-    html-parse-stringify: "npm:^4.0.1"
-    use-sync-external-store: "npm:^1.6.0"
-  peerDependencies:
-    i18next: ">= 26.2.0"
-    react: ">= 16.8.0"
-    typescript: ^5 || ^6 || ^7
-  peerDependenciesMeta:
-    react-dom:
-      optional: true
-    react-native:
-      optional: true
-    typescript:
-      optional: true
-  checksum: 10c0/6f64a038abf8365c2fcbad3cba40b1f89d1ea9a598e93ba73347022f8827cc532effa462ecf9a33246e8c88021d55d847f6daf8b34b21fb35514805398a59901
-  languageName: node
-  linkType: hard
-
 "react-is-19@npm:react-is@^19.2.5":
   version: 19.2.6
   resolution: "react-is@npm:19.2.6"
@@ -11361,15 +11318,6 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 10c0/161599bf921cfaa41c85d2b01c871975ee99260f3e874c2d41c05890d41170297bdcf314bc5185e7a700de2034ac5b888e3efc8e9f35724f4918f53538d717c9
-  languageName: node
-  linkType: hard
-
-"use-sync-external-store@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "use-sync-external-store@npm:1.6.0"
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/35e1179f872a53227bdf8a827f7911da4c37c0f4091c29b76b1e32473d1670ebe7bcd880b808b7549ba9a5605c233350f800ffab963ee4a4ee346ee983b6019b
   languageName: node
   linkType: hard
 

@@ -1,12 +1,12 @@
 import { MapPin } from 'lucide-react';
 import { memo, useId, useMemo } from 'react';
-import { useTranslation } from 'react-i18next';
 
 import Avatar from '@/widgets/Avatar/Avatar';
 import Contacts from '@/widgets/Contacts/Contacts';
 import TypingText from '@/widgets/TypingText/TypingText';
 
 import { useFxRates } from '@/shared/hooks/useFxRates';
+import { useTranslation } from '@/shared/i18n/useTranslation';
 import { useCyberThemeEnabled } from '@/shared/theme/CyberThemeProvider';
 
 import CyberHero from '@/components/CyberHero';
